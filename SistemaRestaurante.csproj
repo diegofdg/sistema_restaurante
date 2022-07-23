@@ -59,8 +59,17 @@
     </Compile>
     <Compile Include="Librerias\Desencryptacion.cs" />
     <Compile Include="Librerias\Encryptacion.cs" />
+    <Compile Include="Modulos\Mesas_Salones\Configurar_mesas_ok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Mesas_Salones\Configurar_mesas_ok.Designer.cs">
+      <DependentUpon>Configurar_mesas_ok.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Modulos\Mesas_Salones\Configurar_mesas_ok.resx">
+      <DependentUpon>Configurar_mesas_ok.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -69,6 +78,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,7 +91,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modulos\" />
+    <None Include="Resources\lupa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
