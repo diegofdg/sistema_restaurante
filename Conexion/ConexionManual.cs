@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace SistemaRestaurante.Conexion
     public partial class ConexionManual : Form
     {
         private Librerias.AES aes = new Librerias.AES();
+        int idtabla;
+
         public ConexionManual()
         {
             InitializeComponent();
@@ -56,7 +59,28 @@ namespace SistemaRestaurante.Conexion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SavetoXML(aes.Encrypt(txtCnString.Text, Librerias.Desencryptacion.appPwdUnique, int.Parse("256")));
+            comprobar_conexion();
+        }
+
+        private void comprobar_conexion()
+        {
+            SqlConnection con = new SqlConnection();
+            try
+            {
+                con.ConnectionString = txtCnString.Text;
+                SqlCommand com = new SqlCommand("SELECT * FROM salon", con);
+                con.Open();
+                idtabla = Convert.ToInt32(com.ExecuteScalar());
+                con.Close();
+                SavetoXML(aes.Encrypt(txtCnString.Text, Librerias.Desencryptacion.appPwdUnique, int.Parse("256")));
+                MessageBox.Show("Coneccion realizada correctamente", "Conexion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show("Sin conexion", "Conexion fallida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

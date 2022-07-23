@@ -15,9 +15,9 @@ namespace SistemaRestaurante
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Conexion.ConexionManual());
+            Application.Run(new Conexion.ConexionManual());
             //Application.Run(new Modulos.Mesas_Salones.Configurar_mesas_ok());
-            Application.Run(new Modulos.Mesas_Salones.Salones());
+            //Application.Run(new Modulos.Mesas_Salones.Salones());
         }
     }
 }
