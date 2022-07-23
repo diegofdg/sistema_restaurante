@@ -65,6 +65,12 @@
     <Compile Include="Modulos\Mesas_Salones\Configurar_mesas_ok.Designer.cs">
       <DependentUpon>Configurar_mesas_ok.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Mesas_Salones\Salones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Mesas_Salones\Salones.Designer.cs">
+      <DependentUpon>Salones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Modulos\Mesas_Salones\Configurar_mesas_ok.resx">
