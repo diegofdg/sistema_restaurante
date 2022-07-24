@@ -14,11 +14,14 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
     {
         int id_salon;
         string estado;
+        public static string nombre_mesa;
+        public static int idmesa;
 
         public Configurar_mesas_ok()
         {
             InitializeComponent();
         }
+
         private void Configurar_mesas_ok_Load(object sender, EventArgs e)
         {
             PanelBienvenida.Dock = DockStyle.Fill;
@@ -68,6 +71,8 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                     {
                         PanelMesas.Controls.Add(panel);
                     }
+                    b.Click += new EventHandler(miEvento);
+                    panel.Click += new EventHandler(miEventopanel_click);
                 }
                 Conexion.ConexionMaestra.Cerrar();
 
@@ -77,8 +82,29 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                 Conexion.ConexionMaestra.Cerrar();
                 MessageBox.Show(ex.StackTrace);
             }
-
         }
+
+        private void miEvento(System.Object sender, EventArgs e)
+        {
+            nombre_mesa = ((Button)sender).Text;
+            idmesa = Convert.ToInt32(((Button)sender).Name);
+            Agregar_mesa_ok frm = new Agregar_mesa_ok();
+            frm.FormClosed += new FormClosedEventHandler(frm_Agregar_mesa_ok_FormClosed);
+            frm.ShowDialog();
+        }
+        private void miEventopanel_click(System.Object sender, EventArgs e)
+        {
+            idmesa = Convert.ToInt32(((Panel)sender).Tag);
+            Agregar_mesa_ok frm = new Agregar_mesa_ok();
+            frm.FormClosed += new FormClosedEventHandler(frm_Agregar_mesa_ok_FormClosed);
+            frm.ShowDialog();
+        }
+
+        private void frm_Agregar_mesa_ok_FormClosed(Object sender, FormClosedEventArgs e)
+        {
+            dibujarMESAS();
+        }
+
         private void dibujarSalones()
         {
             try
@@ -141,7 +167,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             id_salon = Convert.ToInt32(((Button)sender).Name);
             estado = Convert.ToString(((Button)sender).Tag);
             dibujarMESAS();
-
             foreach (Panel PanelC1 in flowLayoutPanel1.Controls)
             {
                 if (PanelC1 is Panel)
@@ -158,7 +183,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             }
 
             string NOMBRE = Convert.ToString(((Button)sender).Name);
-
             foreach (Panel PanelC1 in flowLayoutPanel1.Controls)
             {
                 if (PanelC1 is Panel)

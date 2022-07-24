@@ -59,6 +59,12 @@
     </Compile>
     <Compile Include="Librerias\Desencryptacion.cs" />
     <Compile Include="Librerias\Encryptacion.cs" />
+    <Compile Include="Modulos\Mesas_Salones\Agregar_mesa_ok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Mesas_Salones\Agregar_mesa_ok.Designer.cs">
+      <DependentUpon>Agregar_mesa_ok.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Mesas_Salones\Configurar_mesas_ok.cs">
       <SubType>Form</SubType>
     </Compile>
