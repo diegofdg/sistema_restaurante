@@ -12,6 +12,9 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
 {
     public partial class Configurar_mesas_ok : Form
     {
+        int id_salon;
+        string estado;
+
         public Configurar_mesas_ok()
         {
             InitializeComponent();
@@ -62,6 +65,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                     }
                     panelC1.Controls.Add(b);
                     flowLayoutPanel1.Controls.Add(panelC1);
+                    b.Click += new EventHandler(miEvento_salon_button);
                 }
                 Conexion.ConexionMaestra.conectar.Close();
 
@@ -72,6 +76,53 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                 MessageBox.Show(ex.StackTrace);
             }
         }
+
+        private void miEvento_salon_button(System.Object sender, EventArgs e)
+        {
+            PanelBienvenida.Visible = false;
+            PanelBienvenida.Dock = DockStyle.None;
+            PanelMesas.Visible = true;
+            PanelMesas.Dock = DockStyle.Fill;
+            id_salon = Convert.ToInt32(((Button)sender).Name);
+            estado = Convert.ToString(((Button)sender).Tag);
+
+            foreach (Panel PanelC1 in flowLayoutPanel1.Controls)
+            {
+                if (PanelC1 is Panel)
+                {
+                    foreach (Button boton in PanelC1.Controls)
+                    {
+                        if (boton is Button)
+                        {
+                            boton.BackColor = Color.Transparent;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            string NOMBRE = Convert.ToString(((Button)sender).Name);
+
+            foreach (Panel PanelC1 in flowLayoutPanel1.Controls)
+            {
+                if (PanelC1 is Panel)
+                {
+                    foreach (Button boton in PanelC1.Controls)
+                    {
+                        if (boton is Button)
+                        {
+                            if (boton.Name == NOMBRE)
+                            {
+                                boton.BackColor = Color.OrangeRed;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Salones frm = new Salones();
