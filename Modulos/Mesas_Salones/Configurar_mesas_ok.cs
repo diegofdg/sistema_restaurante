@@ -24,12 +24,67 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             PanelBienvenida.Dock = DockStyle.Fill;
             dibujarSalones();
         }
+
+        private void dibujarMESAS()
+        {
+            try
+            {
+                PanelMesas.Controls.Clear();
+                Conexion.ConexionMaestra.abrir();
+                SqlCommand cmd = new SqlCommand("MostrarMesasPorSalon", Conexion.ConexionMaestra.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_salon", id_salon);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Button b = new Button();
+                    Panel panel = new Panel();
+                    int alto = Convert.ToInt32(rdr["y"].ToString());
+                    int ancho = Convert.ToInt32(rdr["x"].ToString());
+                    int tamanio_letra = Convert.ToInt32(rdr["tamanio_letra"].ToString());
+                    Point tamanio = new Point(ancho, alto);
+
+                    panel.BackgroundImage = Properties.Resources.mesa_vacia;
+                    panel.BackgroundImageLayout = ImageLayout.Zoom;
+                    panel.Cursor = Cursors.Hand;
+                    panel.Tag = rdr["id_mesa"].ToString();
+                    panel.Size = new System.Drawing.Size(tamanio);
+
+
+                    b.Text = rdr["mesa"].ToString();
+                    b.Name = rdr["id_mesa"].ToString();
+
+                    if (b.Text != "NULO")
+                    {
+                        b.Size = new System.Drawing.Size(tamanio);
+                        b.BackColor = Color.FromArgb(5, 179, 90);
+                        b.Font = new System.Drawing.Font("Microsoft Sans Serif", tamanio_letra);
+                        b.FlatStyle = FlatStyle.Flat;
+                        b.FlatAppearance.BorderSize = 0;
+                        b.ForeColor = Color.White;
+                        PanelMesas.Controls.Add(b);
+                    }
+                    else
+                    {
+                        PanelMesas.Controls.Add(panel);
+                    }
+                }
+                Conexion.ConexionMaestra.Cerrar();
+
+            }
+            catch (Exception ex)
+            {
+                Conexion.ConexionMaestra.Cerrar();
+                MessageBox.Show(ex.StackTrace);
+            }
+
+        }
         private void dibujarSalones()
         {
             try
             {
                 flowLayoutPanel1.Controls.Clear();
-                Conexion.ConexionMaestra.conectar.Open();
+                Conexion.ConexionMaestra.abrir();
                 SqlCommand cmd = new SqlCommand("MostrarSalon", Conexion.ConexionMaestra.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@buscar", txtsalon.Text);
@@ -67,12 +122,12 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                     flowLayoutPanel1.Controls.Add(panelC1);
                     b.Click += new EventHandler(miEvento_salon_button);
                 }
-                Conexion.ConexionMaestra.conectar.Close();
+                Conexion.ConexionMaestra.Cerrar();
 
             }
             catch (Exception ex)
             {
-                Conexion.ConexionMaestra.conectar.Close();
+                Conexion.ConexionMaestra.Cerrar();
                 MessageBox.Show(ex.StackTrace);
             }
         }
@@ -85,6 +140,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             PanelMesas.Dock = DockStyle.Fill;
             id_salon = Convert.ToInt32(((Button)sender).Name);
             estado = Convert.ToString(((Button)sender).Tag);
+            dibujarMESAS();
 
             foreach (Panel PanelC1 in flowLayoutPanel1.Controls)
             {
