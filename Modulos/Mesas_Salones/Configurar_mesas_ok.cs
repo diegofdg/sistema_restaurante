@@ -75,7 +75,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                     panel.Click += new EventHandler(miEventopanel_click);
                 }
                 Conexion.ConexionMaestra.Cerrar();
-
             }
             catch (Exception ex)
             {
@@ -92,6 +91,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             frm.FormClosed += new FormClosedEventHandler(frm_Agregar_mesa_ok_FormClosed);
             frm.ShowDialog();
         }
+
         private void miEventopanel_click(System.Object sender, EventArgs e)
         {
             idmesa = Convert.ToInt32(((Panel)sender).Tag);
@@ -104,6 +104,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
         {
             dibujarMESAS();
         }
+
 
         private void dibujarSalones()
         {
@@ -149,7 +150,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                     b.Click += new EventHandler(miEvento_salon_button);
                 }
                 Conexion.ConexionMaestra.Cerrar();
-
             }
             catch (Exception ex)
             {
@@ -157,7 +157,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                 MessageBox.Show(ex.StackTrace);
             }
         }
-
         private void miEvento_salon_button(System.Object sender, EventArgs e)
         {
             PanelBienvenida.Visible = false;
@@ -200,7 +199,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                     }
                 }
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -209,6 +207,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
             frm.ShowDialog();
         }
+
         void frm_FormClosed(Object sender, FormClosedEventArgs e)
         {
             dibujarSalones();
@@ -217,6 +216,97 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
         private void Configurar_mesas_ok_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            aumentar_tamaño_mesa();
+        }
+
+        internal void aumentar_tamaño_mesa()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                Conexion.ConexionMaestra.abrir();
+                cmd = new SqlCommand("AumentarTamanioMesa", Conexion.ConexionMaestra.conectar);
+                cmd.ExecuteNonQuery();
+                Conexion.ConexionMaestra.Cerrar();
+                dibujarMESAS();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
+        internal void disminuir_tamanio_mesa()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                Conexion.ConexionMaestra.abrir();
+                cmd = new SqlCommand("DisminuirTamanioMesa", Conexion.ConexionMaestra.conectar);
+                cmd.ExecuteNonQuery();
+                Conexion.ConexionMaestra.Cerrar();
+                dibujarMESAS();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        internal void aumentar_tamanio_letra()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                Conexion.ConexionMaestra.abrir();
+                cmd = new SqlCommand("AumentarTamanioLetra", Conexion.ConexionMaestra.conectar);
+                cmd.ExecuteNonQuery();
+                Conexion.ConexionMaestra.Cerrar();
+                dibujarMESAS();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            disminuir_tamanio_mesa();
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            aumentar_tamanio_letra();
+        }
+
+        internal void disminuir_tamanio_letra()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                Conexion.ConexionMaestra.abrir();
+                cmd = new SqlCommand("DisminuirTamanioLetra", Conexion.ConexionMaestra.conectar);
+                cmd.ExecuteNonQuery();
+                Conexion.ConexionMaestra.Cerrar();
+                dibujarMESAS();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            disminuir_tamanio_letra();
         }
     }
 }

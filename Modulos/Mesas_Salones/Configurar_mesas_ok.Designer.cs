@@ -29,6 +29,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configurar_mesas_ok));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -43,6 +44,13 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.PanelMesas = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.Button8 = new System.Windows.Forms.Button();
+            this.Button9 = new System.Windows.Forms.Button();
+            this.Label7 = new System.Windows.Forms.Label();
+            this.Button7 = new System.Windows.Forms.Button();
+            this.Button6 = new System.Windows.Forms.Button();
+            this.Label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -52,12 +60,14 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.PanelBienvenida.SuspendLayout();
             this.PanelMesas.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -71,7 +81,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 105);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(318, 504);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(318, 318);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel5
@@ -120,7 +130,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SistemaRestaurante.Properties.Resources.lupa;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(261, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 20);
@@ -205,6 +215,96 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.Button8);
+            this.panel6.Controls.Add(this.Button9);
+            this.panel6.Controls.Add(this.Label7);
+            this.panel6.Controls.Add(this.Button7);
+            this.panel6.Controls.Add(this.Button6);
+            this.panel6.Controls.Add(this.Label2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 423);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(318, 186);
+            this.panel6.TabIndex = 2;
+            // 
+            // Button8
+            // 
+            this.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.Button8.ForeColor = System.Drawing.Color.DarkGray;
+            this.Button8.Location = new System.Drawing.Point(271, 8);
+            this.Button8.Name = "Button8";
+            this.Button8.Size = new System.Drawing.Size(33, 28);
+            this.Button8.TabIndex = 636;
+            this.Button8.Text = "-";
+            this.Button8.UseVisualStyleBackColor = true;
+            this.Button8.Click += new System.EventHandler(this.Button8_Click);
+            // 
+            // Button9
+            // 
+            this.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.Button9.ForeColor = System.Drawing.Color.DarkGray;
+            this.Button9.Location = new System.Drawing.Point(233, 8);
+            this.Button9.Name = "Button9";
+            this.Button9.Size = new System.Drawing.Size(33, 28);
+            this.Button9.TabIndex = 635;
+            this.Button9.Text = "+";
+            this.Button9.UseVisualStyleBackColor = true;
+            this.Button9.Click += new System.EventHandler(this.Button9_Click);
+            // 
+            // Label7
+            // 
+            this.Label7.AutoSize = true;
+            this.Label7.BackColor = System.Drawing.Color.Transparent;
+            this.Label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Label7.ForeColor = System.Drawing.Color.White;
+            this.Label7.Location = new System.Drawing.Point(97, 60);
+            this.Label7.Name = "Label7";
+            this.Label7.Size = new System.Drawing.Size(130, 20);
+            this.Label7.TabIndex = 634;
+            this.Label7.Text = "Tamaño de Letra";
+            // 
+            // Button7
+            // 
+            this.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.Button7.ForeColor = System.Drawing.Color.DarkGray;
+            this.Button7.Location = new System.Drawing.Point(271, 56);
+            this.Button7.Name = "Button7";
+            this.Button7.Size = new System.Drawing.Size(33, 28);
+            this.Button7.TabIndex = 632;
+            this.Button7.Text = "-";
+            this.Button7.UseVisualStyleBackColor = true;
+            this.Button7.Click += new System.EventHandler(this.Button7_Click);
+            // 
+            // Button6
+            // 
+            this.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.Button6.ForeColor = System.Drawing.Color.DarkGray;
+            this.Button6.Location = new System.Drawing.Point(233, 56);
+            this.Button6.Name = "Button6";
+            this.Button6.Size = new System.Drawing.Size(33, 28);
+            this.Button6.TabIndex = 633;
+            this.Button6.Text = "+";
+            this.Button6.UseVisualStyleBackColor = true;
+            this.Button6.Click += new System.EventHandler(this.Button6_Click);
+            // 
+            // Label2
+            // 
+            this.Label2.AutoSize = true;
+            this.Label2.BackColor = System.Drawing.Color.Transparent;
+            this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Label2.ForeColor = System.Drawing.Color.White;
+            this.Label2.Location = new System.Drawing.Point(87, 12);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(140, 20);
+            this.Label2.TabIndex = 631;
+            this.Label2.Text = "Tamaño de Mesas";
+            // 
             // Configurar_mesas_ok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +329,8 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.PanelBienvenida.ResumeLayout(false);
             this.PanelMesas.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -249,5 +351,12 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel6;
+        internal System.Windows.Forms.Button Button8;
+        internal System.Windows.Forms.Button Button9;
+        internal System.Windows.Forms.Label Label7;
+        internal System.Windows.Forms.Button Button7;
+        internal System.Windows.Forms.Button Button6;
+        internal System.Windows.Forms.Label Label2;
     }
 }
