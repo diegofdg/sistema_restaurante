@@ -124,6 +124,9 @@
     <EmbeddedResource Include="Modulos\Productos\Registro_de_productos.resx">
       <DependentUpon>Registro_de_productos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Punto_De_Venta\Punto_de_venta.resx">
+      <DependentUpon>Punto_de_venta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Punto_De_Venta\Visor_de_mesas.resx">
       <DependentUpon>Visor_de_mesas.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +293,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rosa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reloj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuadrado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\azul.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

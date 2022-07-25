@@ -103,6 +103,16 @@ namespace SistemaRestaurante.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap azul {
+            get {
+                object obj = ResourceManager.GetObject("azul", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bolsa_de_papel {
             get {
                 object obj = ResourceManager.GetObject("bolsa-de-papel", resourceCulture);
@@ -126,6 +136,16 @@ namespace SistemaRestaurante.Properties {
         internal static System.Drawing.Bitmap calendario {
             get {
                 object obj = ResourceManager.GetObject("calendario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendario1 {
+            get {
+                object obj = ResourceManager.GetObject("calendario1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +256,16 @@ namespace SistemaRestaurante.Properties {
         internal static System.Drawing.Bitmap correcto_simbolo {
             get {
                 object obj = ResourceManager.GetObject("correcto-simbolo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cuadrado {
+            get {
+                object obj = ResourceManager.GetObject("cuadrado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -476,6 +506,16 @@ namespace SistemaRestaurante.Properties {
         internal static System.Drawing.Bitmap pasar_al_siguiente {
             get {
                 object obj = ResourceManager.GetObject("pasar-al-siguiente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reloj {
+            get {
+                object obj = ResourceManager.GetObject("reloj", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

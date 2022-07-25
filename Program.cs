@@ -19,7 +19,8 @@ namespace SistemaRestaurante
             //Application.Run(new Modulos.Mesas_Salones.Configurar_mesas_ok());
             //Application.Run(new Modulos.Mesas_Salones.Salones());
             //Application.Run(new Modulos.Productos.Productos_rest());
-            Application.Run(new Modulos.Punto_De_Venta.Visor_de_mesas());
+            //Application.Run(new Modulos.Punto_De_Venta.Visor_de_mesas());
+            Application.Run(new Modulos.Punto_De_Venta.Punto_de_venta());
         }
     }
 }
