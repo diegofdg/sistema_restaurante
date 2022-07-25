@@ -73,6 +73,16 @@ namespace SistemaRestaurante.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menuCajas_claro {
+            get {
+                object obj = ResourceManager.GetObject("menuCajas_claro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mesa_vacia {
             get {
                 object obj = ResourceManager.GetObject("mesa_vacia", resourceCulture);

@@ -77,10 +77,31 @@
     <Compile Include="Modulos\Mesas_Salones\Salones.Designer.cs">
       <DependentUpon>Salones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Productos\Grupos_de_productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Productos\Grupos_de_productos.Designer.cs">
+      <DependentUpon>Grupos_de_productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Productos\Productos_rest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Productos\Productos_rest.Designer.cs">
+      <DependentUpon>Productos_rest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Productos\Registro_de_productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Productos\Registro_de_productos.Designer.cs">
+      <DependentUpon>Registro_de_productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Modulos\Mesas_Salones\Configurar_mesas_ok.resx">
       <DependentUpon>Configurar_mesas_ok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Productos\Productos_rest.resx">
+      <DependentUpon>Productos_rest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mesa_vacia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuCajas_claro.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
