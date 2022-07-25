@@ -43,7 +43,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.Label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtsalon = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.PanelBienvenida = new System.Windows.Forms.Panel();
@@ -51,16 +50,17 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.PanelMesas = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelBienvenida.SuspendLayout();
             this.PanelMesas.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -228,16 +228,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.panel4.Size = new System.Drawing.Size(292, 49);
             this.panel4.TabIndex = 1;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SistemaRestaurante.Properties.Resources.lupa;
-            this.pictureBox1.Location = new System.Drawing.Point(261, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtsalon
             // 
             this.txtsalon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
@@ -315,6 +305,16 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SistemaRestaurante.Properties.Resources.lupa;
+            this.pictureBox1.Location = new System.Drawing.Point(261, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Configurar_mesas_ok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,10 +337,10 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PanelBienvenida.ResumeLayout(false);
             this.PanelMesas.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

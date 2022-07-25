@@ -42,6 +42,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIDC">
+      <HintPath>.\UIDC.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\ConexionMaestra.cs" />
@@ -272,6 +275,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bolsa-de-papel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\naranja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amarillo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rosa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
