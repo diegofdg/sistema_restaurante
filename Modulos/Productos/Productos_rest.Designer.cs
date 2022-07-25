@@ -33,14 +33,19 @@ namespace SistemaRestaurante.Modulos.Productos
             this.Panel_grupos = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel5 = new System.Windows.Forms.Panel();
             this.Label4 = new System.Windows.Forms.Label();
+            this.PictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.MenuStrip2 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.EditarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ElimarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RestaurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtsalon = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.Panel7 = new System.Windows.Forms.Panel();
@@ -48,29 +53,27 @@ namespace SistemaRestaurante.Modulos.Productos
             this.Panel9 = new System.Windows.Forms.Panel();
             this.Panel11 = new System.Windows.Forms.Panel();
             this.Panel29 = new System.Windows.Forms.Panel();
+            this.PictureBox3 = new System.Windows.Forms.PictureBox();
             this.TextBox1 = new System.Windows.Forms.TextBox();
             this.MenuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.PictureBox3 = new System.Windows.Forms.PictureBox();
-            this.PictureBox2 = new System.Windows.Forms.PictureBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PanelBienvienida = new System.Windows.Forms.Panel();
+            this.Label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.Panel_grupos.SuspendLayout();
             this.Panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             this.MenuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Panel7.SuspendLayout();
             this.Panel9.SuspendLayout();
             this.Panel11.SuspendLayout();
-            this.MenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.MenuStrip1.SuspendLayout();
+            this.PanelBienvienida.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,7 +84,7 @@ namespace SistemaRestaurante.Modulos.Productos
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(366, 601);
+            this.panel1.Size = new System.Drawing.Size(397, 601);
             this.panel1.TabIndex = 1;
             // 
             // Panel_grupos
@@ -90,7 +93,7 @@ namespace SistemaRestaurante.Modulos.Productos
             this.Panel_grupos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_grupos.Location = new System.Drawing.Point(0, 105);
             this.Panel_grupos.Name = "Panel_grupos";
-            this.Panel_grupos.Size = new System.Drawing.Size(366, 496);
+            this.Panel_grupos.Size = new System.Drawing.Size(397, 496);
             this.Panel_grupos.TabIndex = 1;
             // 
             // Panel5
@@ -115,6 +118,16 @@ namespace SistemaRestaurante.Modulos.Productos
             this.Label4.TabIndex = 1;
             this.Label4.Text = "Cervezas";
             this.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PictureBox2
+            // 
+            this.PictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PictureBox2.Location = new System.Drawing.Point(0, 36);
+            this.PictureBox2.Name = "PictureBox2";
+            this.PictureBox2.Size = new System.Drawing.Size(138, 66);
+            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox2.TabIndex = 0;
+            this.PictureBox2.TabStop = false;
             // 
             // panel3
             // 
@@ -167,6 +180,27 @@ namespace SistemaRestaurante.Modulos.Productos
             this.RestaurarToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.RestaurarToolStripMenuItem.Text = "Restaurar";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStripMenuItem1,
+            this.eliminarToolStripMenuItem});
+            this.toolStripMenuItem1.Image = global::SistemaRestaurante.Properties.Resources.menuCajas_claro;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(18, 20);
+            // 
+            // editarToolStripMenuItem1
+            // 
+            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
+            this.editarToolStripMenuItem1.Text = "Editar";
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel4);
@@ -174,7 +208,7 @@ namespace SistemaRestaurante.Modulos.Productos
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(366, 105);
+            this.panel2.Size = new System.Drawing.Size(397, 105);
             this.panel2.TabIndex = 0;
             // 
             // panel4
@@ -186,6 +220,16 @@ namespace SistemaRestaurante.Modulos.Productos
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(292, 49);
             this.panel4.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SistemaRestaurante.Properties.Resources.lupa;
+            this.pictureBox1.Location = new System.Drawing.Point(261, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // txtsalon
             // 
@@ -211,6 +255,7 @@ namespace SistemaRestaurante.Modulos.Productos
             this.button1.TabIndex = 0;
             this.button1.Text = "+ Agregar Grupo";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Panel7
             // 
@@ -218,7 +263,7 @@ namespace SistemaRestaurante.Modulos.Productos
             this.Panel7.Controls.Add(this.Panel9);
             this.Panel7.Location = new System.Drawing.Point(413, 65);
             this.Panel7.Name = "Panel7";
-            this.Panel7.Size = new System.Drawing.Size(400, 332);
+            this.Panel7.Size = new System.Drawing.Size(443, 332);
             this.Panel7.TabIndex = 7;
             // 
             // PanelProductos
@@ -227,7 +272,7 @@ namespace SistemaRestaurante.Modulos.Productos
             this.PanelProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelProductos.Location = new System.Drawing.Point(0, 40);
             this.PanelProductos.Name = "PanelProductos";
-            this.PanelProductos.Size = new System.Drawing.Size(400, 292);
+            this.PanelProductos.Size = new System.Drawing.Size(443, 292);
             this.PanelProductos.TabIndex = 4;
             // 
             // Panel9
@@ -238,7 +283,7 @@ namespace SistemaRestaurante.Modulos.Productos
             this.Panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel9.Location = new System.Drawing.Point(0, 0);
             this.Panel9.Name = "Panel9";
-            this.Panel9.Size = new System.Drawing.Size(400, 40);
+            this.Panel9.Size = new System.Drawing.Size(443, 40);
             this.Panel9.TabIndex = 617;
             // 
             // Panel11
@@ -259,6 +304,15 @@ namespace SistemaRestaurante.Modulos.Productos
             this.Panel29.Name = "Panel29";
             this.Panel29.Size = new System.Drawing.Size(255, 1);
             this.Panel29.TabIndex = 534;
+            // 
+            // PictureBox3
+            // 
+            this.PictureBox3.Location = new System.Drawing.Point(267, 8);
+            this.PictureBox3.Name = "PictureBox3";
+            this.PictureBox3.Size = new System.Drawing.Size(21, 17);
+            this.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox3.TabIndex = 3;
+            this.PictureBox3.TabStop = false;
             // 
             // TextBox1
             // 
@@ -298,61 +352,33 @@ namespace SistemaRestaurante.Modulos.Productos
             this.toolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.toolStripMenuItem3.ToolTipText = "+ Agregar Grupo";
             // 
-            // PictureBox3
+            // PanelBienvienida
             // 
-            this.PictureBox3.Location = new System.Drawing.Point(267, 8);
-            this.PictureBox3.Name = "PictureBox3";
-            this.PictureBox3.Size = new System.Drawing.Size(21, 17);
-            this.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox3.TabIndex = 3;
-            this.PictureBox3.TabStop = false;
+            this.PanelBienvienida.BackColor = System.Drawing.Color.Black;
+            this.PanelBienvienida.Controls.Add(this.Label3);
+            this.PanelBienvienida.Location = new System.Drawing.Point(926, 97);
+            this.PanelBienvienida.Name = "PanelBienvienida";
+            this.PanelBienvienida.Size = new System.Drawing.Size(356, 291);
+            this.PanelBienvienida.TabIndex = 10;
             // 
-            // PictureBox2
+            // Label3
             // 
-            this.PictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PictureBox2.Location = new System.Drawing.Point(0, 36);
-            this.PictureBox2.Name = "PictureBox2";
-            this.PictureBox2.Size = new System.Drawing.Size(138, 66);
-            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox2.TabIndex = 0;
-            this.PictureBox2.TabStop = false;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editarToolStripMenuItem1,
-            this.eliminarToolStripMenuItem});
-            this.toolStripMenuItem1.Image = global::SistemaRestaurante.Properties.Resources.menuCajas_claro;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(18, 20);
-            // 
-            // editarToolStripMenuItem1
-            // 
-            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.editarToolStripMenuItem1.Text = "Editar";
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SistemaRestaurante.Properties.Resources.lupa;
-            this.pictureBox1.Location = new System.Drawing.Point(261, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.Label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.ForeColor = System.Drawing.Color.DimGray;
+            this.Label3.Location = new System.Drawing.Point(0, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(356, 291);
+            this.Label3.TabIndex = 0;
+            this.Label3.Text = "Elija un Grupo Para Iniciar ";
+            this.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Productos_rest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1323, 601);
+            this.Controls.Add(this.PanelBienvienida);
             this.Controls.Add(this.Panel7);
             this.Controls.Add(this.panel1);
             this.Name = "Productos_rest";
@@ -363,21 +389,22 @@ namespace SistemaRestaurante.Modulos.Productos
             this.panel1.ResumeLayout(false);
             this.Panel_grupos.ResumeLayout(false);
             this.Panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.MenuStrip2.ResumeLayout(false);
             this.MenuStrip2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Panel7.ResumeLayout(false);
             this.Panel9.ResumeLayout(false);
             this.Panel11.ResumeLayout(false);
             this.Panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).EndInit();
             this.MenuStrip1.ResumeLayout(false);
             this.MenuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.PanelBienvienida.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -412,5 +439,7 @@ namespace SistemaRestaurante.Modulos.Productos
         internal System.Windows.Forms.TextBox TextBox1;
         internal System.Windows.Forms.MenuStrip MenuStrip1;
         internal System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        internal System.Windows.Forms.Panel PanelBienvienida;
+        internal System.Windows.Forms.Label Label3;
     }
 }
