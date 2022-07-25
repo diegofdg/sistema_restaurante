@@ -351,6 +351,7 @@ namespace SistemaRestaurante.Modulos.Productos
             this.toolStripMenuItem3.Text = "+ Agregar Producto";
             this.toolStripMenuItem3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.toolStripMenuItem3.ToolTipText = "+ Agregar Grupo";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // PanelBienvienida
             // 

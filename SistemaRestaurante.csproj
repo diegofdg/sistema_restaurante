@@ -106,6 +106,9 @@
     <EmbeddedResource Include="Modulos\Productos\Productos_rest.resx">
       <DependentUpon>Productos_rest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Productos\Registro_de_productos.resx">
+      <DependentUpon>Registro_de_productos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -17,12 +17,14 @@ namespace SistemaRestaurante.Modulos.Productos
         {
             InitializeComponent();
         }
+
         public static int id_grupo;
 
         private void Productos_rest_Load(object sender, EventArgs e)
         {
             dibujarGrupos();
         }
+
         private void dibujarGrupos()
         {
             try
@@ -105,7 +107,6 @@ namespace SistemaRestaurante.Modulos.Productos
                         p1.Controls.Add(I1);
                     }
 
-
                     p1.Controls.Add(p2);
                     b.BringToFront();
                     p2.SendToBack();
@@ -126,11 +127,45 @@ namespace SistemaRestaurante.Modulos.Productos
         {
             id_grupo = Convert.ToInt32(((Label)sender).Name);
             ver_productos_por_grupo();
+            Seleccionar_Deseleccionar_grupos();
         }
+
         private void miEventoImagen(System.Object sender, EventArgs e)
         {
             id_grupo = Convert.ToInt32(((PictureBox)sender).Tag);
             ver_productos_por_grupo();
+            Seleccionar_Deseleccionar_grupos();
+        }
+
+        private void Seleccionar_Deseleccionar_grupos()
+        {
+            //Sin seleccionar
+            foreach (Panel panelP1 in Panel_grupos.Controls)
+            {
+                if (panelP1 is Panel)
+                {
+                    foreach (Label PanLateral2 in panelP1.Controls)
+                    {
+                        if (PanLateral2 is Label)
+                        {
+                            panelP1.BackColor = Color.FromArgb(43, 43, 43);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //Seleccionado
+            foreach (Panel PanelP2 in Panel_grupos.Controls)
+            {
+                if (PanelP2 is Panel)
+                {
+                    if (PanelP2.Name == Convert.ToString(id_grupo))
+                    {
+                        PanelP2.BackColor = Color.Black;
+                    }
+                }
+            }
         }
 
         private void ver_productos_por_grupo()
@@ -208,16 +243,15 @@ namespace SistemaRestaurante.Modulos.Productos
 
                     ToolStripRESTAURAR.Text = "Restaurar";
                     ToolStripRESTAURAR.Tag = rdr["id_producto"].ToString();
-
+                    Menustrip.Items.Add(ToolStripPRINCIPAL);
+                    ToolStripPRINCIPAL.DropDownItems.Add(ToolStripEDITAR);
+                    ToolStripPRINCIPAL.DropDownItems.Add(ToolStripELIMINAR);
+                    ToolStripPRINCIPAL.DropDownItems.Add(ToolStripRESTAURAR);
                     p2.Controls.Add(Menustrip);
-
+                    p1.Controls.Add(b);
                     if (rdr["estado_imagen"].ToString() != "VACIO")
                     {
                         p1.Controls.Add(I1);
-                    }
-                    else
-                    {
-                        p1.Controls.Add(b);
                     }
 
                     p1.Controls.Add(p2);
@@ -240,10 +274,22 @@ namespace SistemaRestaurante.Modulos.Productos
             frm.FormClosed += new FormClosedEventHandler(frmGrupos_FormClosed);
             frm.ShowDialog();
         }
+
         public void frmGrupos_FormClosed(Object sender, FormClosedEventArgs e)
         {
             dibujarGrupos();
         }
-    }
 
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Registro_de_productos frm = new Registro_de_productos();
+            frm.FormClosed += new FormClosedEventHandler(frmRegistroProducto_FormClosed);
+            frm.ShowDialog();
+        }
+
+        public void frmRegistroProducto_FormClosed(Object sender, FormClosedEventArgs e)
+        {
+            dibujarProductos();
+        }
+    }
 }
