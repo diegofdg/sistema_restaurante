@@ -33,6 +33,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Button8 = new System.Windows.Forms.Button();
             this.Button9 = new System.Windows.Forms.Button();
@@ -86,6 +87,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             // panel5
             // 
             this.panel5.Controls.Add(this.button3);
+            this.panel5.Controls.Add(this.panel7);
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(290, 58);
@@ -99,13 +101,22 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(0, 0);
+            this.button3.Location = new System.Drawing.Point(10, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(290, 58);
+            this.button3.Size = new System.Drawing.Size(280, 58);
             this.button3.TabIndex = 4;
             this.button3.Text = "button3";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = false;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.OrangeRed;
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(10, 58);
+            this.panel7.TabIndex = 5;
             // 
             // panel6
             // 
@@ -357,5 +368,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
         internal System.Windows.Forms.Button Button7;
         internal System.Windows.Forms.Button Button6;
         internal System.Windows.Forms.Label Label2;
+        private System.Windows.Forms.Panel panel7;
     }
 }

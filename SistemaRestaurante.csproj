@@ -95,6 +95,18 @@
     <Compile Include="Modulos\Productos\Registro_de_productos.Designer.cs">
       <DependentUpon>Registro_de_productos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Punto_De_Venta\Punto_de_venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Punto_De_Venta\Punto_de_venta.Designer.cs">
+      <DependentUpon>Punto_de_venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Punto_De_Venta\Visor_de_mesas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Punto_De_Venta\Visor_de_mesas.Designer.cs">
+      <DependentUpon>Visor_de_mesas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Modulos\Mesas_Salones\Configurar_mesas_ok.resx">
@@ -108,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Productos\Registro_de_productos.resx">
       <DependentUpon>Registro_de_productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Punto_De_Venta\Visor_de_mesas.resx">
+      <DependentUpon>Visor_de_mesas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -254,6 +269,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\camara.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bolsa-de-papel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
