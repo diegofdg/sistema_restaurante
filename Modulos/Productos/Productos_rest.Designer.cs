@@ -89,6 +89,7 @@ namespace SistemaRestaurante.Modulos.Productos
             // 
             // Panel_grupos
             // 
+            this.Panel_grupos.AutoScroll = true;
             this.Panel_grupos.Controls.Add(this.Panel5);
             this.Panel_grupos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_grupos.Location = new System.Drawing.Point(0, 105);

@@ -60,7 +60,10 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.PanelVentasGeneral = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Panel9 = new System.Windows.Forms.Panel();
-            this.Panel17 = new System.Windows.Forms.Panel();
+            this.Panel_grupos = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.UI_GradientPanel4 = new UIDC.UI_GradientPanel();
             this.Label17 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -135,6 +138,9 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.PanelVentasGeneral.SuspendLayout();
             this.panel1.SuspendLayout();
             this.Panel9.SuspendLayout();
+            this.Panel_grupos.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.UI_GradientPanel4.SuspendLayout();
             this.panel4.SuspendLayout();
             this.UI_GradientPanel3.SuspendLayout();
@@ -550,7 +556,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             // 
             // Panel9
             // 
-            this.Panel9.Controls.Add(this.Panel17);
+            this.Panel9.Controls.Add(this.Panel_grupos);
             this.Panel9.Controls.Add(this.UI_GradientPanel4);
             this.Panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel9.Location = new System.Drawing.Point(270, 256);
@@ -558,13 +564,44 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.Panel9.Size = new System.Drawing.Size(607, 344);
             this.Panel9.TabIndex = 3;
             // 
-            // Panel17
+            // Panel_grupos
             // 
-            this.Panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel17.Location = new System.Drawing.Point(0, 42);
-            this.Panel17.Name = "Panel17";
-            this.Panel17.Size = new System.Drawing.Size(607, 302);
-            this.Panel17.TabIndex = 1;
+            this.Panel_grupos.Controls.Add(this.panel8);
+            this.Panel_grupos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_grupos.Location = new System.Drawing.Point(0, 42);
+            this.Panel_grupos.Name = "Panel_grupos";
+            this.Panel_grupos.Size = new System.Drawing.Size(607, 302);
+            this.Panel_grupos.TabIndex = 1;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.pictureBox3);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(156, 112);
+            this.panel8.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Location = new System.Drawing.Point(0, 55);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(156, 57);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "label9";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(156, 55);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
             // 
             // UI_GradientPanel4
             // 
@@ -750,7 +787,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             // Button14
             // 
             this.Button14.BackColor = System.Drawing.Color.Transparent;
-            this.Button14.BackgroundImage = global::SistemaRestaurante.Properties.Resources.Rojo;
+            this.Button14.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
             this.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Button14.FlatAppearance.BorderSize = 0;
             this.Button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -769,7 +806,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             // btnEnviarpedido
             // 
             this.btnEnviarpedido.BackColor = System.Drawing.Color.Transparent;
-            this.btnEnviarpedido.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
+            this.btnEnviarpedido.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
             this.btnEnviarpedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEnviarpedido.FlatAppearance.BorderSize = 0;
             this.btnEnviarpedido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -1524,7 +1561,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             // 
             // PictureBox1
             // 
-            this.PictureBox1.Image = global::SistemaRestaurante.Properties.Resources.calendario1;
+            this.PictureBox1.Image = global::SistemaRestaurante.Properties.Resources.calendario;
             this.PictureBox1.Location = new System.Drawing.Point(3, 12);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(28, 24);
@@ -1566,6 +1603,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Punto_de_venta";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Punto_de_venta_Load);
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -1575,6 +1613,9 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.PanelVentasGeneral.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.Panel9.ResumeLayout(false);
+            this.Panel_grupos.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.UI_GradientPanel4.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.UI_GradientPanel3.ResumeLayout(false);
@@ -1633,7 +1674,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
         internal System.Windows.Forms.Panel PanelVentasGeneral;
         internal System.Windows.Forms.Panel panel1;
         internal System.Windows.Forms.Panel Panel9;
-        internal System.Windows.Forms.Panel Panel17;
         internal UIDC.UI_GradientPanel UI_GradientPanel4;
         internal System.Windows.Forms.Label Label17;
         internal System.Windows.Forms.Panel panel4;
@@ -1699,5 +1739,9 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
         internal System.Windows.Forms.PictureBox PictureBox1;
         internal System.Windows.Forms.Label lblhora;
         internal System.Windows.Forms.Label lblfecha;
+        private System.Windows.Forms.FlowLayoutPanel Panel_grupos;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
