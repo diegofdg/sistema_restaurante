@@ -18,11 +18,32 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
         }
 
         int paginainicio = 1;
-        int paginaMaxima = 9;
+        int paginaMaxima = 10;
+        int id_grupo;
+        int cantidad_grupos;
+        private Button PaginadorSiguiente = new Button();
+        private Button PaginadorAtras = new Button();
         private void Punto_de_venta_Load(object sender, EventArgs e)
         {
             dibujarGrupos();
+            contar_grupos();
         }
+
+        void contar_grupos()
+        {
+            try
+            {
+                Conexion.ConexionMaestra.abrir();
+                SqlCommand com = new SqlCommand("SELECT COUNT(id_line) FROM grupo_de_productos", Conexion.ConexionMaestra.conectar);
+                cantidad_grupos = Convert.ToInt32(com.ExecuteScalar());
+                Conexion.ConexionMaestra.Cerrar();
+            }
+            catch (Exception ex)
+            {
+                cantidad_grupos = 0;
+            }
+        }
+
         public void dibujarGrupos()
         {
             Panel_grupos.Controls.Clear();
@@ -75,6 +96,8 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                     }
                     b.BringToFront();
                     Panel_grupos.Controls.Add(p1);
+                    b.Click += new EventHandler(mieventoLabel);
+                    I1.Click += new EventHandler(miEventoImagen);
                 }
                 Conexion.ConexionMaestra.Cerrar();
 
@@ -82,6 +105,99 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             catch (Exception ex)
             {
 
+            }
+        }
+
+        private void miEventoImagen(object sender, EventArgs e)
+        {
+            try
+            {
+                id_grupo = Convert.ToInt32(((PictureBox)sender).Tag);
+                Seleccionar_Deseleccionar_grupos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
+        private void mieventoLabel(object sender, EventArgs e)
+        {
+            try
+            {
+                id_grupo = Convert.ToInt32(((Label)sender).Name);
+                Seleccionar_Deseleccionar_grupos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+        private void Seleccionar_Deseleccionar_grupos()
+        {
+            try
+            {
+                foreach (System.Windows.Forms.Control panelP1 in Panel_grupos.Controls)
+                {
+                    if (panelP1 is System.Windows.Forms.Panel)
+                    {
+                        foreach (var PanelSecundario in panelP1.Controls)
+                        {
+                            panelP1.BackColor = Color.Transparent;
+                            panelP1.BackgroundImage = Properties.Resources.naranja;
+                            panelP1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                            break;
+                        }
+                    }
+                }
+
+                foreach (System.Windows.Forms.Control PanelP2 in Panel_grupos.Controls)
+                {
+                    if (PanelP2 is System.Windows.Forms.Panel)
+                    {
+                        if (PanelP2.Name == id_grupo.ToString())
+                        {
+                            PanelP2.BackColor = Color.Transparent;
+                            PanelP2.BackgroundImage = Properties.Resources.azul;
+                            PanelP2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void Label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGrupoadelante_Click(object sender, EventArgs e)
+        {
+            contar_grupos();
+            if (cantidad_grupos > paginaMaxima)
+            {
+                paginainicio += 10;
+                paginaMaxima += 10;
+                dibujarGrupos();
+            }
+        }
+
+        private void btngrupoAtras_Click(object sender, EventArgs e)
+        {
+            if (paginainicio > 1)
+            {
+                paginainicio -= 10;
+                paginaMaxima -= 10;
+                dibujarGrupos();
             }
         }
     }

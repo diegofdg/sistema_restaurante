@@ -64,8 +64,11 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button15 = new System.Windows.Forms.Button();
             this.UI_GradientPanel4 = new UIDC.UI_GradientPanel();
             this.Label17 = new System.Windows.Forms.Label();
+            this.btnGrupoadelante = new System.Windows.Forms.Button();
+            this.btngrupoAtras = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Panel16 = new System.Windows.Forms.Panel();
             this.UI_GradientPanel3 = new UIDC.UI_GradientPanel();
@@ -567,6 +570,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             // Panel_grupos
             // 
             this.Panel_grupos.Controls.Add(this.panel8);
+            this.Panel_grupos.Controls.Add(this.button15);
             this.Panel_grupos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_grupos.Location = new System.Drawing.Point(0, 42);
             this.Panel_grupos.Name = "Panel_grupos";
@@ -603,10 +607,26 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button15.BackgroundImage = global::SistemaRestaurante.Properties.Resources.fecha_derecha;
+            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.Location = new System.Drawing.Point(165, 3);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(140, 89);
+            this.button15.TabIndex = 1;
+            this.button15.Text = "button15";
+            this.button15.UseVisualStyleBackColor = false;
+            // 
             // UI_GradientPanel4
             // 
             this.UI_GradientPanel4.BackColor = System.Drawing.Color.White;
             this.UI_GradientPanel4.Controls.Add(this.Label17);
+            this.UI_GradientPanel4.Controls.Add(this.btnGrupoadelante);
+            this.UI_GradientPanel4.Controls.Add(this.btngrupoAtras);
             this.UI_GradientPanel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.UI_GradientPanel4.Location = new System.Drawing.Point(0, 0);
             this.UI_GradientPanel4.Name = "UI_GradientPanel4";
@@ -627,12 +647,53 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.Label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label17.ForeColor = System.Drawing.Color.White;
-            this.Label17.Location = new System.Drawing.Point(0, 0);
+            this.Label17.Location = new System.Drawing.Point(141, 0);
             this.Label17.Name = "Label17";
-            this.Label17.Size = new System.Drawing.Size(607, 42);
+            this.Label17.Size = new System.Drawing.Size(325, 42);
             this.Label17.TabIndex = 5;
-            this.Label17.Text = "<<<<<<<    MENU   >>>>>";
+            this.Label17.Text = "MENU";
             this.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Label17.Click += new System.EventHandler(this.Label17_Click);
+            // 
+            // btnGrupoadelante
+            // 
+            this.btnGrupoadelante.BackColor = System.Drawing.Color.Transparent;
+            this.btnGrupoadelante.BackgroundImage = global::SistemaRestaurante.Properties.Resources.fecha_derecha;
+            this.btnGrupoadelante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGrupoadelante.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGrupoadelante.FlatAppearance.BorderSize = 0;
+            this.btnGrupoadelante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGrupoadelante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnGrupoadelante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrupoadelante.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrupoadelante.ForeColor = System.Drawing.Color.White;
+            this.btnGrupoadelante.Location = new System.Drawing.Point(466, 0);
+            this.btnGrupoadelante.Name = "btnGrupoadelante";
+            this.btnGrupoadelante.Size = new System.Drawing.Size(141, 42);
+            this.btnGrupoadelante.TabIndex = 636;
+            this.btnGrupoadelante.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGrupoadelante.UseVisualStyleBackColor = false;
+            this.btnGrupoadelante.Click += new System.EventHandler(this.btnGrupoadelante_Click);
+            // 
+            // btngrupoAtras
+            // 
+            this.btngrupoAtras.BackColor = System.Drawing.Color.Transparent;
+            this.btngrupoAtras.BackgroundImage = global::SistemaRestaurante.Properties.Resources.fecha_izquierda;
+            this.btngrupoAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btngrupoAtras.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btngrupoAtras.FlatAppearance.BorderSize = 0;
+            this.btngrupoAtras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btngrupoAtras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btngrupoAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btngrupoAtras.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btngrupoAtras.ForeColor = System.Drawing.Color.White;
+            this.btngrupoAtras.Location = new System.Drawing.Point(0, 0);
+            this.btngrupoAtras.Name = "btngrupoAtras";
+            this.btngrupoAtras.Size = new System.Drawing.Size(141, 42);
+            this.btngrupoAtras.TabIndex = 635;
+            this.btngrupoAtras.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btngrupoAtras.UseVisualStyleBackColor = false;
+            this.btngrupoAtras.Click += new System.EventHandler(this.btngrupoAtras_Click);
             // 
             // panel4
             // 
@@ -682,6 +743,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.Label16.TabIndex = 5;
             this.Label16.Text = "<<<<<<<    PRODUCTOS   >>>>>";
             this.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Label16.Click += new System.EventHandler(this.Label16_Click);
             // 
             // panel5
             // 
@@ -1743,5 +1805,8 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button15;
+        internal System.Windows.Forms.Button btnGrupoadelante;
+        internal System.Windows.Forms.Button btngrupoAtras;
     }
 }
