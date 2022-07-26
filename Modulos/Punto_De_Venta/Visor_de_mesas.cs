@@ -28,6 +28,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
         string estado_de_mesa;
         int id_venta_mesa_origen;
         int id_venta_mesa_destino;
+        int Estado_de_herramientas = 0;
 
         private void Visor_de_mesas_Load(object sender, EventArgs e)
         {
@@ -89,6 +90,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                 MessageBox.Show(ex.StackTrace);
             }
         }
+
         private void miEvento_salon_button(System.Object sender, EventArgs e)
         {
             try
@@ -96,7 +98,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                 PanelMesas.Visible = true;
                 PanelMesas.Dock = DockStyle.Fill;
                 id_salon = Convert.ToInt32(((Button)sender).Name);
-                BTNUnirMesas.Visible = true;
                 PanelBienvienida.Visible = false;
                 PanelBienvienida.Dock = DockStyle.None;
                 dibujarMESAS();
@@ -106,6 +107,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
 
             }
         }
+
         void dibujarMESAS()
         {
             PanelMesas.Controls.Clear();
@@ -131,7 +133,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
 
                     b.Text = rdr["mesa"].ToString();
                     b.Name = rdr["id_mesa"].ToString();
-                    b.Tag = rdr["estado_de_disponibilidad"].ToString();
+                    b.Tag = rdr["estado_de_Disponibilidad"].ToString();
 
                     panel.Size = new System.Drawing.Size(tamanio);
 
@@ -175,5 +177,29 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
 
         }
 
+        private void btnHerramientas_Click(object sender, EventArgs e)
+        {
+            if (Estado_de_herramientas == 1)
+            {
+                PanelHerramientas.Visible = false;
+                Estado_de_herramientas = 0;
+            }
+            else if (Estado_de_herramientas == 0)
+            {
+
+                PanelHerramientas.Location = new Point(PanelBienvienida.Location.X, Panelbotones.Location.Y + btnHerramientas.Location.Y);
+                PanelHerramientas.Visible = true;
+                PanelHerramientas.BringToFront();
+
+                Estado_de_herramientas = 1;
+            }
+        }
+
+        private void btnadministrar_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Configuraciones.Menu_de_configuraciones frm = new Configuraciones.Menu_de_configuraciones();
+            frm.ShowDialog();
+        }
     }
 }

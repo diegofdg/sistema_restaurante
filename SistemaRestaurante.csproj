@@ -62,6 +62,12 @@
     </Compile>
     <Compile Include="Librerias\Desencryptacion.cs" />
     <Compile Include="Librerias\Encryptacion.cs" />
+    <Compile Include="Modulos\Configuraciones\Menu_de_configuraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\Configuraciones\Menu_de_configuraciones.Designer.cs">
+      <DependentUpon>Menu_de_configuraciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Mesas_Salones\Agregar_mesa_ok.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\azul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PanelConfiguracion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,15 +12,19 @@ namespace SistemaRestaurante
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Conexion.ConexionManual());
-            //Application.Run(new Modulos.Mesas_Salones.Configurar_mesas_ok());
-            //Application.Run(new Modulos.Mesas_Salones.Salones());
-            //Application.Run(new Modulos.Productos.Productos_rest());
-            //Application.Run(new Modulos.Punto_De_Venta.Visor_de_mesas());
-            Application.Run(new Modulos.Punto_De_Venta.Punto_de_venta());
+            Modulos.Punto_De_Venta.Visor_de_mesas frm = new Modulos.Punto_De_Venta.Visor_de_mesas();
+            frm.FormClosed += frm_closed;
+            frm.ShowDialog();
+            Application.Run();
+        }
+
+        private static void frm_closed(object sender, FormClosedEventArgs e)
+        {
+            Application.ExitThread();
+            Application.Exit();
         }
     }
 }
