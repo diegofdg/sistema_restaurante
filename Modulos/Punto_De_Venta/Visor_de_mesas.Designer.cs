@@ -31,24 +31,14 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Visor_de_mesas));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PanelHerramientas = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnadministrar = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.PanelMesas = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelBienvienida = new System.Windows.Forms.Panel();
             this.Label3 = new System.Windows.Forms.Label();
+            this.PanelMesas = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelSalones = new System.Windows.Forms.Panel();
             this.FlowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Panelbotones = new System.Windows.Forms.Panel();
-            this.btnHerramientas = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DATALISTADO_PRODUCTOS_OKA_libre = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -60,15 +50,25 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
             this.DataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TextBox1 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.PanelUNIONMesas = new System.Windows.Forms.Panel();
             this.txtpaso = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
-            this.Button3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.PanelHerramientas = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnadministrar = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.btnHerramientas = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.PanelHerramientas.SuspendLayout();
             this.PanelBienvienida.SuspendLayout();
             this.PanelSalones.SuspendLayout();
             this.Panelbotones.SuspendLayout();
@@ -77,6 +77,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             ((System.ComponentModel.ISupportInitialize)(this.DATALISTADO_PRODUCTOS_OKA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).BeginInit();
             this.PanelUNIONMesas.SuspendLayout();
+            this.PanelHerramientas.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -90,146 +91,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1107, 749);
             this.panel1.TabIndex = 0;
-            // 
-            // PanelHerramientas
-            // 
-            this.PanelHerramientas.BackColor = System.Drawing.Color.Black;
-            this.PanelHerramientas.Controls.Add(this.btnadministrar);
-            this.PanelHerramientas.Controls.Add(this.button10);
-            this.PanelHerramientas.Controls.Add(this.button11);
-            this.PanelHerramientas.Controls.Add(this.button12);
-            this.PanelHerramientas.Controls.Add(this.button13);
-            this.PanelHerramientas.Controls.Add(this.button14);
-            this.PanelHerramientas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.PanelHerramientas.Location = new System.Drawing.Point(338, 356);
-            this.PanelHerramientas.Name = "PanelHerramientas";
-            this.PanelHerramientas.Size = new System.Drawing.Size(807, 92);
-            this.PanelHerramientas.TabIndex = 499;
-            this.PanelHerramientas.Visible = false;
-            // 
-            // btnadministrar
-            // 
-            this.btnadministrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnadministrar.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
-            this.btnadministrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnadministrar.FlatAppearance.BorderSize = 0;
-            this.btnadministrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnadministrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnadministrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnadministrar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnadministrar.ForeColor = System.Drawing.Color.White;
-            this.btnadministrar.Location = new System.Drawing.Point(3, 3);
-            this.btnadministrar.Name = "btnadministrar";
-            this.btnadministrar.Size = new System.Drawing.Size(125, 84);
-            this.btnadministrar.TabIndex = 505;
-            this.btnadministrar.Text = "Adminstrar";
-            this.btnadministrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnadministrar.UseVisualStyleBackColor = false;
-            this.btnadministrar.Click += new System.EventHandler(this.btnadministrar_Click);
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.Transparent;
-            this.button10.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(134, 3);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(125, 84);
-            this.button10.TabIndex = 506;
-            this.button10.Text = "Cocina";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button10.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.Transparent;
-            this.button11.BackgroundImage = global::SistemaRestaurante.Properties.Resources.Rojo;
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(265, 3);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(125, 84);
-            this.button11.TabIndex = 507;
-            this.button11.Text = "Cerrar Todo";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.Transparent;
-            this.button12.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(396, 3);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(125, 84);
-            this.button12.TabIndex = 508;
-            this.button12.Text = "Cerrar Caja";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button12.UseVisualStyleBackColor = false;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.Transparent;
-            this.button13.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
-            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.Location = new System.Drawing.Point(527, 3);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(125, 84);
-            this.button13.TabIndex = 509;
-            this.button13.Text = "Ver ultima venta";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button13.UseVisualStyleBackColor = false;
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.Transparent;
-            this.button14.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
-            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.Location = new System.Drawing.Point(658, 3);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(125, 84);
-            this.button14.TabIndex = 510;
-            this.button14.Text = "MIS VENTAS";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button14.UseVisualStyleBackColor = false;
-            // 
-            // PanelMesas
-            // 
-            this.PanelMesas.BackColor = System.Drawing.Color.Black;
-            this.PanelMesas.Location = new System.Drawing.Point(333, 206);
-            this.PanelMesas.Name = "PanelMesas";
-            this.PanelMesas.Size = new System.Drawing.Size(396, 134);
-            this.PanelMesas.TabIndex = 5;
-            this.PanelMesas.Visible = false;
             // 
             // PanelBienvienida
             // 
@@ -251,6 +112,15 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.Label3.TabIndex = 0;
             this.Label3.Text = "Elija un Salon Para Iniciar ";
             this.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PanelMesas
+            // 
+            this.PanelMesas.BackColor = System.Drawing.Color.Black;
+            this.PanelMesas.Location = new System.Drawing.Point(333, 206);
+            this.PanelMesas.Name = "PanelMesas";
+            this.PanelMesas.Size = new System.Drawing.Size(396, 134);
+            this.PanelMesas.TabIndex = 5;
+            this.PanelMesas.Visible = false;
             // 
             // PanelSalones
             // 
@@ -288,83 +158,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.Panelbotones.Name = "Panelbotones";
             this.Panelbotones.Size = new System.Drawing.Size(279, 331);
             this.Panelbotones.TabIndex = 2;
-            // 
-            // btnHerramientas
-            // 
-            this.btnHerramientas.BackColor = System.Drawing.Color.Transparent;
-            this.btnHerramientas.BackgroundImage = global::SistemaRestaurante.Properties.Resources.Rojo;
-            this.btnHerramientas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHerramientas.FlatAppearance.BorderSize = 0;
-            this.btnHerramientas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHerramientas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHerramientas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHerramientas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHerramientas.ForeColor = System.Drawing.Color.White;
-            this.btnHerramientas.Location = new System.Drawing.Point(138, 235);
-            this.btnHerramientas.Name = "btnHerramientas";
-            this.btnHerramientas.Size = new System.Drawing.Size(125, 84);
-            this.btnHerramientas.TabIndex = 504;
-            this.btnHerramientas.Text = "Herramientas";
-            this.btnHerramientas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnHerramientas.UseVisualStyleBackColor = false;
-            this.btnHerramientas.Click += new System.EventHandler(this.btnHerramientas_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.BackgroundImage = global::SistemaRestaurante.Properties.Resources.naranja;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(12, 235);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(120, 84);
-            this.button8.TabIndex = 503;
-            this.button8.Text = "Salir";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(138, 145);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 84);
-            this.button5.TabIndex = 502;
-            this.button5.Text = "Cambio de mesa";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(12, 145);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(120, 84);
-            this.button6.TabIndex = 501;
-            this.button6.Text = "Ver cuentas";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -505,44 +298,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.TextBox1.Size = new System.Drawing.Size(110, 22);
             this.TextBox1.TabIndex = 496;
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(138, 55);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 84);
-            this.button4.TabIndex = 500;
-            this.button4.Text = "Servicio rapido";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 84);
-            this.button1.TabIndex = 499;
-            this.button1.Text = "Delivery";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // PanelUNIONMesas
             // 
             this.PanelUNIONMesas.BackColor = System.Drawing.Color.Black;
@@ -577,6 +332,260 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.Label1.Text = "PASO 1 \r\n\r\nSeleccione una mesa de Origen";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 201);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(262, 70);
+            this.panel3.TabIndex = 9;
+            // 
+            // PanelHerramientas
+            // 
+            this.PanelHerramientas.BackColor = System.Drawing.Color.Black;
+            this.PanelHerramientas.Controls.Add(this.btnadministrar);
+            this.PanelHerramientas.Controls.Add(this.button10);
+            this.PanelHerramientas.Controls.Add(this.button11);
+            this.PanelHerramientas.Controls.Add(this.button12);
+            this.PanelHerramientas.Controls.Add(this.button13);
+            this.PanelHerramientas.Controls.Add(this.button14);
+            this.PanelHerramientas.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.PanelHerramientas.Location = new System.Drawing.Point(338, 356);
+            this.PanelHerramientas.Name = "PanelHerramientas";
+            this.PanelHerramientas.Size = new System.Drawing.Size(807, 92);
+            this.PanelHerramientas.TabIndex = 499;
+            this.PanelHerramientas.Visible = false;
+            // 
+            // btnadministrar
+            // 
+            this.btnadministrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnadministrar.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
+            this.btnadministrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnadministrar.FlatAppearance.BorderSize = 0;
+            this.btnadministrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnadministrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnadministrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnadministrar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnadministrar.ForeColor = System.Drawing.Color.White;
+            this.btnadministrar.Location = new System.Drawing.Point(3, 3);
+            this.btnadministrar.Name = "btnadministrar";
+            this.btnadministrar.Size = new System.Drawing.Size(125, 84);
+            this.btnadministrar.TabIndex = 505;
+            this.btnadministrar.Text = "Adminstrar";
+            this.btnadministrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnadministrar.UseVisualStyleBackColor = false;
+            this.btnadministrar.Click += new System.EventHandler(this.btnadministrar_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.Transparent;
+            this.button10.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.Location = new System.Drawing.Point(134, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(125, 84);
+            this.button10.TabIndex = 506;
+            this.button10.Text = "Cocina";
+            this.button10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button10.UseVisualStyleBackColor = false;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.Transparent;
+            this.button11.BackgroundImage = global::SistemaRestaurante.Properties.Resources.Rojo;
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(265, 3);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(125, 84);
+            this.button11.TabIndex = 507;
+            this.button11.Text = "Cerrar Todo";
+            this.button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.Transparent;
+            this.button12.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.Color.White;
+            this.button12.Location = new System.Drawing.Point(396, 3);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(125, 84);
+            this.button12.TabIndex = 508;
+            this.button12.Text = "Cerrar Caja";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button12.UseVisualStyleBackColor = false;
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.Transparent;
+            this.button13.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.Color.White;
+            this.button13.Location = new System.Drawing.Point(527, 3);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(125, 84);
+            this.button13.TabIndex = 509;
+            this.button13.Text = "Ver ultima venta";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button13.UseVisualStyleBackColor = false;
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.Transparent;
+            this.button14.BackgroundImage = global::SistemaRestaurante.Properties.Resources.azul;
+            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.ForeColor = System.Drawing.Color.White;
+            this.button14.Location = new System.Drawing.Point(658, 3);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(125, 84);
+            this.button14.TabIndex = 510;
+            this.button14.Text = "MIS VENTAS";
+            this.button14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button14.UseVisualStyleBackColor = false;
+            // 
+            // btnHerramientas
+            // 
+            this.btnHerramientas.BackColor = System.Drawing.Color.Transparent;
+            this.btnHerramientas.BackgroundImage = global::SistemaRestaurante.Properties.Resources.Rojo;
+            this.btnHerramientas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHerramientas.FlatAppearance.BorderSize = 0;
+            this.btnHerramientas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHerramientas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHerramientas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHerramientas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHerramientas.ForeColor = System.Drawing.Color.White;
+            this.btnHerramientas.Location = new System.Drawing.Point(138, 235);
+            this.btnHerramientas.Name = "btnHerramientas";
+            this.btnHerramientas.Size = new System.Drawing.Size(125, 84);
+            this.btnHerramientas.TabIndex = 504;
+            this.btnHerramientas.Text = "Herramientas";
+            this.btnHerramientas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnHerramientas.UseVisualStyleBackColor = false;
+            this.btnHerramientas.Click += new System.EventHandler(this.btnHerramientas_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.BackgroundImage = global::SistemaRestaurante.Properties.Resources.naranja;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(12, 235);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(120, 84);
+            this.button8.TabIndex = 503;
+            this.button8.Text = "Salir";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(138, 145);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(125, 84);
+            this.button5.TabIndex = 502;
+            this.button5.Text = "Cambio de mesa";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(12, 145);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(120, 84);
+            this.button6.TabIndex = 501;
+            this.button6.Text = "Ver cuentas";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(138, 55);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(125, 84);
+            this.button4.TabIndex = 500;
+            this.button4.Text = "Servicio rapido";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(12, 55);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 84);
+            this.button1.TabIndex = 499;
+            this.button1.Text = "Delibery";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // Button3
             // 
             this.Button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -586,6 +595,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Button3.Image = ((System.Drawing.Image)(resources.GetObject("Button3.Image")));
             this.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button3.Location = new System.Drawing.Point(0, 126);
             this.Button3.Name = "Button3";
@@ -594,14 +604,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.Button3.Text = "Cancelar la UNION";
             this.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Button3.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 201);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(262, 70);
-            this.panel3.TabIndex = 9;
             // 
             // Visor_de_mesas
             // 
@@ -617,7 +619,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Visor_de_mesas_Load);
             this.panel1.ResumeLayout(false);
-            this.PanelHerramientas.ResumeLayout(false);
             this.PanelBienvienida.ResumeLayout(false);
             this.PanelSalones.ResumeLayout(false);
             this.Panelbotones.ResumeLayout(false);
@@ -628,6 +629,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView1)).EndInit();
             this.PanelUNIONMesas.ResumeLayout(false);
             this.PanelUNIONMesas.PerformLayout();
+            this.PanelHerramientas.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

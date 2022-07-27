@@ -39,13 +39,14 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             PanelMesas.Visible = false;
             PanelMesas.Dock = DockStyle.None;
         }
+
         void dibujarSalones()
         {
             FlowLayoutPanel1.Controls.Clear();
             try
             {
                 Conexion.ConexionMaestra.abrir();
-                string query = "SELECT * FROM salon WHERE estado='ACTIVO'";
+                string query = "SELECT * FROM salon WHERE estado = 'ACTIVO'";
                 SqlCommand cmd = new SqlCommand(query, Conexion.ConexionMaestra.conectar);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
@@ -101,13 +102,48 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                 PanelBienvienida.Visible = false;
                 PanelBienvienida.Dock = DockStyle.None;
                 dibujarMESAS();
+                foreach (System.Windows.Forms.Control panelC2 in FlowLayoutPanel1.Controls)
+                {
+                    if (panelC2 is Panel)
+                    {
+                        foreach (System.Windows.Forms.Control panelLATERAL2 in panelC2.Controls)
+                        {
+                            if (panelLATERAL2 is Panel)
+                            {
+                                panelLATERAL2.BackColor = Color.Transparent;
+                                panelC2.BackColor = Color.Transparent;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                string NOMBRE = ((Button)sender).Name;
+                foreach (System.Windows.Forms.Control panelC1 in FlowLayoutPanel1.Controls)
+                {
+                    if (panelC1 is Panel)
+                    {
+
+                        foreach (System.Windows.Forms.Control panelLATERAL in panelC1.Controls)
+                        {
+                            if (panelLATERAL is Panel)
+                            {
+                                if (panelLATERAL.Name == NOMBRE)
+                                {
+                                    panelLATERAL.BackColor = Color.OrangeRed;
+                                    panelC1.BackColor = Color.FromArgb(43, 43, 43);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
 
             }
         }
-
         void dibujarMESAS()
         {
             PanelMesas.Controls.Clear();
@@ -133,7 +169,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
 
                     b.Text = rdr["mesa"].ToString();
                     b.Name = rdr["id_mesa"].ToString();
-                    b.Tag = rdr["estado_de_Disponibilidad"].ToString();
+                    b.Tag = rdr["estado_de_disponibilidad"].ToString();
 
                     panel.Size = new System.Drawing.Size(tamanio);
 
@@ -174,7 +210,18 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
 
         private void miEvento_buton_mesa(System.Object sender, EventArgs e)
         {
-
+            try
+            {
+                idmesa = Convert.ToInt32(((Button)sender).Name);
+                nombre_mesa = ((Button)sender).Text;
+                Dispose();
+                Punto_de_venta frm = new Punto_de_venta();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnHerramientas_Click(object sender, EventArgs e)
@@ -186,7 +233,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             }
             else if (Estado_de_herramientas == 0)
             {
-
                 PanelHerramientas.Location = new Point(PanelBienvienida.Location.X, Panelbotones.Location.Y + btnHerramientas.Location.Y);
                 PanelHerramientas.Visible = true;
                 PanelHerramientas.BringToFront();

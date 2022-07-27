@@ -32,38 +32,38 @@ namespace SistemaRestaurante.Modulos.Configuraciones
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_de_configuraciones));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnusuarios = new System.Windows.Forms.Button();
-            this.btnclientes = new System.Windows.Forms.Button();
-            this.btnproductos = new System.Windows.Forms.Button();
-            this.btnmesas = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.Button10 = new System.Windows.Forms.Button();
+            this.Button12 = new System.Windows.Forms.Button();
+            this.Button9 = new System.Windows.Forms.Button();
+            this.Label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.Button3 = new System.Windows.Forms.Button();
             this.Button8 = new System.Windows.Forms.Button();
             this.Button7 = new System.Windows.Forms.Button();
             this.Button5 = new System.Windows.Forms.Button();
             this.Label2 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.Button10 = new System.Windows.Forms.Button();
-            this.Button12 = new System.Windows.Forms.Button();
-            this.Button9 = new System.Windows.Forms.Button();
-            this.Label3 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnclientes = new System.Windows.Forms.Button();
+            this.btnproductos = new System.Windows.Forms.Button();
+            this.btnmesas = new System.Windows.Forms.Button();
+            this.btnusuarios = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.PanelContenedor.SuspendLayout();
-            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel8.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.PanelContenedor.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -87,13 +87,16 @@ namespace SistemaRestaurante.Modulos.Configuraciones
             this.panel3.Size = new System.Drawing.Size(50, 68);
             this.panel3.TabIndex = 0;
             // 
-            // panel4
+            // pictureBox2
             // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(50, 10);
-            this.panel4.TabIndex = 0;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::SistemaRestaurante.Properties.Resources.Logo2;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 10);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 48);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
             // 
             // panel5
             // 
@@ -102,6 +105,25 @@ namespace SistemaRestaurante.Modulos.Configuraciones
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(50, 10);
             this.panel5.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(50, 10);
+            this.panel4.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::SistemaRestaurante.Properties.Resources.Buman;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(269, 68);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -125,126 +147,87 @@ namespace SistemaRestaurante.Modulos.Configuraciones
             this.PanelContenedor.Size = new System.Drawing.Size(919, 475);
             this.PanelContenedor.TabIndex = 0;
             // 
-            // panel7
+            // panel9
             // 
-            this.panel7.BackgroundImage = global::SistemaRestaurante.Properties.Resources.PanelConfiguracion;
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel7.Controls.Add(this.btnclientes);
-            this.panel7.Controls.Add(this.btnproductos);
-            this.panel7.Controls.Add(this.btnmesas);
-            this.panel7.Controls.Add(this.btnusuarios);
-            this.panel7.Controls.Add(this.label1);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(294, 475);
-            this.panel7.TabIndex = 0;
+            this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.BackgroundImage = global::SistemaRestaurante.Properties.Resources.PanelConfiguracion;
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel9.Controls.Add(this.Button10);
+            this.panel9.Controls.Add(this.Button12);
+            this.panel9.Controls.Add(this.Button9);
+            this.panel9.Controls.Add(this.Label3);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(588, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(294, 475);
+            this.panel9.TabIndex = 6;
             // 
-            // pictureBox2
+            // Button10
             // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::SistemaRestaurante.Properties.Resources.Logo2;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 10);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 48);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.Button10.BackColor = System.Drawing.Color.Transparent;
+            this.Button10.BackgroundImage = global::SistemaRestaurante.Properties.Resources.naranja;
+            this.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Button10.FlatAppearance.BorderSize = 0;
+            this.Button10.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.Button10.ForeColor = System.Drawing.Color.White;
+            this.Button10.Location = new System.Drawing.Point(51, 280);
+            this.Button10.Name = "Button10";
+            this.Button10.Size = new System.Drawing.Size(192, 54);
+            this.Button10.TabIndex = 539;
+            this.Button10.Text = "Base de datos";
+            this.Button10.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // Button12
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::SistemaRestaurante.Properties.Resources.Buman;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(269, 68);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.Button12.BackColor = System.Drawing.Color.Transparent;
+            this.Button12.BackgroundImage = global::SistemaRestaurante.Properties.Resources.naranja;
+            this.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Button12.FlatAppearance.BorderSize = 0;
+            this.Button12.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.Button12.ForeColor = System.Drawing.Color.White;
+            this.Button12.Location = new System.Drawing.Point(51, 123);
+            this.Button12.Name = "Button12";
+            this.Button12.Size = new System.Drawing.Size(192, 54);
+            this.Button12.TabIndex = 538;
+            this.Button12.Text = "Serializacion de Comprobantes";
+            this.Button12.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // Button9
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 112);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Basicos";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Button9.BackColor = System.Drawing.Color.Transparent;
+            this.Button9.BackgroundImage = global::SistemaRestaurante.Properties.Resources.naranja;
+            this.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Button9.FlatAppearance.BorderSize = 0;
+            this.Button9.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.Button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.Button9.ForeColor = System.Drawing.Color.White;
+            this.Button9.Location = new System.Drawing.Point(51, 201);
+            this.Button9.Name = "Button9";
+            this.Button9.Size = new System.Drawing.Size(192, 54);
+            this.Button9.TabIndex = 538;
+            this.Button9.Text = "Copias de Seguridad";
+            this.Button9.UseVisualStyleBackColor = false;
             // 
-            // btnusuarios
+            // Label3
             // 
-            this.btnusuarios.BackColor = System.Drawing.Color.Transparent;
-            this.btnusuarios.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
-            this.btnusuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnusuarios.FlatAppearance.BorderSize = 0;
-            this.btnusuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnusuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnusuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnusuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnusuarios.ForeColor = System.Drawing.Color.White;
-            this.btnusuarios.Location = new System.Drawing.Point(53, 115);
-            this.btnusuarios.Name = "btnusuarios";
-            this.btnusuarios.Size = new System.Drawing.Size(192, 54);
-            this.btnusuarios.TabIndex = 537;
-            this.btnusuarios.Text = "Usuarios";
-            this.btnusuarios.UseVisualStyleBackColor = false;
-            // 
-            // btnclientes
-            // 
-            this.btnclientes.BackColor = System.Drawing.Color.Transparent;
-            this.btnclientes.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
-            this.btnclientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnclientes.FlatAppearance.BorderSize = 0;
-            this.btnclientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnclientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnclientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnclientes.ForeColor = System.Drawing.Color.White;
-            this.btnclientes.Location = new System.Drawing.Point(53, 331);
-            this.btnclientes.Name = "btnclientes";
-            this.btnclientes.Size = new System.Drawing.Size(192, 54);
-            this.btnclientes.TabIndex = 541;
-            this.btnclientes.Text = "Clientes";
-            this.btnclientes.UseVisualStyleBackColor = false;
-            // 
-            // btnproductos
-            // 
-            this.btnproductos.BackColor = System.Drawing.Color.Transparent;
-            this.btnproductos.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
-            this.btnproductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnproductos.FlatAppearance.BorderSize = 0;
-            this.btnproductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnproductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnproductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnproductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnproductos.ForeColor = System.Drawing.Color.White;
-            this.btnproductos.Location = new System.Drawing.Point(53, 253);
-            this.btnproductos.Name = "btnproductos";
-            this.btnproductos.Size = new System.Drawing.Size(192, 54);
-            this.btnproductos.TabIndex = 540;
-            this.btnproductos.Text = "Productos";
-            this.btnproductos.UseVisualStyleBackColor = false;
-            // 
-            // btnmesas
-            // 
-            this.btnmesas.BackColor = System.Drawing.Color.Transparent;
-            this.btnmesas.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
-            this.btnmesas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnmesas.FlatAppearance.BorderSize = 0;
-            this.btnmesas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnmesas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnmesas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmesas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnmesas.ForeColor = System.Drawing.Color.White;
-            this.btnmesas.Location = new System.Drawing.Point(53, 184);
-            this.btnmesas.Name = "btnmesas";
-            this.btnmesas.Size = new System.Drawing.Size(192, 54);
-            this.btnmesas.TabIndex = 539;
-            this.btnmesas.Text = "Mesas";
-            this.btnmesas.UseVisualStyleBackColor = false;
+            this.Label3.BackColor = System.Drawing.Color.Transparent;
+            this.Label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.ForeColor = System.Drawing.Color.White;
+            this.Label3.Location = new System.Drawing.Point(0, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(294, 110);
+            this.Label3.TabIndex = 1;
+            this.Label3.Text = "Operadores";
+            this.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel8
             // 
@@ -347,87 +330,106 @@ namespace SistemaRestaurante.Modulos.Configuraciones
             this.Label2.Text = "Herramientas";
             this.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel9
+            // panel7
             // 
-            this.panel9.BackColor = System.Drawing.Color.Transparent;
-            this.panel9.BackgroundImage = global::SistemaRestaurante.Properties.Resources.PanelConfiguracion;
-            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel9.Controls.Add(this.Button10);
-            this.panel9.Controls.Add(this.Button12);
-            this.panel9.Controls.Add(this.Button9);
-            this.panel9.Controls.Add(this.Label3);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel9.Location = new System.Drawing.Point(588, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(294, 475);
-            this.panel9.TabIndex = 6;
+            this.panel7.BackgroundImage = global::SistemaRestaurante.Properties.Resources.PanelConfiguracion;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel7.Controls.Add(this.btnclientes);
+            this.panel7.Controls.Add(this.btnproductos);
+            this.panel7.Controls.Add(this.btnmesas);
+            this.panel7.Controls.Add(this.btnusuarios);
+            this.panel7.Controls.Add(this.label1);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(294, 475);
+            this.panel7.TabIndex = 0;
             // 
-            // Button10
+            // btnclientes
             // 
-            this.Button10.BackColor = System.Drawing.Color.Transparent;
-            this.Button10.BackgroundImage = global::SistemaRestaurante.Properties.Resources.naranja;
-            this.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button10.FlatAppearance.BorderSize = 0;
-            this.Button10.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button10.ForeColor = System.Drawing.Color.White;
-            this.Button10.Location = new System.Drawing.Point(51, 280);
-            this.Button10.Name = "Button10";
-            this.Button10.Size = new System.Drawing.Size(192, 54);
-            this.Button10.TabIndex = 539;
-            this.Button10.Text = "Base de datos";
-            this.Button10.UseVisualStyleBackColor = false;
+            this.btnclientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnclientes.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
+            this.btnclientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnclientes.FlatAppearance.BorderSize = 0;
+            this.btnclientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnclientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnclientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnclientes.ForeColor = System.Drawing.Color.White;
+            this.btnclientes.Location = new System.Drawing.Point(53, 331);
+            this.btnclientes.Name = "btnclientes";
+            this.btnclientes.Size = new System.Drawing.Size(192, 54);
+            this.btnclientes.TabIndex = 541;
+            this.btnclientes.Text = "Clientes";
+            this.btnclientes.UseVisualStyleBackColor = false;
             // 
-            // Button12
+            // btnproductos
             // 
-            this.Button12.BackColor = System.Drawing.Color.Transparent;
-            this.Button12.BackgroundImage = global::SistemaRestaurante.Properties.Resources.naranja;
-            this.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button12.FlatAppearance.BorderSize = 0;
-            this.Button12.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button12.ForeColor = System.Drawing.Color.White;
-            this.Button12.Location = new System.Drawing.Point(51, 123);
-            this.Button12.Name = "Button12";
-            this.Button12.Size = new System.Drawing.Size(192, 54);
-            this.Button12.TabIndex = 538;
-            this.Button12.Text = "Serializacion de Comprobantes";
-            this.Button12.UseVisualStyleBackColor = false;
+            this.btnproductos.BackColor = System.Drawing.Color.Transparent;
+            this.btnproductos.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
+            this.btnproductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnproductos.FlatAppearance.BorderSize = 0;
+            this.btnproductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnproductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnproductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnproductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnproductos.ForeColor = System.Drawing.Color.White;
+            this.btnproductos.Location = new System.Drawing.Point(53, 253);
+            this.btnproductos.Name = "btnproductos";
+            this.btnproductos.Size = new System.Drawing.Size(192, 54);
+            this.btnproductos.TabIndex = 540;
+            this.btnproductos.Text = "Productos";
+            this.btnproductos.UseVisualStyleBackColor = false;
+            this.btnproductos.Click += new System.EventHandler(this.btnproductos_Click);
             // 
-            // Button9
+            // btnmesas
             // 
-            this.Button9.BackColor = System.Drawing.Color.Transparent;
-            this.Button9.BackgroundImage = global::SistemaRestaurante.Properties.Resources.naranja;
-            this.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button9.FlatAppearance.BorderSize = 0;
-            this.Button9.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button9.ForeColor = System.Drawing.Color.White;
-            this.Button9.Location = new System.Drawing.Point(51, 201);
-            this.Button9.Name = "Button9";
-            this.Button9.Size = new System.Drawing.Size(192, 54);
-            this.Button9.TabIndex = 538;
-            this.Button9.Text = "Copias de Seguridad";
-            this.Button9.UseVisualStyleBackColor = false;
+            this.btnmesas.BackColor = System.Drawing.Color.Transparent;
+            this.btnmesas.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
+            this.btnmesas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnmesas.FlatAppearance.BorderSize = 0;
+            this.btnmesas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnmesas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnmesas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmesas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnmesas.ForeColor = System.Drawing.Color.White;
+            this.btnmesas.Location = new System.Drawing.Point(53, 184);
+            this.btnmesas.Name = "btnmesas";
+            this.btnmesas.Size = new System.Drawing.Size(192, 54);
+            this.btnmesas.TabIndex = 539;
+            this.btnmesas.Text = "Mesas";
+            this.btnmesas.UseVisualStyleBackColor = false;
+            this.btnmesas.Click += new System.EventHandler(this.btnmesas_Click);
             // 
-            // Label3
+            // btnusuarios
             // 
-            this.Label3.BackColor = System.Drawing.Color.Transparent;
-            this.Label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label3.ForeColor = System.Drawing.Color.White;
-            this.Label3.Location = new System.Drawing.Point(0, 0);
-            this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(294, 110);
-            this.Label3.TabIndex = 1;
-            this.Label3.Text = "Operadores";
-            this.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnusuarios.BackColor = System.Drawing.Color.Transparent;
+            this.btnusuarios.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
+            this.btnusuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnusuarios.FlatAppearance.BorderSize = 0;
+            this.btnusuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnusuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnusuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnusuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnusuarios.ForeColor = System.Drawing.Color.White;
+            this.btnusuarios.Location = new System.Drawing.Point(53, 115);
+            this.btnusuarios.Name = "btnusuarios";
+            this.btnusuarios.Size = new System.Drawing.Size(192, 54);
+            this.btnusuarios.TabIndex = 537;
+            this.btnusuarios.Text = "Usuarios";
+            this.btnusuarios.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(294, 112);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Basicos";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Menu_de_configuraciones
             // 
@@ -444,13 +446,13 @@ namespace SistemaRestaurante.Modulos.Configuraciones
             this.Load += new System.EventHandler(this.Menu_de_configuraciones_Load);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.PanelContenedor.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel8.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.PanelContenedor.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

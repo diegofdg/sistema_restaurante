@@ -53,7 +53,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                     panel.Tag = rdr["id_mesa"].ToString();
                     panel.Size = new System.Drawing.Size(tamanio);
 
-
                     b.Text = rdr["mesa"].ToString();
                     b.Name = rdr["id_mesa"].ToString();
 
@@ -75,6 +74,7 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                     panel.Click += new EventHandler(miEventopanel_click);
                 }
                 Conexion.ConexionMaestra.Cerrar();
+
             }
             catch (Exception ex)
             {
@@ -105,23 +105,26 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             dibujarMESAS();
         }
 
-
         private void dibujarSalones()
         {
+            flowLayoutPanel1.Controls.Clear();
             try
             {
-                flowLayoutPanel1.Controls.Clear();
                 Conexion.ConexionMaestra.abrir();
-                SqlCommand cmd = new SqlCommand("MostrarSalon", Conexion.ConexionMaestra.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
+                string query = "MostrarSalon";
+                SqlCommand cmd = new SqlCommand(query, Conexion.ConexionMaestra.conectar);
+                cmd.CommandType = (System.Data.CommandType)4;
                 cmd.Parameters.AddWithValue("@buscar", txtsalon.Text);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     Button b = new Button();
                     Panel panelC1 = new Panel();
+                    Panel panelLATERAL = new Panel();
+
                     b.Text = rdr["salon"].ToString();
                     b.Name = rdr["id_salon"].ToString();
+                    b.Tag = rdr["estado"].ToString();
                     b.Dock = DockStyle.Fill;
                     b.BackColor = Color.Transparent;
                     b.Font = new System.Drawing.Font("Microsoft Sans Serif", 12);
@@ -129,13 +132,19 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                     b.FlatAppearance.BorderSize = 0;
                     b.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
                     b.FlatAppearance.MouseOverBackColor = Color.FromArgb(43, 43, 43);
+
                     b.TextAlign = ContentAlignment.MiddleLeft;
                     b.Tag = rdr["estado"].ToString();
 
-                    panelC1.Size = new System.Drawing.Size(290, 58);
+                    panelC1.Size = new System.Drawing.Size(244, 58);
                     panelC1.Name = rdr["id_salon"].ToString();
-                    string estado;
-                    estado = rdr["estado"].ToString();
+
+                    panelLATERAL.Size = new System.Drawing.Size(3, 58);
+                    panelLATERAL.Dock = DockStyle.Left;
+                    panelLATERAL.BackColor = Color.Transparent;
+                    panelLATERAL.Name = rdr["id_salon"].ToString();
+
+                    string estado = rdr["estado"].ToString();
                     if (estado == "ELIMINADO")
                     {
                         b.Text = rdr["salon"].ToString() + " - Eliminado";
@@ -146,17 +155,22 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                         b.ForeColor = Color.White;
                     }
                     panelC1.Controls.Add(b);
+                    panelC1.Controls.Add(panelLATERAL);
                     flowLayoutPanel1.Controls.Add(panelC1);
+
+                    b.BringToFront();
+                    panelLATERAL.SendToBack();
+
                     b.Click += new EventHandler(miEvento_salon_button);
                 }
                 Conexion.ConexionMaestra.Cerrar();
             }
             catch (Exception ex)
             {
-                Conexion.ConexionMaestra.Cerrar();
-                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show(ex.Message);
             }
         }
+
         private void miEvento_salon_button(System.Object sender, EventArgs e)
         {
             PanelBienvenida.Visible = false;
@@ -166,33 +180,35 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
             id_salon = Convert.ToInt32(((Button)sender).Name);
             estado = Convert.ToString(((Button)sender).Tag);
             dibujarMESAS();
-            foreach (Panel PanelC1 in flowLayoutPanel1.Controls)
+            foreach (System.Windows.Forms.Control panelC2 in flowLayoutPanel1.Controls)
             {
-                if (PanelC1 is Panel)
+                if (panelC2 is Panel)
                 {
-                    foreach (Button boton in PanelC1.Controls)
+                    foreach (System.Windows.Forms.Control panelLATERAL2 in panelC2.Controls)
                     {
-                        if (boton is Button)
+                        if (panelLATERAL2 is Panel)
                         {
-                            boton.BackColor = Color.Transparent;
+                            panelLATERAL2.BackColor = Color.Transparent;
+                            panelC2.BackColor = Color.Transparent;
                             break;
                         }
                     }
                 }
             }
 
-            string NOMBRE = Convert.ToString(((Button)sender).Name);
-            foreach (Panel PanelC1 in flowLayoutPanel1.Controls)
+            string NOMBRE = ((Button)sender).Name;
+            foreach (System.Windows.Forms.Control panelC1 in flowLayoutPanel1.Controls)
             {
-                if (PanelC1 is Panel)
+                if (panelC1 is Panel)
                 {
-                    foreach (Button boton in PanelC1.Controls)
+                    foreach (System.Windows.Forms.Control panelLATERAL in panelC1.Controls)
                     {
-                        if (boton is Button)
+                        if (panelLATERAL is Panel)
                         {
-                            if (boton.Name == NOMBRE)
+                            if (panelLATERAL.Name == NOMBRE)
                             {
-                                boton.BackColor = Color.OrangeRed;
+                                panelLATERAL.BackColor = Color.OrangeRed;
+                                panelC1.BackColor = Color.FromArgb(43, 43, 43);
                                 break;
                             }
                         }
@@ -233,7 +249,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                 cmd.ExecuteNonQuery();
                 Conexion.ConexionMaestra.Cerrar();
                 dibujarMESAS();
-
             }
             catch (Exception ex)
             {
@@ -251,7 +266,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                 cmd.ExecuteNonQuery();
                 Conexion.ConexionMaestra.Cerrar();
                 dibujarMESAS();
-
             }
             catch (Exception ex)
             {
@@ -269,7 +283,6 @@ namespace SistemaRestaurante.Modulos.Mesas_Salones
                 cmd.ExecuteNonQuery();
                 Conexion.ConexionMaestra.Cerrar();
                 dibujarMESAS();
-
             }
             catch (Exception ex)
             {
