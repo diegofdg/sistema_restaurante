@@ -20,17 +20,19 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
         int paginainicio = 1;
         int paginaMaxima = 15;
         int cantidad_productos = 0;
+
         private void MostradorProductos_Load(object sender, EventArgs e)
         {
             dibujarProductos();
             contar_productos();
         }
+
         public void contar_productos()
         {
             try
             {
                 Conexion.ConexionMaestra.abrir();
-                SqlCommand com = new SqlCommand("select count(Id_Producto1) from Producto1", Conexion.ConexionMaestra.conectar);
+                SqlCommand com = new SqlCommand("SELECT COUNT(id_producto) FROM producto", Conexion.ConexionMaestra.conectar);
                 cantidad_productos = Convert.ToInt32(com.ExecuteScalar());
                 Conexion.ConexionMaestra.Cerrar();
             }
@@ -58,7 +60,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                     Panel p1 = new Panel();
                     PictureBox I1 = new PictureBox();
                     b.Text = rdr["descripcion"].ToString();
-                    b.Name = rdr["id_Producto1"].ToString();
+                    b.Name = rdr["id_producto"].ToString();
                     b.Tag = rdr["precio_de_venta"].ToString();
                     b.Font = new System.Drawing.Font("Microsoft Sans Serif", 7, FontStyle.Regular | FontStyle.Bold);
                     b.BackColor = Color.Transparent;
@@ -80,7 +82,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                     I1.SizeMode = PictureBoxSizeMode.Zoom;
                     I1.Cursor = Cursors.Hand;
                     I1.Tag = rdr["precio_de_venta"].ToString();
-                    I1.Name = rdr["id_Producto1"].ToString();
+                    I1.Name = rdr["id_producto"].ToString();
                     I1.BackColor = Color.Transparent;
                     p1.Controls.Add(b);
                     if (rdr["estado_imagen"].ToString() != "VACIO")
@@ -89,7 +91,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                     }
                     b.BringToFront();
                     PanelProductos.Controls.Add(p1);
-
                 }
                 Conexion.ConexionMaestra.Cerrar();
             }
@@ -97,7 +98,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             {
                 Conexion.ConexionMaestra.Cerrar();
                 MessageBox.Show(ex.Message);
-
             }
         }
 

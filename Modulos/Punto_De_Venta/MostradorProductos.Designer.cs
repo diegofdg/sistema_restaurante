@@ -1,17 +1,16 @@
-﻿
-namespace SistemaRestaurante.Modulos.Punto_De_Venta
+﻿namespace SistemaRestaurante.Modulos.Punto_De_Venta
 {
     partial class MostradorProductos
     {
-        /// <summary>
-        /// Required designer variable.
+        /// <summary> 
+        /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
+        /// <summary> 
+        /// Limpiar los recursos que se estén usando.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,11 +20,11 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de componentes
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// <summary> 
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
@@ -33,14 +32,14 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.PanelProductos = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.UI_GradientPanel3 = new UIDC.UI_GradientPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.UI_GradientPanel3 = new UIDC.UI_GradientPanel();
             this.btnadelante = new System.Windows.Forms.Button();
             this.btnatras = new System.Windows.Forms.Button();
             this.PanelProductos.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.UI_GradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.UI_GradientPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Label16
@@ -84,6 +83,15 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 78);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(103, 36);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // UI_GradientPanel3
             // 
             this.UI_GradientPanel3.BackColor = System.Drawing.Color.White;
@@ -103,15 +111,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.UI_GradientPanel3.UIStyle = UIDC.UI_GradientPanel.GradientStyle.Corners;
             this.UI_GradientPanel3.UITopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.UI_GradientPanel3.UITopRight = System.Drawing.Color.Black;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 78);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(103, 36);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // btnadelante
             // 
@@ -162,8 +161,8 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.Load += new System.EventHandler(this.MostradorProductos_Load);
             this.PanelProductos.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.UI_GradientPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.UI_GradientPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

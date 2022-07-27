@@ -70,12 +70,10 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.btnGrupoadelante = new System.Windows.Forms.Button();
             this.btngrupoAtras = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.Panel16 = new System.Windows.Forms.Panel();
-            this.UI_GradientPanel3 = new UIDC.UI_GradientPanel();
-            this.Label16 = new System.Windows.Forms.Label();
+            this.PanelProductos = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.FlowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Button13 = new System.Windows.Forms.Button();
+            this.btnvermesas = new System.Windows.Forms.Button();
             this.Button11 = new System.Windows.Forms.Button();
             this.Button12 = new System.Windows.Forms.Button();
             this.btnPrecuenta = new System.Windows.Forms.Button();
@@ -132,6 +130,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblhora = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -146,7 +145,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.UI_GradientPanel4.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.UI_GradientPanel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.FlowLayoutPanel4.SuspendLayout();
             this.Panel10.SuspendLayout();
@@ -697,53 +695,20 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.Panel16);
-            this.panel4.Controls.Add(this.UI_GradientPanel3);
+            this.panel4.Controls.Add(this.PanelProductos);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(270, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(607, 256);
             this.panel4.TabIndex = 2;
             // 
-            // Panel16
+            // PanelProductos
             // 
-            this.Panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel16.Location = new System.Drawing.Point(0, 35);
-            this.Panel16.Name = "Panel16";
-            this.Panel16.Size = new System.Drawing.Size(607, 221);
-            this.Panel16.TabIndex = 1;
-            // 
-            // UI_GradientPanel3
-            // 
-            this.UI_GradientPanel3.BackColor = System.Drawing.Color.White;
-            this.UI_GradientPanel3.Controls.Add(this.Label16);
-            this.UI_GradientPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UI_GradientPanel3.Location = new System.Drawing.Point(0, 0);
-            this.UI_GradientPanel3.Name = "UI_GradientPanel3";
-            this.UI_GradientPanel3.Size = new System.Drawing.Size(607, 35);
-            this.UI_GradientPanel3.TabIndex = 0;
-            this.UI_GradientPanel3.UIBackColor = System.Drawing.Color.Navy;
-            this.UI_GradientPanel3.UIBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.UI_GradientPanel3.UIBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.UI_GradientPanel3.UIForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.UI_GradientPanel3.UIPrimerColor = System.Drawing.Color.MidnightBlue;
-            this.UI_GradientPanel3.UIStyle = UIDC.UI_GradientPanel.GradientStyle.Corners;
-            this.UI_GradientPanel3.UITopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.UI_GradientPanel3.UITopRight = System.Drawing.Color.Black;
-            // 
-            // Label16
-            // 
-            this.Label16.BackColor = System.Drawing.Color.Transparent;
-            this.Label16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label16.ForeColor = System.Drawing.Color.White;
-            this.Label16.Location = new System.Drawing.Point(0, 0);
-            this.Label16.Name = "Label16";
-            this.Label16.Size = new System.Drawing.Size(607, 35);
-            this.Label16.TabIndex = 5;
-            this.Label16.Text = "<<<<<<<    PRODUCTOS   >>>>>";
-            this.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Label16.Click += new System.EventHandler(this.Label16_Click);
+            this.PanelProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelProductos.Location = new System.Drawing.Point(0, 0);
+            this.PanelProductos.Name = "PanelProductos";
+            this.PanelProductos.Size = new System.Drawing.Size(607, 256);
+            this.PanelProductos.TabIndex = 1;
             // 
             // panel5
             // 
@@ -757,7 +722,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             // 
             // FlowLayoutPanel4
             // 
-            this.FlowLayoutPanel4.Controls.Add(this.Button13);
+            this.FlowLayoutPanel4.Controls.Add(this.btnvermesas);
             this.FlowLayoutPanel4.Controls.Add(this.Button11);
             this.FlowLayoutPanel4.Controls.Add(this.Button12);
             this.FlowLayoutPanel4.Controls.Add(this.btnPrecuenta);
@@ -769,25 +734,26 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.FlowLayoutPanel4.Size = new System.Drawing.Size(270, 310);
             this.FlowLayoutPanel4.TabIndex = 1;
             // 
-            // Button13
+            // btnvermesas
             // 
-            this.Button13.BackColor = System.Drawing.Color.Transparent;
-            this.Button13.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
-            this.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button13.FlatAppearance.BorderSize = 0;
-            this.Button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button13.ForeColor = System.Drawing.Color.White;
-            this.Button13.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Button13.Location = new System.Drawing.Point(3, 3);
-            this.Button13.Name = "Button13";
-            this.Button13.Size = new System.Drawing.Size(240, 51);
-            this.Button13.TabIndex = 632;
-            this.Button13.Text = "Ver mesas";
-            this.Button13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Button13.UseVisualStyleBackColor = false;
+            this.btnvermesas.BackColor = System.Drawing.Color.Transparent;
+            this.btnvermesas.BackgroundImage = global::SistemaRestaurante.Properties.Resources.verde;
+            this.btnvermesas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnvermesas.FlatAppearance.BorderSize = 0;
+            this.btnvermesas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnvermesas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnvermesas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnvermesas.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnvermesas.ForeColor = System.Drawing.Color.White;
+            this.btnvermesas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnvermesas.Location = new System.Drawing.Point(3, 3);
+            this.btnvermesas.Name = "btnvermesas";
+            this.btnvermesas.Size = new System.Drawing.Size(240, 51);
+            this.btnvermesas.TabIndex = 632;
+            this.btnvermesas.Text = "Ver mesas";
+            this.btnvermesas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnvermesas.UseVisualStyleBackColor = false;
+            this.btnvermesas.Click += new System.EventHandler(this.btnvermesas_Click);
             // 
             // Button11
             // 
@@ -1085,6 +1051,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.btn1.TabIndex = 40;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = false;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn2
             // 
@@ -1653,6 +1620,12 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             this.lblfecha.TabIndex = 4;
             this.lblfecha.Text = "fecha";
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
             // Punto_de_venta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1680,7 +1653,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.UI_GradientPanel4.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.UI_GradientPanel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.FlowLayoutPanel4.ResumeLayout(false);
             this.Panel10.ResumeLayout(false);
@@ -1739,12 +1711,10 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
         internal UIDC.UI_GradientPanel UI_GradientPanel4;
         internal System.Windows.Forms.Label Label17;
         internal System.Windows.Forms.Panel panel4;
-        internal System.Windows.Forms.Panel Panel16;
-        internal UIDC.UI_GradientPanel UI_GradientPanel3;
-        internal System.Windows.Forms.Label Label16;
+        internal System.Windows.Forms.Panel PanelProductos;
         internal System.Windows.Forms.Panel panel5;
         internal System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel4;
-        internal System.Windows.Forms.Button Button13;
+        internal System.Windows.Forms.Button btnvermesas;
         internal System.Windows.Forms.Button Button11;
         internal System.Windows.Forms.Button Button12;
         internal System.Windows.Forms.Button btnPrecuenta;
@@ -1808,5 +1778,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
         private System.Windows.Forms.Button button15;
         internal System.Windows.Forms.Button btnGrupoadelante;
         internal System.Windows.Forms.Button btngrupoAtras;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }

@@ -19,10 +19,11 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
 
         int paginainicio = 1;
         int paginaMaxima = 10;
-        int id_grupo;
+        public static int id_grupo;
         int cantidad_grupos;
         private Button PaginadorSiguiente = new Button();
         private Button PaginadorAtras = new Button();
+
         private void Punto_de_venta_Load(object sender, EventArgs e)
         {
             dibujarGrupos();
@@ -57,7 +58,7 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                 cmd.Parameters.AddWithValue("@hasta", paginaMaxima);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
-                {
+                {                    
                     Label b = new Label();
                     Panel p1 = new Panel();
                     PictureBox I1 = new PictureBox();
@@ -87,12 +88,12 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                     I1.SizeMode = PictureBoxSizeMode.Zoom;
                     I1.Cursor = Cursors.Hand;
                     I1.Tag = rdr["id_line"].ToString();
-                    I1.BackColor = Color.Transparent;
+                    I1.BackColor = Color.Transparent;                    
 
                     p1.Controls.Add(b);
                     if (rdr["estado_de_icono"].ToString() != "VACIO")
                     {
-                        p1.Controls.Add(I1);
+                        p1.Controls.Add(I1);                        
                     }
                     b.BringToFront();
                     Panel_grupos.Controls.Add(p1);
@@ -100,7 +101,6 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                     I1.Click += new EventHandler(miEventoImagen);
                 }
                 Conexion.ConexionMaestra.Cerrar();
-
             }
             catch (Exception ex)
             {
@@ -127,12 +127,18 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
             {
                 id_grupo = Convert.ToInt32(((Label)sender).Name);
                 Seleccionar_Deseleccionar_grupos();
+
+                PanelProductos.Controls.Clear();
+                Punto_De_Venta.MostradorProductos frm = new Punto_De_Venta.MostradorProductos();
+                frm.Dock = DockStyle.Fill;
+                PanelProductos.Controls.Add(frm);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show(ex.Message);
             }
         }
+
         private void Seleccionar_Deseleccionar_grupos()
         {
             try
@@ -199,6 +205,18 @@ namespace SistemaRestaurante.Modulos.Punto_De_Venta
                 paginaMaxima -= 10;
                 dibujarGrupos();
             }
+        }
+
+        private void btnvermesas_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Visor_de_mesas frm = new Visor_de_mesas();
+            frm.ShowDialog();
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

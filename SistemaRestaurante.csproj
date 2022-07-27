@@ -104,6 +104,12 @@
     <Compile Include="Modulos\Productos\Registro_de_productos.Designer.cs">
       <DependentUpon>Registro_de_productos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\Punto_De_Venta\MostradorProductos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modulos\Punto_De_Venta\MostradorProductos.Designer.cs">
+      <DependentUpon>MostradorProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Punto_De_Venta\Punto_de_venta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Productos\Registro_de_productos.resx">
       <DependentUpon>Registro_de_productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\Punto_De_Venta\MostradorProductos.resx">
+      <DependentUpon>MostradorProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\Punto_De_Venta\Punto_de_venta.resx">
       <DependentUpon>Punto_de_venta.cs</DependentUpon>
