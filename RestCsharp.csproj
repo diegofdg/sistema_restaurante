@@ -48,6 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\CONEXIONMAESTRA.cs" />
+    <Compile Include="Datos\Editar.cs" />
+    <Compile Include="Datos\Eliminar.cs" />
+    <Compile Include="Datos\Insertar.cs" />
+    <Compile Include="Datos\Obtener.cs" />
+    <Compile Include="Logica\Lusuarios.cs" />
     <Compile Include="Presentacion\ConexionManual\CONEXION_MANUAL.cs">
       <SubType>Form</SubType>
     </Compile>
