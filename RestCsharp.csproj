@@ -48,10 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\CONEXIONMAESTRA.cs" />
-    <Compile Include="Datos\Editar.cs" />
-    <Compile Include="Datos\Eliminar.cs" />
-    <Compile Include="Datos\Insertar.cs" />
-    <Compile Include="Datos\Obtener.cs" />
+    <Compile Include="Datos\Dmodulos.cs" />
+    <Compile Include="Datos\Dpermisos.cs" />
+    <Compile Include="Datos\Dusuarios.cs" />
+    <Compile Include="Logica\Lmodulos.cs" />
+    <Compile Include="Logica\Lpermisos.cs" />
     <Compile Include="Logica\Lusuarios.cs" />
     <Compile Include="Presentacion\ConexionManual\CONEXION_MANUAL.cs">
       <SubType>Form</SubType>
@@ -129,6 +130,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Presentacion\Usuarios\UsuariosOk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Usuarios\UsuariosOk.Designer.cs">
+      <DependentUpon>UsuariosOk.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Presentacion\ConexionManual\CONEXION_MANUAL.resx">
       <DependentUpon>CONEXION_MANUAL.cs</DependentUpon>
     </EmbeddedResource>
@@ -338,6 +345,29 @@
   <ItemGroup>
     <None Include="Resources\verde.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\animal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\extraterrestre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fuego %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuclear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sonreir.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
