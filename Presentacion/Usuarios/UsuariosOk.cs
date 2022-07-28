@@ -18,12 +18,21 @@ namespace RestCsharp.Usuarios
         {
             InitializeComponent();
         }
+        bool procede;
         int idusuario;
+        string estado;
         private void txtbuscar_TextChanged(object sender, EventArgs e)
         {
-
+            buscar();
         }
-
+        private void buscar()
+        {
+            DataTable dt = new DataTable();
+            Dusuarios funcion = new Dusuarios();
+            funcion.buscar_usuarios(ref dt, txtbuscar.Text);
+            datalistadoUsuarios.DataSource = dt;
+            PintarGrid();
+        }
 
 
         private void btnagregar_Click(object sender, EventArgs e)
@@ -38,6 +47,8 @@ namespace RestCsharp.Usuarios
             lblanuncioIcono.Visible = true;
             panelIcono.Visible = false;
             panelregistro.Dock = DockStyle.Fill;
+            btnguardar.Visible = true;
+            btnActualizar.Visible = false;
         }
         private void limpiar()
         {
@@ -56,9 +67,27 @@ namespace RestCsharp.Usuarios
 
         private void UsuariosOk_Load(object sender, EventArgs e)
         {
+            mostrarUsuarios();
+        }
+        private void mostrarUsuarios()
+        {
+            DataTable dt = new DataTable();
+            Dusuarios funcion = new Dusuarios();
+            funcion.mostrar_Usuarios(ref dt);
+            datalistadoUsuarios.DataSource = dt;
+
+            PintarGrid();
+        }
+        private void PintarGrid()
+        {
+            Bases propiedad = new Bases();
+            propiedad.DiseñoDatagridview(ref datalistadoUsuarios);
+            propiedad.DiseñoDatagridviewEliminar(ref datalistadoUsuarios);
+            datalistadoUsuarios.Columns[2].Visible = false;
+            datalistadoUsuarios.Columns[6].Visible = false;
+            datalistadoUsuarios.Columns[7].Visible = false;
 
         }
-
         private void cbxRol_SelectedIndexChanged(object sender, EventArgs e)
         {
             int indice = cbxRol.SelectedIndex;
@@ -87,7 +116,12 @@ namespace RestCsharp.Usuarios
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            insertarUsuarios();
+            Validaciones();
+            if (procede == true)
+            {
+                insertarUsuarios();
+            }
+
         }
         private void insertarUsuarios()
         {
@@ -106,6 +140,56 @@ namespace RestCsharp.Usuarios
                 ObtenerIdUsuario();
                 insertarPermisos();
 
+            }
+        }
+        private void Validaciones()
+        {
+            if (!string.IsNullOrEmpty(txtnombre.Text))
+            {
+                if (!string.IsNullOrEmpty(txtusuario.Text))
+                {
+                    if (!string.IsNullOrEmpty(txtcontraseña.Text))
+                    {
+                        if (!string.IsNullOrEmpty(cbxRol.Text))
+                        {
+                            if (lblanuncioIcono.Visible == false)
+                            {
+                                procede = true;
+                                if (!string.IsNullOrEmpty(txtcorreo.Text)) { txtcorreo.Text = "-"; }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Seleccione un Icono");
+                                procede = false;
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione un rol");
+                            procede = false;
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese la contraseña");
+                        procede = false;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese el Usuario");
+                    procede = false;
+
+                }
+            }
+            else
+            {
+                procede = false;
+                MessageBox.Show("Ingrese el Nombre");
             }
         }
         private void ObtenerIdUsuario()
@@ -127,7 +211,8 @@ namespace RestCsharp.Usuarios
                     parametros.IdUsuario = idusuario;
                     if (funcion.Insertar_Permisos(parametros) == true)
                     {
-                        MessageBox.Show("Registrado");
+                        mostrarUsuarios();
+                        panelregistro.Visible = false;
                     }
                 }
             }
@@ -212,6 +297,166 @@ namespace RestCsharp.Usuarios
         private void btnVolverIcono_Click(object sender, EventArgs e)
         {
             ocultarPanelIconos();
+        }
+
+        private void datalistadoUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == datalistadoUsuarios.Columns["Editar"].Index)
+            {
+                obtenerEstado();
+                if (estado == "ELIMINADO")
+                {
+                    DialogResult resultado = MessageBox.Show("Este Usuario se Elimino. ¿Desea Volver a Habilitarlo?", "Restauracion de registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (resultado == DialogResult.OK)
+                    {
+                        restaurar();
+                    }
+                }
+                else
+                {
+                    obtenerDatos();
+                }
+
+            }
+            if (e.ColumnIndex == datalistadoUsuarios.Columns["Eliminar"].Index)
+            {
+                DialogResult resultado = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (resultado == DialogResult.OK)
+                {
+
+                    eliminarUsuarios();
+                }
+            }
+        }
+        private void restaurar()
+        {
+            capturarIdUsuario();
+            Lusuarios parametros = new Lusuarios();
+            Dusuarios funcion = new Dusuarios();
+            parametros.IdUsuario = idusuario;
+            if (funcion.restaurar_usuario(parametros) == true)
+            {
+                mostrarUsuarios();
+            }
+        }
+        private void eliminarUsuarios()
+        {
+            capturarIdUsuario();
+            Lusuarios parametros = new Lusuarios();
+            Dusuarios funcion = new Dusuarios();
+            parametros.IdUsuario = idusuario;
+            if (funcion.eliminar_Usuarios(parametros) == true)
+            {
+                mostrarUsuarios();
+            }
+        }
+        private void capturarIdUsuario()
+        {
+            idusuario = Convert.ToInt32(datalistadoUsuarios.SelectedCells[2].Value);
+        }
+        private void obtenerEstado()
+        {
+            estado = datalistadoUsuarios.SelectedCells[9].Value.ToString();
+        }
+        private void obtenerDatos()
+        {
+            capturarIdUsuario();
+            txtnombre.Text = datalistadoUsuarios.SelectedCells[3].Value.ToString();
+            txtusuario.Text = datalistadoUsuarios.SelectedCells[4].Value.ToString();
+            txtcontraseña.Text = datalistadoUsuarios.SelectedCells[5].Value.ToString();
+            Icono.BackgroundImage = null;
+            byte[] b = (byte[])(datalistadoUsuarios.SelectedCells[6].Value);
+            MemoryStream ms = new MemoryStream(b);
+            Icono.Image = Image.FromStream(ms);
+            txtcorreo.Text = datalistadoUsuarios.SelectedCells[7].Value.ToString();
+            cbxRol.Text = datalistadoUsuarios.SelectedCells[8].Value.ToString();
+
+            panelregistro.Visible = true;
+            panelregistro.Dock = DockStyle.Fill;
+            lblanuncioIcono.Visible = false;
+            btnActualizar.Visible = true;
+            btnguardar.Visible = false;
+            dibujarModulos();
+            mostrarPermisos();
+        }
+        private void mostrarPermisos()
+        {
+            DataTable dt = new DataTable();
+            Dpermisos funcion = new Dpermisos();
+            Lpermisos parametros = new Lpermisos();
+            parametros.IdUsuario = idusuario;
+            funcion.mostrar_Permisos(ref dt, parametros);
+
+            foreach (DataRow rowPermisos in dt.Rows)
+            {
+                int idmoduloPermisos = Convert.ToInt32(rowPermisos["IdModulo"]);
+                foreach (DataGridViewRow rowModulos in datalistadoPermisos.Rows)
+                {
+                    int idmodulo = Convert.ToInt32(rowModulos.Cells["IdModulo"].Value);
+                    if (idmoduloPermisos == idmodulo)
+                    {
+                        rowModulos.Cells[0].Value = true;
+                    }
+                }
+            }
+
+        }
+        private void btnvolver_Click(object sender, EventArgs e)
+        {
+            panelregistro.Visible = false;
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Validaciones();
+            if (procede == true)
+            {
+                editarUsuarios();
+            }
+        }
+        private void editarUsuarios()
+        {
+            Lusuarios parametros = new Lusuarios();
+            Dusuarios funcion = new Dusuarios();
+            parametros.IdUsuario = idusuario;
+            parametros.Nombre = txtnombre.Text;
+            parametros.Login = txtusuario.Text;
+            parametros.Password = txtcontraseña.Text;
+            MemoryStream ms = new MemoryStream();
+            Icono.Image.Save(ms, Icono.Image.RawFormat);
+            parametros.Icono = ms.GetBuffer();
+            parametros.Correo = txtcorreo.Text;
+            parametros.Rol = cbxRol.Text;
+            if (funcion.editar_Usuarios(parametros) == true)
+            {
+                eliminarPermisos();
+                insertarPermisos();
+            }
+        }
+        private void eliminarPermisos()
+        {
+            Lpermisos parametros = new Lpermisos();
+            Dpermisos funcion = new Dpermisos();
+            parametros.IdUsuario = idusuario;
+            funcion.Eliminar_Permisos(parametros);
+
+
+        }
+
+        private void txtcontraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

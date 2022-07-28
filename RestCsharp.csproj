@@ -51,6 +51,7 @@
     <Compile Include="Datos\Dmodulos.cs" />
     <Compile Include="Datos\Dpermisos.cs" />
     <Compile Include="Datos\Dusuarios.cs" />
+    <Compile Include="Logica\Bases.cs" />
     <Compile Include="Logica\Lmodulos.cs" />
     <Compile Include="Logica\Lpermisos.cs" />
     <Compile Include="Logica\Lusuarios.cs" />
@@ -368,6 +369,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sonreir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

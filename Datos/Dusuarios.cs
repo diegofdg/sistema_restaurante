@@ -63,6 +63,29 @@ namespace RestCsharp.Datos
 			}
 
 		}
+		public bool restaurar_usuario(Lusuarios parametros)
+		{
+			try
+			{
+				CONEXIONMAESTRA.abrir();
+				SqlCommand cmd = new SqlCommand("restaurar_usuario", CONEXIONMAESTRA.conectar);
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.Parameters.AddWithValue("@idusuario", parametros.IdUsuario);
+
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return false;
+			}
+			finally
+			{
+				CONEXIONMAESTRA.Cerrar();
+			}
+
+		}
 		public void mostrar_Usuarios(ref DataTable dt)
 		{
 			try
