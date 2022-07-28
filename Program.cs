@@ -15,7 +15,8 @@ namespace RestCsharp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MODULOS.PUNTO_DE_VENTA.Visor_de_mesas frm = new MODULOS.PUNTO_DE_VENTA.Visor_de_mesas();
+            //MODULOS.PUNTO_DE_VENTA.Visor_de_mesas frm = new MODULOS.PUNTO_DE_VENTA.Visor_de_mesas();
+            Usuarios.UsuariosOk frm = new Usuarios.UsuariosOk();
             frm.FormClosed += frm_closed;
             frm.ShowDialog();
             Application.Run();            

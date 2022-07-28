@@ -100,6 +100,27 @@ namespace RestCsharp.Datos
 				CONEXIONMAESTRA.Cerrar();
 			}
 		}
+		public void ObtenerIdUsuario(ref int idusuario, string Login)
+		{
+			try
+			{
+				CONEXIONMAESTRA.abrir();
+				SqlCommand da = new SqlCommand("ObtenerIdUsuario", CONEXIONMAESTRA.conectar);
+				da.CommandType = CommandType.StoredProcedure;
+				da.Parameters.AddWithValue("@Login", Login);
+				idusuario = Convert.ToInt32(da.ExecuteScalar());
+			}
+			catch (Exception ex)
+			{
+
+				MessageBox.Show(ex.StackTrace);
+			}
+			finally
+			{
+				CONEXIONMAESTRA.Cerrar();
+			}
+		}
+
 		public bool InsertarUsuarios(Lusuarios parametros)
 		{
 			try
