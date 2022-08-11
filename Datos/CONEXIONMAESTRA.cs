@@ -18,7 +18,7 @@ namespace RestCsharp.Datos
                 conectar.Open();
             }
         }
-        public static    void Cerrar()
+        public static    void cerrar()
         {
             if(conectar.State == ConnectionState.Open )
             {

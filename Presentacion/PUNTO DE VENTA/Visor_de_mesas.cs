@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
-namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
+namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 {
     public partial class Visor_de_mesas : Form
     {
@@ -81,11 +81,11 @@ namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
 
                     b.Click += new EventHandler(miEvento_salon_button);
                 }
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 MessageBox.Show(ex.StackTrace);
             }
         }
@@ -198,11 +198,11 @@ namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
 
                     b.Click += new EventHandler(miEvento_buton_mesa);
                 }
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 MessageBox.Show(ex.StackTrace);
             }
         }
@@ -214,7 +214,7 @@ namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
                 idmesa = Convert.ToInt32(  ((Button)sender).Name);
                 nombre_mesa = ((Button)sender).Text;
                 Dispose();
-                MODULOS.PUNTO_DE_VENTA.Punto_de_venta frm = new MODULOS.PUNTO_DE_VENTA.Punto_de_venta();
+                Presentacion.PUNTO_DE_VENTA.Punto_de_venta frm = new Presentacion.PUNTO_DE_VENTA.Punto_de_venta();
                 frm.ShowDialog();
             }
             catch (Exception ex)

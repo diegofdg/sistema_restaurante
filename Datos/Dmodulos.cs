@@ -29,7 +29,7 @@ namespace RestCsharp.Datos
             }
             finally
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
         }
         public bool Editar_Modulos(Lmodulos parametros)
@@ -51,7 +51,7 @@ namespace RestCsharp.Datos
             }
             finally
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
         }
         public bool Eliminar_Modulos(Lmodulos parametros)
@@ -72,7 +72,7 @@ namespace RestCsharp.Datos
             }
             finally
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
         }
         public void mostrar_Modulos(ref DataTable dt)
@@ -83,7 +83,7 @@ namespace RestCsharp.Datos
                 SqlDataAdapter da = new SqlDataAdapter("mostrar_Modulos", CONEXIONMAESTRA.conectar);
                 da.Fill(dt);
 
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {

@@ -30,7 +30,7 @@ namespace RestCsharp.Datos
             }
             finally
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
         }
         public bool Eliminar_Permisos(Lpermisos parametros)
@@ -51,7 +51,7 @@ namespace RestCsharp.Datos
             }
             finally
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
         }
         public void mostrar_Permisos(ref DataTable dt, Lpermisos parametros)
@@ -65,7 +65,7 @@ namespace RestCsharp.Datos
 
                 da.Fill(dt);
 
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {

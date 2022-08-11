@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RestCsharp.MODULOS.Configuraciones
+namespace RestCsharp.Presentacion.Configuraciones
 {
     public partial class Menu_de_configuraciones : Form
     {
@@ -29,20 +29,20 @@ namespace RestCsharp.MODULOS.Configuraciones
         private void Menu_de_configuraciones_FormClosed(object sender, FormClosedEventArgs e)
         {
             Dispose();
-            MODULOS.PUNTO_DE_VENTA.Visor_de_mesas frm = new MODULOS.PUNTO_DE_VENTA.Visor_de_mesas();          
+            Presentacion.PUNTO_DE_VENTA.Visor_de_mesas frm = new Presentacion.PUNTO_DE_VENTA.Visor_de_mesas();          
             frm.ShowDialog();
             
         }
 
         private void btnmesas_Click(object sender, EventArgs e)
         {
-            MODULOS.Mesas_salones.Configurar_mesas_ok frm = new MODULOS.Mesas_salones.Configurar_mesas_ok();
+            Presentacion.Mesas_salones.Configurar_mesas_ok frm = new Presentacion.Mesas_salones.Configurar_mesas_ok();
             frm.ShowDialog();
         }
 
         private void btnproductos_Click(object sender, EventArgs e)
         {
-            MODULOS.PRODUCTOS.Productos_rest frm = new MODULOS.PRODUCTOS.Productos_rest();
+            Presentacion.PRODUCTOS.Productos_rest frm = new Presentacion.PRODUCTOS.Productos_rest();
             frm.ShowDialog();
         }
     }

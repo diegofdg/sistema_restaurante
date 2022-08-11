@@ -1,4 +1,4 @@
-﻿namespace RestCsharp.MODULOS.Login
+﻿namespace RestCsharp.Presentacion.Login
 {
     partial class LoginForm
     {
@@ -31,6 +31,9 @@
             this.PanelVisorDeUsuarios = new System.Windows.Forms.Panel();
             this.PanelUsuarios = new System.Windows.Forms.Panel();
             this.PanelMostradorUsuarios = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -74,6 +77,9 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.PanelVisorDeUsuarios.SuspendLayout();
             this.PanelUsuarios.SuspendLayout();
+            this.PanelMostradorUsuarios.SuspendLayout();
+            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -114,11 +120,41 @@
             // 
             // PanelMostradorUsuarios
             // 
+            this.PanelMostradorUsuarios.AutoScroll = true;
+            this.PanelMostradorUsuarios.Controls.Add(this.panel16);
             this.PanelMostradorUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMostradorUsuarios.Location = new System.Drawing.Point(0, 110);
             this.PanelMostradorUsuarios.Name = "PanelMostradorUsuarios";
             this.PanelMostradorUsuarios.Size = new System.Drawing.Size(334, 307);
             this.PanelMostradorUsuarios.TabIndex = 3;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.label4);
+            this.panel16.Controls.Add(this.pictureBox5);
+            this.panel16.Location = new System.Drawing.Point(3, 3);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(146, 140);
+            this.panel16.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "label4";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(6, 4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(137, 108);
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
             // 
             // label2
             // 
@@ -193,10 +229,11 @@
             // 
             this.PanelContraseña.Controls.Add(this.panel6);
             this.PanelContraseña.Controls.Add(this.panel5);
-            this.PanelContraseña.Location = new System.Drawing.Point(516, 26);
+            this.PanelContraseña.Location = new System.Drawing.Point(461, 38);
             this.PanelContraseña.Name = "PanelContraseña";
-            this.PanelContraseña.Size = new System.Drawing.Size(575, 584);
+            this.PanelContraseña.Size = new System.Drawing.Size(912, 711);
             this.PanelContraseña.TabIndex = 1;
+            this.PanelContraseña.Visible = false;
             // 
             // panel6
             // 
@@ -205,7 +242,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(311, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(264, 584);
+            this.panel6.Size = new System.Drawing.Size(601, 711);
             this.panel6.TabIndex = 1;
             // 
             // PanelIngresarContraseña
@@ -247,6 +284,7 @@
             this.btnborrarderecha.TabIndex = 9;
             this.btnborrarderecha.Text = "<--";
             this.btnborrarderecha.UseVisualStyleBackColor = true;
+            this.btnborrarderecha.Click += new System.EventHandler(this.btnborrarderecha_Click);
             // 
             // btn0
             // 
@@ -264,6 +302,7 @@
             this.btn0.TabIndex = 8;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = true;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // btnborrar
             // 
@@ -281,6 +320,7 @@
             this.btnborrar.TabIndex = 7;
             this.btnborrar.Text = "Borrar";
             this.btnborrar.UseVisualStyleBackColor = true;
+            this.btnborrar.Click += new System.EventHandler(this.btnborrar_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -314,6 +354,7 @@
             this.btn1.TabIndex = 0;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn2
             // 
@@ -331,6 +372,7 @@
             this.btn2.TabIndex = 1;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn3
             // 
@@ -348,6 +390,7 @@
             this.btn3.TabIndex = 2;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btn4
             // 
@@ -365,6 +408,7 @@
             this.btn4.TabIndex = 3;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn5
             // 
@@ -382,6 +426,7 @@
             this.btn5.TabIndex = 4;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn6
             // 
@@ -399,6 +444,7 @@
             this.btn6.TabIndex = 5;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = true;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn7
             // 
@@ -416,6 +462,7 @@
             this.btn7.TabIndex = 6;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
+            this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // btn8
             // 
@@ -433,6 +480,7 @@
             this.btn8.TabIndex = 7;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = true;
+            this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
             // btn9
             // 
@@ -450,6 +498,7 @@
             this.btn9.TabIndex = 8;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = true;
+            this.btn9.Click += new System.EventHandler(this.btn9_Click);
             // 
             // panel14
             // 
@@ -490,6 +539,7 @@
             this.btnIniciar.TabIndex = 8;
             this.btnIniciar.Text = "Iniciar sesion";
             this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // panel12
             // 
@@ -519,7 +569,6 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Restaurante";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel15
             // 
@@ -541,6 +590,7 @@
             this.txtcontraseña.Size = new System.Drawing.Size(315, 31);
             this.txtcontraseña.TabIndex = 0;
             this.txtcontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtcontraseña.TextChanged += new System.EventHandler(this.txtcontraseña_TextChanged);
             // 
             // panel11
             // 
@@ -575,7 +625,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(311, 584);
+            this.panel5.Size = new System.Drawing.Size(311, 711);
             this.panel5.TabIndex = 0;
             // 
             // pictureBox2
@@ -584,7 +634,7 @@
             this.pictureBox2.Image = global::RestCsharp.Properties.Resources.Logo2;
             this.pictureBox2.Location = new System.Drawing.Point(0, 105);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(311, 246);
+            this.pictureBox2.Size = new System.Drawing.Size(311, 373);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -592,7 +642,7 @@
             // panel10
             // 
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(0, 351);
+            this.panel10.Location = new System.Drawing.Point(0, 478);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(311, 23);
             this.panel10.TabIndex = 6;
@@ -601,7 +651,7 @@
             // 
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBox4.Image = global::RestCsharp.Properties.Resources.Buman;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 374);
+            this.pictureBox4.Location = new System.Drawing.Point(0, 501);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(311, 115);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -611,7 +661,7 @@
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(0, 489);
+            this.panel9.Location = new System.Drawing.Point(0, 616);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(311, 12);
             this.panel9.TabIndex = 4;
@@ -620,7 +670,7 @@
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBox3.Image = global::RestCsharp.Properties.Resources.logoEmpresa;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 501);
+            this.pictureBox3.Location = new System.Drawing.Point(0, 628);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(311, 58);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -630,7 +680,7 @@
             // panel8
             // 
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 559);
+            this.panel8.Location = new System.Drawing.Point(0, 686);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(311, 25);
             this.panel8.TabIndex = 2;
@@ -648,7 +698,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(1426, 749);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.PanelContraseña);
             this.Controls.Add(this.PanelVisorDeUsuarios);
             this.Name = "LoginForm";
@@ -658,6 +708,10 @@
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.PanelVisorDeUsuarios.ResumeLayout(false);
             this.PanelUsuarios.ResumeLayout(false);
+            this.PanelMostradorUsuarios.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -724,5 +778,8 @@
         private System.Windows.Forms.Button btnborrar;
         private System.Windows.Forms.Button btnCambioUsuario;
         private System.Windows.Forms.Button btnIniciar;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

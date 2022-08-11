@@ -8,7 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
-namespace RestCsharp.MODULOS.Mesas_salones
+using RestCsharp.Presentacion.Mesas_salones;
+
+namespace RestCsharp.Presentacion.Mesas_salones
 {
     public partial class Configurar_mesas_ok : Form
     {
@@ -73,12 +75,12 @@ namespace RestCsharp.MODULOS.Mesas_salones
                     b.Click += new EventHandler(miEvento);
                     panel.Click += new EventHandler(miEventopanel_click);
                 }
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
 
             }
             catch (Exception ex)
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 MessageBox.Show(ex.StackTrace);
             }
 
@@ -165,7 +167,7 @@ namespace RestCsharp.MODULOS.Mesas_salones
 
                     b.Click += new EventHandler(miEvento_salon_button);
                 }
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
 
 
             }
@@ -228,7 +230,7 @@ namespace RestCsharp.MODULOS.Mesas_salones
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            MODULOS.Mesas_salones.Salones frm = new MODULOS.Mesas_salones.Salones();
+            Presentacion.Mesas_salones.Salones frm = new Presentacion.Mesas_salones.Salones();
             frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
             frm.ShowDialog();
         }
@@ -254,7 +256,7 @@ namespace RestCsharp.MODULOS.Mesas_salones
                 CONEXIONMAESTRA.abrir();
                 cmd = new SqlCommand("aumentar_tamanio_mesa", CONEXIONMAESTRA.conectar );
                 cmd.ExecuteNonQuery();
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 dibujarMESAS();
 
             }
@@ -271,7 +273,7 @@ namespace RestCsharp.MODULOS.Mesas_salones
                 CONEXIONMAESTRA.abrir();
                 cmd = new SqlCommand("disminuir_tamanio_mesa", CONEXIONMAESTRA.conectar);
                 cmd.ExecuteNonQuery();
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 dibujarMESAS();
 
             }
@@ -288,7 +290,7 @@ namespace RestCsharp.MODULOS.Mesas_salones
                 CONEXIONMAESTRA.abrir();
                 cmd = new SqlCommand("aumentar_tamanio_letra", CONEXIONMAESTRA.conectar);
                 cmd.ExecuteNonQuery();
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 dibujarMESAS();
 
             }
@@ -314,7 +316,7 @@ namespace RestCsharp.MODULOS.Mesas_salones
                 CONEXIONMAESTRA.abrir();
                 cmd = new SqlCommand("disminuir_tamanio_letra", CONEXIONMAESTRA.conectar);
                 cmd.ExecuteNonQuery();
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 dibujarMESAS();
 
             }

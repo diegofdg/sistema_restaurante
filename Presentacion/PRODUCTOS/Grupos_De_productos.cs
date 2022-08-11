@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
-namespace RestCsharp.MODULOS.PRODUCTOS
+namespace RestCsharp.Presentacion.PRODUCTOS
 {
     public partial class Grupos_De_productos : Form
     {
@@ -49,7 +49,7 @@ namespace RestCsharp.MODULOS.PRODUCTOS
                 cmd.Parameters.AddWithValue("@Icono", ms.GetBuffer());
 
                 cmd.ExecuteNonQuery();
-               CONEXIONMAESTRA.Cerrar();
+               CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {

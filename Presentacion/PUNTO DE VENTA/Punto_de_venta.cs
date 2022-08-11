@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
-namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
+namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 {
 
     public partial class Punto_de_venta : Form
@@ -37,7 +37,7 @@ namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
                 CONEXIONMAESTRA.abrir();
                 SqlCommand com = new SqlCommand("select count(Idline) from Grupo_de_Productos", CONEXIONMAESTRA.conectar);
                 cantidad_grupos = Convert.ToInt32(com.ExecuteScalar());
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
@@ -100,7 +100,7 @@ namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
                     b.Click += new EventHandler (mieventoLabel);
                     I1.Click += new EventHandler(miEventoImagen);
                 }
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
 
             }
             catch (Exception ex)
@@ -219,7 +219,7 @@ namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
         private void btnvermesas_Click(object sender, EventArgs e)
         {
             Dispose();
-            MODULOS.PUNTO_DE_VENTA.Visor_de_mesas frm = new MODULOS.PUNTO_DE_VENTA.Visor_de_mesas();
+            Presentacion.PUNTO_DE_VENTA.Visor_de_mesas frm = new Presentacion.PUNTO_DE_VENTA.Visor_de_mesas();
             frm.ShowDialog();
         }
 

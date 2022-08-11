@@ -1,4 +1,4 @@
-﻿namespace RestCsharp.MODULOS.Configuraciones
+﻿namespace RestCsharp.Presentacion.Configuraciones
 {
     partial class Menu_de_configuraciones
     {

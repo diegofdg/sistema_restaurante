@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using RestCsharp.Datos;
-namespace RestCsharp.MODULOS.PRODUCTOS
+namespace RestCsharp.Presentacion.PRODUCTOS
 {
     public partial class Productos_rest : Form
     {
@@ -113,11 +113,11 @@ namespace RestCsharp.MODULOS.PRODUCTOS
                     b.Click += new EventHandler(miEventoLabel);
                     I1.Click += new EventHandler(miEventoImagen);
                 }
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 MessageBox.Show(ex.StackTrace);
             }
         }
@@ -262,7 +262,7 @@ namespace RestCsharp.MODULOS.PRODUCTOS
                     PanelProductos.Controls.Add(p1);
                 }
 
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
@@ -272,7 +272,7 @@ namespace RestCsharp.MODULOS.PRODUCTOS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MODULOS.PRODUCTOS.Grupos_De_productos frm = new MODULOS.PRODUCTOS.Grupos_De_productos();
+            Presentacion.PRODUCTOS.Grupos_De_productos frm = new Presentacion.PRODUCTOS.Grupos_De_productos();
             frm.FormClosed += new FormClosedEventHandler(frmGrupos_FormClosed);
             frm.ShowDialog();
         }
@@ -283,7 +283,7 @@ namespace RestCsharp.MODULOS.PRODUCTOS
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            MODULOS.PRODUCTOS.Registro_de_productos frm = new MODULOS.PRODUCTOS.Registro_de_productos();
+            Presentacion.PRODUCTOS.Registro_de_productos frm = new Presentacion.PRODUCTOS.Registro_de_productos();
             frm.FormClosed += new FormClosedEventHandler(frmRegistroProducto_FormClosed);
             frm.ShowDialog();
         }

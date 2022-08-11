@@ -11,6 +11,7 @@ namespace RestCsharp.Datos
 {
 	public class Dusuarios
 	{
+		int idusuario;
 		public bool editar_Usuarios(Lusuarios parametros)
 		{
 			try
@@ -36,7 +37,7 @@ namespace RestCsharp.Datos
 			}
 			finally
 			{
-				CONEXIONMAESTRA.Cerrar();
+				CONEXIONMAESTRA.cerrar();
 			}
 
 		}
@@ -59,7 +60,7 @@ namespace RestCsharp.Datos
 			}
 			finally
 			{
-				CONEXIONMAESTRA.Cerrar();
+				CONEXIONMAESTRA.cerrar();
 			}
 
 		}
@@ -82,7 +83,7 @@ namespace RestCsharp.Datos
 			}
 			finally
 			{
-				CONEXIONMAESTRA.Cerrar();
+				CONEXIONMAESTRA.cerrar();
 			}
 
 		}
@@ -100,7 +101,7 @@ namespace RestCsharp.Datos
 			}
 			finally
 			{
-				CONEXIONMAESTRA.Cerrar();
+				CONEXIONMAESTRA.cerrar();
 			}
 		}
 		public void buscar_usuarios(ref DataTable dt, string buscador)
@@ -120,7 +121,7 @@ namespace RestCsharp.Datos
 			}
 			finally
 			{
-				CONEXIONMAESTRA.Cerrar();
+				CONEXIONMAESTRA.cerrar();
 			}
 		}
 		public void ObtenerIdUsuario(ref int idusuario, string Login)
@@ -140,7 +141,7 @@ namespace RestCsharp.Datos
 			}
 			finally
 			{
-				CONEXIONMAESTRA.Cerrar();
+				CONEXIONMAESTRA.cerrar();
 			}
 		}
 
@@ -168,9 +169,52 @@ namespace RestCsharp.Datos
 			}
 			finally
 			{
-				CONEXIONMAESTRA.Cerrar();
+				CONEXIONMAESTRA.cerrar();
 			}
 
 		}
+		public void dibujarUsuarios(ref DataTable dt)
+		{
+			try
+			{
+				CONEXIONMAESTRA.abrir();
+				SqlDataAdapter da = new SqlDataAdapter("Select * from Usuarios where Estado='ACTIVO'", CONEXIONMAESTRA.conectar);
+				da.Fill(dt);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.StackTrace);
+			}
+			finally
+			{
+				CONEXIONMAESTRA.cerrar();
+			}
+		}
+		public void validarUsuario(Lusuarios parametros, ref int id)
+		{
+			try
+			{
+				CONEXIONMAESTRA.abrir();
+				SqlCommand cmd = new SqlCommand("validarUsuario", CONEXIONMAESTRA.conectar);
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.Parameters.AddWithValue("@password", parametros.Password);
+				cmd.Parameters.AddWithValue("@login", parametros.Login);
+				id = Convert.ToInt32(cmd.ExecuteScalar());
+
+
+			}
+			catch (Exception ex)
+			{
+				id = 0;
+
+			}
+			finally
+			{
+				CONEXIONMAESTRA.cerrar();
+			}
+		}
+
+
+
 	}
 }

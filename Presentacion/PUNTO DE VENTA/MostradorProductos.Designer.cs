@@ -1,4 +1,4 @@
-﻿namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
+﻿namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 {
     partial class MostradorProductos
     {

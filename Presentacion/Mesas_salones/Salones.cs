@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
-namespace RestCsharp.MODULOS.Mesas_salones
+namespace RestCsharp.Presentacion.Mesas_salones
 {
     public partial class Salones : Form
     {
@@ -40,11 +40,11 @@ namespace RestCsharp.MODULOS.Mesas_salones
                     cmd.Parameters.AddWithValue("@mesa", "NULO");
                     cmd.Parameters.AddWithValue("@idsalon", idsalon);
                     cmd.ExecuteNonQuery();
-                    CONEXIONMAESTRA.Cerrar();
+                    CONEXIONMAESTRA.cerrar();
                 }
                 catch (Exception ex)
                 {
-                    CONEXIONMAESTRA.Cerrar();
+                    CONEXIONMAESTRA.cerrar();
                     MessageBox.Show(ex.StackTrace);
                 }
             }
@@ -58,11 +58,11 @@ namespace RestCsharp.MODULOS.Mesas_salones
             {
                 CONEXIONMAESTRA.abrir();
                 idsalon = Convert.ToInt32 (com.ExecuteScalar());
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 MessageBox.Show(ex.StackTrace);
             }
         }
@@ -75,7 +75,7 @@ namespace RestCsharp.MODULOS.Mesas_salones
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Salon", txtSalonedicion.Text);
                 cmd.ExecuteNonQuery();
-                CONEXIONMAESTRA.Cerrar ();
+                CONEXIONMAESTRA.cerrar ();
                 mostrar_id_salon_recien_ingresado();
                 insertar_mesas_vacias();
                 Close();

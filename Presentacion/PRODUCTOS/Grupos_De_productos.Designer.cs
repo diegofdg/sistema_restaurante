@@ -1,4 +1,4 @@
-﻿namespace RestCsharp.MODULOS.PRODUCTOS
+﻿namespace RestCsharp.Presentacion.PRODUCTOS
 {
     partial class Grupos_De_productos
     {

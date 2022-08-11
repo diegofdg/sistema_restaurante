@@ -1,4 +1,4 @@
-﻿namespace RestCsharp.MODULOS.Mesas_salones
+﻿namespace RestCsharp.Presentacion.Mesas_salones
 {
     partial class Agregar_mesa_ok
     {

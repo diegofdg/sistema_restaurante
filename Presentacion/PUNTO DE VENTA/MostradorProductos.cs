@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 using RestCsharp.Datos;
-namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
+namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 {
     public partial class MostradorProductos : UserControl
     {
@@ -36,7 +36,7 @@ namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@idgrupo", id_grupo);
                 cantidad_productos = Convert.ToInt32(com.ExecuteScalar());
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
@@ -94,11 +94,11 @@ namespace RestCsharp.MODULOS.PUNTO_DE_VENTA
                     PanelProductos.Controls.Add(p1);
 
                 }
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 MessageBox.Show(ex.Message);
 
             }

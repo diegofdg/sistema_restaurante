@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
-namespace RestCsharp.MODULOS.Mesas_salones
+namespace RestCsharp.Presentacion.Mesas_salones
 {
     public partial class Agregar_mesa_ok : Form
     {
@@ -40,12 +40,12 @@ namespace RestCsharp.MODULOS.Mesas_salones
                 cmd.Parameters.AddWithValue("@mesa", txtmesaedicion.Text);
                 cmd.Parameters.AddWithValue("@id_mesa", Configurar_mesas_ok.idmesa);
                 cmd.ExecuteNonQuery();
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 Close();
             }
             catch (Exception ex)
             {
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 MessageBox.Show(ex.Message);
             }
         }

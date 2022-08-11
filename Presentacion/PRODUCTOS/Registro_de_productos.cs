@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
-namespace RestCsharp.MODULOS.PRODUCTOS
+namespace RestCsharp.Presentacion.PRODUCTOS
 {
     public partial class Registro_de_productos : Form
     {
@@ -44,7 +44,7 @@ namespace RestCsharp.MODULOS.PRODUCTOS
                 ImagenProducto.Image.Save(ms, ImagenProducto.Image.RawFormat);
                 cmd.Parameters.AddWithValue("@Imagen", ms.GetBuffer());
                 cmd.ExecuteNonQuery();
-                CONEXIONMAESTRA.Cerrar();
+                CONEXIONMAESTRA.cerrar();
                 Dispose();
             }
             catch (Exception ex)
