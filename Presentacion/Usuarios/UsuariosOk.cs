@@ -129,7 +129,7 @@ namespace RestCsharp.Usuarios
             Dusuarios funcion = new Dusuarios();
             parametros.Nombre = txtnombre.Text;
             parametros.Login = txtusuario.Text;
-            parametros.Password = txtcontraseña.Text;
+            parametros.Password = Bases.Encriptar(txtcontraseña.Text);
             MemoryStream ms = new MemoryStream();
             Icono.Image.Save(ms, Icono.Image.RawFormat);
             parametros.Icono = ms.GetBuffer();
@@ -363,7 +363,7 @@ namespace RestCsharp.Usuarios
             capturarIdUsuario();
             txtnombre.Text = datalistadoUsuarios.SelectedCells[3].Value.ToString();
             txtusuario.Text = datalistadoUsuarios.SelectedCells[4].Value.ToString();
-            txtcontraseña.Text = datalistadoUsuarios.SelectedCells[5].Value.ToString();
+            txtcontraseña.Text = Bases.Desencriptar(datalistadoUsuarios.SelectedCells[5].Value.ToString());
             Icono.BackgroundImage = null;
             byte[] b = (byte[])(datalistadoUsuarios.SelectedCells[6].Value);
             MemoryStream ms = new MemoryStream(b);
@@ -421,7 +421,7 @@ namespace RestCsharp.Usuarios
             parametros.IdUsuario = idusuario;
             parametros.Nombre = txtnombre.Text;
             parametros.Login = txtusuario.Text;
-            parametros.Password = txtcontraseña.Text;
+            parametros.Password = Bases.Encriptar(txtcontraseña.Text);
             MemoryStream ms = new MemoryStream();
             Icono.Image.Save(ms, Icono.Image.RawFormat);
             parametros.Icono = ms.GetBuffer();
