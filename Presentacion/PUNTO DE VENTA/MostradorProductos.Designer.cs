@@ -35,7 +35,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.UI_GradientPanel3 = new UIDC.UI_GradientPanel();
             this.btnadelante = new System.Windows.Forms.Button();
-            this.btnatras = new System.Windows.Forms.Button();
             this.PanelProductos.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,9 +47,9 @@
             this.Label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label16.ForeColor = System.Drawing.Color.White;
-            this.Label16.Location = new System.Drawing.Point(141, 0);
+            this.Label16.Location = new System.Drawing.Point(0, 0);
             this.Label16.Name = "Label16";
-            this.Label16.Size = new System.Drawing.Size(422, 35);
+            this.Label16.Size = new System.Drawing.Size(563, 35);
             this.Label16.TabIndex = 5;
             this.Label16.Text = "PRODUCTOS ";
             this.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -98,7 +97,6 @@
             this.UI_GradientPanel3.BackColor = System.Drawing.Color.White;
             this.UI_GradientPanel3.Controls.Add(this.Label16);
             this.UI_GradientPanel3.Controls.Add(this.btnadelante);
-            this.UI_GradientPanel3.Controls.Add(this.btnatras);
             this.UI_GradientPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.UI_GradientPanel3.Location = new System.Drawing.Point(0, 0);
             this.UI_GradientPanel3.Name = "UI_GradientPanel3";
@@ -132,25 +130,6 @@
             this.btnadelante.UseVisualStyleBackColor = false;
             this.btnadelante.Click += new System.EventHandler(this.btnadelante_Click);
             // 
-            // btnatras
-            // 
-            this.btnatras.BackColor = System.Drawing.Color.Transparent;
-            this.btnatras.BackgroundImage = global::RestCsharp.Properties.Resources.fecha_izquierda;
-            this.btnatras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnatras.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnatras.FlatAppearance.BorderSize = 0;
-            this.btnatras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnatras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnatras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnatras.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnatras.ForeColor = System.Drawing.Color.White;
-            this.btnatras.Location = new System.Drawing.Point(0, 0);
-            this.btnatras.Name = "btnatras";
-            this.btnatras.Size = new System.Drawing.Size(141, 35);
-            this.btnatras.TabIndex = 7;
-            this.btnatras.UseVisualStyleBackColor = false;
-            this.btnatras.Click += new System.EventHandler(this.btnatras_Click);
-            // 
             // MostradorProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +156,5 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         internal UIDC.UI_GradientPanel UI_GradientPanel3;
         internal System.Windows.Forms.Button btnadelante;
-        internal System.Windows.Forms.Button btnatras;
     }
 }

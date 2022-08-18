@@ -42,10 +42,9 @@
             this.Button6 = new System.Windows.Forms.Button();
             this.Label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtsalon = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btneditar = new System.Windows.Forms.Button();
+            this.btneliminar = new System.Windows.Forms.Button();
+            this.btnnuevo = new System.Windows.Forms.Button();
             this.PanelBienvenida = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelMesas = new System.Windows.Forms.FlowLayoutPanel();
@@ -56,8 +55,6 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelBienvenida.SuspendLayout();
             this.PanelMesas.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -79,9 +76,9 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 105);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 122);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(318, 318);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(318, 301);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel5
@@ -210,59 +207,59 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btneditar);
+            this.panel2.Controls.Add(this.btneliminar);
+            this.panel2.Controls.Add(this.btnnuevo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(318, 105);
+            this.panel2.Size = new System.Drawing.Size(318, 122);
             this.panel2.TabIndex = 0;
             // 
-            // panel4
+            // btneditar
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Controls.Add(this.txtsalon);
-            this.panel4.Location = new System.Drawing.Point(13, 50);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(292, 49);
-            this.panel4.TabIndex = 1;
+            this.btneditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btneditar.FlatAppearance.BorderSize = 0;
+            this.btneditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btneditar.Location = new System.Drawing.Point(13, 67);
+            this.btneditar.Name = "btneditar";
+            this.btneditar.Size = new System.Drawing.Size(143, 44);
+            this.btneditar.TabIndex = 3;
+            this.btneditar.Text = "Editar Salon";
+            this.btneditar.UseVisualStyleBackColor = false;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
-            // pictureBox1
+            // btneliminar
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(261, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.btneliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btneliminar.FlatAppearance.BorderSize = 0;
+            this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btneliminar.Location = new System.Drawing.Point(161, 12);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(143, 49);
+            this.btneliminar.TabIndex = 2;
+            this.btneliminar.Text = "Eliminar salon";
+            this.btneliminar.UseVisualStyleBackColor = false;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
-            // txtsalon
+            // btnnuevo
             // 
-            this.txtsalon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.txtsalon.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtsalon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsalon.ForeColor = System.Drawing.Color.White;
-            this.txtsalon.Location = new System.Drawing.Point(12, 16);
-            this.txtsalon.Name = "txtsalon";
-            this.txtsalon.Size = new System.Drawing.Size(243, 19);
-            this.txtsalon.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "+ Agregar Salon";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnnuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnnuevo.FlatAppearance.BorderSize = 0;
+            this.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnnuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnuevo.ForeColor = System.Drawing.Color.White;
+            this.btnnuevo.Location = new System.Drawing.Point(12, 12);
+            this.btnnuevo.Name = "btnnuevo";
+            this.btnnuevo.Size = new System.Drawing.Size(143, 49);
+            this.btnnuevo.TabIndex = 0;
+            this.btnnuevo.Text = "+ Agregar Salon";
+            this.btnnuevo.UseVisualStyleBackColor = false;
+            this.btnnuevo.Click += new System.EventHandler(this.button1_Click);
             // 
             // PanelBienvenida
             // 
@@ -323,9 +320,10 @@
             this.Controls.Add(this.PanelMesas);
             this.Controls.Add(this.PanelBienvenida);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Configurar_mesas_ok";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configurar_mesas_ok";
+            this.Text = "Configuracion de mesas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Configurar_mesas_ok_FormClosed);
             this.Load += new System.EventHandler(this.Configurar_mesas_ok_Load);
@@ -335,9 +333,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PanelBienvenida.ResumeLayout(false);
             this.PanelMesas.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -349,10 +344,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtsalon;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnnuevo;
         private System.Windows.Forms.Panel PanelBienvenida;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel PanelMesas;
@@ -369,5 +361,7 @@
         internal System.Windows.Forms.Button Button6;
         internal System.Windows.Forms.Label Label2;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btneditar;
+        private System.Windows.Forms.Button btneliminar;
     }
 }

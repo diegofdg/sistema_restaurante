@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RestCsharp.Logica
 {
-    public class Lusuarios
+   public  class Lusuarios
     {
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }

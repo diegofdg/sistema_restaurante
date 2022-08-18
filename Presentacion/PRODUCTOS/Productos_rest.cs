@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using RestCsharp.Datos;
+using RestCsharp.Logica;
+
 namespace RestCsharp.Presentacion.PRODUCTOS
 {
     public partial class Productos_rest : Form
@@ -18,10 +20,18 @@ namespace RestCsharp.Presentacion.PRODUCTOS
             InitializeComponent();
         }
         public static int id_grupo;
-
+        int idproducto;
+        string estadogrupo;
+        string grupo;
         private void Productos_rest_Load(object sender, EventArgs e)
         {
             dibujarGrupos();
+            presentar();
+        }
+        private void presentar()
+        {
+            PanelBienvienida.Visible = true;
+            PanelBienvienida.Dock = DockStyle.Fill;
         }
         private void dibujarGrupos()
         {
@@ -29,9 +39,11 @@ namespace RestCsharp.Presentacion.PRODUCTOS
             {
                 Panel_grupos.Controls.Clear();
                 CONEXIONMAESTRA.abrir();
-                SqlCommand cmd = new SqlCommand("select * from Grupo_de_Productos", CONEXIONMAESTRA.conectar);
+                SqlCommand cmd = new SqlCommand("buscarGrupos", CONEXIONMAESTRA.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@buscador", txtgrupo.Text);
                 SqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read ())
+                while (rdr.Read())
                 {
                     Label b = new Label();
                     Panel p1 = new Panel();
@@ -40,6 +52,8 @@ namespace RestCsharp.Presentacion.PRODUCTOS
 
                     b.Text = rdr["Grupo"].ToString();
                     b.Name = rdr["Idline"].ToString();
+                    b.Tag = rdr["Estado"].ToString();
+
                     b.Size = new System.Drawing.Size(119, 25);
                     b.Font = new System.Drawing.Font("Microsoft Sans Serif", 13);
                     b.BackColor = Color.Transparent;
@@ -51,8 +65,18 @@ namespace RestCsharp.Presentacion.PRODUCTOS
                     p1.Size = new System.Drawing.Size(140, 133);
                     p1.BorderStyle = BorderStyle.FixedSingle;
                     p1.Dock = DockStyle.Bottom;
-                    p1.BackColor = Color.FromArgb(43, 43, 43);
                     p1.Name = rdr["Idline"].ToString();
+                    string estado = rdr["Estado"].ToString();
+                    if (estado == "ELIMINADO")
+                    {
+                        p1.BackColor = Color.FromArgb(255, 45, 54);
+                    }
+                    else
+                    {
+                        p1.BackColor = Color.FromArgb(43, 43, 43);
+                    }
+
+
 
                     p2.Size = new System.Drawing.Size(140, 25);
                     p2.Dock = DockStyle.Top;
@@ -74,7 +98,7 @@ namespace RestCsharp.Presentacion.PRODUCTOS
                     Menustrip.AutoSize = false;
                     Menustrip.Size = new System.Drawing.Size(28, 24);
                     Menustrip.Dock = DockStyle.Right;
-                    Menustrip.Name= rdr["Idline"].ToString();
+                    Menustrip.Name = rdr["Idline"].ToString();
                     ToolStripMenuItem ToolStripPRINCIPAL = new ToolStripMenuItem();
                     ToolStripMenuItem ToolStripEDITAR = new ToolStripMenuItem();
                     ToolStripMenuItem ToolStripELIMINAR = new ToolStripMenuItem();
@@ -93,18 +117,28 @@ namespace RestCsharp.Presentacion.PRODUCTOS
                     ToolStripRESTAURAR.Text = "Restaurar";
                     ToolStripRESTAURAR.Tag = rdr["Idline"].ToString();
 
+
                     Menustrip.Items.Add(ToolStripPRINCIPAL);
-                    ToolStripPRINCIPAL.DropDownItems.Add(ToolStripEDITAR);
-                    ToolStripPRINCIPAL.DropDownItems.Add(ToolStripELIMINAR);
-                    ToolStripPRINCIPAL.DropDownItems.Add(ToolStripRESTAURAR);
+                    if (rdr["Estado"].ToString() == "ELIMINADO")
+                    {
+                        ToolStripPRINCIPAL.DropDownItems.Add(ToolStripRESTAURAR);
+                    }
+                    else
+                    {
+                        ToolStripPRINCIPAL.DropDownItems.Add(ToolStripEDITAR);
+                        ToolStripPRINCIPAL.DropDownItems.Add(ToolStripELIMINAR);
+                    }
+
+
+
 
                     p2.Controls.Add(Menustrip);
                     p1.Controls.Add(b);
-                    if (rdr["Estado_de_icono"].ToString ()!="VACIO")
+                    if (rdr["Estado_de_icono"].ToString() != "VACIO")
                     {
                         p1.Controls.Add(I1);
                     }
-                   
+
 
                     p1.Controls.Add(p2);
                     b.BringToFront();
@@ -112,6 +146,9 @@ namespace RestCsharp.Presentacion.PRODUCTOS
                     Panel_grupos.Controls.Add(p1);
                     b.Click += new EventHandler(miEventoLabel);
                     I1.Click += new EventHandler(miEventoImagen);
+                    ToolStripEDITAR.Click += ToolStripEDITAR_Click;
+                    ToolStripELIMINAR.Click += ToolStripELIMINAR_Click;
+                    ToolStripRESTAURAR.Click += ToolStripRESTAURAR_Click;
                 }
                 CONEXIONMAESTRA.cerrar();
             }
@@ -122,15 +159,86 @@ namespace RestCsharp.Presentacion.PRODUCTOS
             }
         }
 
+        private void ToolStripRESTAURAR_Click(object sender, EventArgs e)
+        {
+            id_grupo = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            DialogResult result;
+            result = MessageBox.Show("¿Desea restaurar este grupo?", "Grupo eliminado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                restaurarGrupos();
+            }
+
+        }
+        private void restaurarGrupos()
+        {
+            var funcion = new Dgrupos();
+            var parametros = new Lgruposprodc();
+            parametros.Idline = id_grupo;
+            if (funcion.restaurarGrupos(parametros) == true)
+            {
+                dibujarGrupos();
+            }
+        }
+
+        private void ToolStripELIMINAR_Click(object sender, EventArgs e)
+        {
+            id_grupo = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            EliminarGrupos();
+        }
+        private void EliminarGrupos()
+        {
+            var funcion = new Dgrupos();
+            var parametros = new Lgruposprodc();
+            parametros.Idline = id_grupo;
+            if (funcion.eliminarGrupos(parametros) == true)
+            {
+                dibujarGrupos();
+            }
+        }
+
+
+        private void ToolStripEDITAR_Click(object sender, EventArgs e)
+        {
+            id_grupo = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            grupo=((ToolStripMenuItem)sender).Name.ToString();
+            Grupos_De_productos frm = new Grupos_De_productos();
+            Grupos_De_productos.idgrupo = id_grupo;
+            Grupos_De_productos.proceso = "EDITAR";
+            Grupos_De_productos.grupo = grupo;
+            frm.FormClosed += Frm_FormClosed;
+            frm.ShowDialog();
+        }
+
+        private void Frm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dibujarGrupos();
+        }
+
         private void miEventoLabel(System.Object sender, EventArgs e)
         {
             id_grupo = Convert.ToInt32(((Label)sender).Name);
-            ver_productos_por_grupo();
-            Seleccionar_Deseleccionar_grupos();
+            estadogrupo = (((Label)sender).Name).ToString();
+            if (estadogrupo == "ELIMINADO")
+            {
+                DialogResult result;
+                result = MessageBox.Show("¿Desea restaurar este grupo?", "Grupo eliminado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    restaurarGrupos();
+                }
+            }
+            else
+            {
+                ver_productos_por_grupo();
+                Seleccionar_Deseleccionar_grupos();
+            }
+
         }
+
         private void miEventoImagen(System.Object sender, EventArgs e)
         {
-            id_grupo = Convert.ToInt32(((PictureBox )sender).Tag);
+            id_grupo = Convert.ToInt32(((PictureBox)sender).Tag);
             ver_productos_por_grupo();
             Seleccionar_Deseleccionar_grupos();
         }
@@ -139,13 +247,13 @@ namespace RestCsharp.Presentacion.PRODUCTOS
 
 
             //Sin seleccionar
-            foreach (Panel panelP1 in Panel_grupos .Controls )
+            foreach (Panel panelP1 in Panel_grupos.Controls)
             {
-                if (panelP1 is Panel )
+                if (panelP1 is Panel)
                 {
-                   foreach (Label PanLateral2 in panelP1.Controls )
+                    foreach (Label PanLateral2 in panelP1.Controls)
                     {
-                         if(PanLateral2 is Label )
+                        if (PanLateral2 is Label)
                         {
                             panelP1.BackColor = Color.FromArgb(43, 43, 43);
                             break;
@@ -155,11 +263,11 @@ namespace RestCsharp.Presentacion.PRODUCTOS
             }
 
             //Seleccionado
-            foreach (Panel PanelP2 in Panel_grupos.Controls )
+            foreach (Panel PanelP2 in Panel_grupos.Controls)
             {
-                if (PanelP2 is Panel )
+                if (PanelP2 is Panel)
                 {
-                    if (PanelP2.Name ==Convert.ToString (  id_grupo) )
+                    if (PanelP2.Name == Convert.ToString(id_grupo))
                     {
                         PanelP2.BackColor = Color.Black;
                     }
@@ -169,8 +277,8 @@ namespace RestCsharp.Presentacion.PRODUCTOS
         private void ver_productos_por_grupo()
         {
             PanelBienvienida.Visible = false;
-            Panel7.Visible = true;
-            Panel7.Dock = DockStyle.Fill;
+            PanelvisorProductos.Visible = true;
+            PanelvisorProductos.Dock = DockStyle.Fill;
             dibujarProductos();
 
         }
@@ -184,9 +292,11 @@ namespace RestCsharp.Presentacion.PRODUCTOS
                 SqlCommand cmd = new SqlCommand("mostrar_Productos_por_grupo", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_grupo", id_grupo);
+                cmd.Parameters.AddWithValue("@buscador", txtbuscarproductos.Text);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
+                    Label lblprecio = new Label();
                     Label b = new Label();
                     Panel p1 = new Panel();
                     Panel p2 = new Panel();
@@ -201,10 +311,28 @@ namespace RestCsharp.Presentacion.PRODUCTOS
                     b.TextAlign = ContentAlignment.MiddleCenter;
                     b.Cursor = Cursors.Hand;
 
+                    lblprecio.Text = rdr["Moneda"].ToString() + " " + rdr["Precio_de_venta"].ToString();
+                    lblprecio.Name = rdr["Id_Producto1"].ToString();
+                    lblprecio.Size = new System.Drawing.Size(119, 25);
+                    lblprecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10);
+                    lblprecio.BackColor = Color.Transparent;
+                    lblprecio.ForeColor = Color.White;
+                    lblprecio.Dock = DockStyle.Bottom;
+                    lblprecio.TextAlign = ContentAlignment.MiddleCenter;
+                    lblprecio.Cursor = Cursors.Hand;
+
                     p1.Size = new System.Drawing.Size(140, 133);
                     p1.BorderStyle = BorderStyle.FixedSingle;
                     p1.Dock = DockStyle.Bottom;
-                    p1.BackColor = Color.FromArgb(43, 43, 43);
+                    string estado = rdr["Estado"].ToString();
+                    if (estado == "ELIMINADO")
+                    {
+                        p1.BackColor = Color.FromArgb(255, 45, 54);
+                    }
+                    else
+                    {
+                        p1.BackColor = Color.FromArgb(43, 43, 43);
+                    }
 
                     p2.Size = new System.Drawing.Size(140, 25);
                     p2.Dock = DockStyle.Top;
@@ -220,7 +348,7 @@ namespace RestCsharp.Presentacion.PRODUCTOS
                     I1.SizeMode = PictureBoxSizeMode.Zoom;
                     I1.Cursor = Cursors.Hand;
                     I1.Tag = rdr["Id_Producto1"].ToString();
-
+                    I1.Size = new Size(100, 30);
                     MenuStrip Menustrip = new MenuStrip();
                     Menustrip.BackColor = Color.Transparent;
                     Menustrip.AutoSize = false;
@@ -243,37 +371,100 @@ namespace RestCsharp.Presentacion.PRODUCTOS
                     ToolStripRESTAURAR.Text = "Restaurar";
                     ToolStripRESTAURAR.Tag = rdr["Id_Producto1"].ToString();
                     Menustrip.Items.Add(ToolStripPRINCIPAL);
-                    ToolStripPRINCIPAL.DropDownItems.Add(ToolStripEDITAR);
-                    ToolStripPRINCIPAL.DropDownItems.Add(ToolStripELIMINAR);
-                    ToolStripPRINCIPAL.DropDownItems.Add(ToolStripRESTAURAR);
+                    if (rdr["Estado"].ToString() == "ELIMINADO")
+                    {
+                        ToolStripPRINCIPAL.DropDownItems.Add(ToolStripRESTAURAR);
+                    }
+                    else
+                    {
+                        ToolStripPRINCIPAL.DropDownItems.Add(ToolStripEDITAR);
+                        ToolStripPRINCIPAL.DropDownItems.Add(ToolStripELIMINAR);
+                    }
+
                     p2.Controls.Add(Menustrip);
-                     p1.Controls.Add(b);
+                    p1.Controls.Add(b);
+                    p1.Controls.Add(lblprecio);
                     if (rdr["Estado_imagen"].ToString() != "VACIO")
                     {
                         p1.Controls.Add(I1);
                     }
-                  
-                       
-                    
+
+
+
 
                     p1.Controls.Add(p2);
                     b.BringToFront();
                     p2.SendToBack();
                     PanelProductos.Controls.Add(p1);
+                    ToolStripEDITAR.Click += ToolStripEDITAR_Click1;
+                    ToolStripELIMINAR.Click += ToolStripELIMINAR_Click1;
+                    ToolStripRESTAURAR.Click += ToolStripRESTAURAR_Click1;
                 }
 
                 CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ToolStripRESTAURAR_Click1(object sender, EventArgs e)
+        {
+            idproducto = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            DialogResult result;
+            result = MessageBox.Show("¿Desea restaurar este producto?", "Producto eliminado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                restaurarProductos();
+            }
+        }
+        private void restaurarProductos()
+        {
+            var funcion = new Dproductos();
+            var parametros = new Lproductos();
+            parametros.Id_Producto1 = idproducto;
+            if (funcion.RestaurarProductos(parametros) == true)
+            {
+                dibujarProductos();
+            }
+        }
+        private void ToolStripELIMINAR_Click1(object sender, EventArgs e)
+        {
+            idproducto = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            EliminarProductos();
+        }
+        private void EliminarProductos()
+        {
+            var funcion = new Dproductos();
+            var parametros = new Lproductos();
+            parametros.Id_Producto1 = idproducto;
+            if (funcion.eliminarProductos(parametros) == true)
+            {
+                dibujarProductos();
+            }
+        }
+        private void ToolStripEDITAR_Click1(object sender, EventArgs e)
+        {
+            idproducto = Convert.ToInt32(((ToolStripMenuItem)sender).Tag);
+            var frm = new Registro_de_productos();
+            Registro_de_productos.idproducto = idproducto;
+            Registro_de_productos.producto = (((ToolStripMenuItem)sender).Name).ToString();
+            Registro_de_productos.proceso = "EDITAR";
+            frm.FormClosed += Frm_FormClosed1;
+            frm.ShowDialog();
+        }
+
+        private void Frm_FormClosed1(object sender, FormClosedEventArgs e)
+        {
+            dibujarProductos();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Presentacion.PRODUCTOS.Grupos_De_productos frm = new Presentacion.PRODUCTOS.Grupos_De_productos();
-            frm.FormClosed += new FormClosedEventHandler(frmGrupos_FormClosed);
+            Grupos_De_productos frm = new Grupos_De_productos();
+            frm.FormClosed += frmGrupos_FormClosed;
+            Grupos_De_productos.proceso = "AGREGAR";
             frm.ShowDialog();
         }
         public void frmGrupos_FormClosed(Object sender, FormClosedEventArgs e)
@@ -283,13 +474,24 @@ namespace RestCsharp.Presentacion.PRODUCTOS
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            Presentacion.PRODUCTOS.Registro_de_productos frm = new Presentacion.PRODUCTOS.Registro_de_productos();
+            var frm = new Registro_de_productos();
             frm.FormClosed += new FormClosedEventHandler(frmRegistroProducto_FormClosed);
+            Registro_de_productos.proceso = "AGREGAR";
             frm.ShowDialog();
         }
         public void frmRegistroProducto_FormClosed(Object sender, FormClosedEventArgs e)
         {
-            dibujarProductos ();
+            dibujarProductos();
+        }
+
+        private void txtbuscarproductos_TextChanged(object sender, EventArgs e)
+        {
+            dibujarProductos();
+        }
+
+        private void txtgrupo_TextChanged(object sender, EventArgs e)
+        {
+            dibujarGrupos();
         }
     }
 

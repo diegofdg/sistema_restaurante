@@ -30,33 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_de_configuraciones));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.Button10 = new System.Windows.Forms.Button();
-            this.Button12 = new System.Windows.Forms.Button();
-            this.Button9 = new System.Windows.Forms.Button();
+            this.btnrestaurar = new System.Windows.Forms.Button();
+            this.btncopia = new System.Windows.Forms.Button();
+            this.btnSerie = new System.Windows.Forms.Button();
             this.Label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.Button3 = new System.Windows.Forms.Button();
-            this.Button8 = new System.Windows.Forms.Button();
-            this.Button7 = new System.Windows.Forms.Button();
-            this.Button5 = new System.Windows.Forms.Button();
+            this.btnImpresoras = new System.Windows.Forms.Button();
+            this.btnformatoticket = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.Label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.btnclientes = new System.Windows.Forms.Button();
+            this.btnempresa = new System.Windows.Forms.Button();
             this.btnproductos = new System.Windows.Forms.Button();
             this.btnmesas = new System.Windows.Forms.Button();
             this.btnusuarios = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.dlg = new System.Windows.Forms.OpenFileDialog();
+            this.btnlicencia = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.PanelContenedor.SuspendLayout();
@@ -67,51 +62,13 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel3);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 669);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1095, 68);
             this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(269, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(50, 68);
-            this.panel3.TabIndex = 0;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::RestCsharp.Properties.Resources.Logo2;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 10);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 48);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel5
-            // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 58);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(50, 10);
-            this.panel5.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(50, 10);
-            this.panel4.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -126,7 +83,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::RestCsharp.Properties.Resources.fondo;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.PanelContenedor);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -151,9 +108,10 @@
             this.panel9.BackColor = System.Drawing.Color.Transparent;
             this.panel9.BackgroundImage = global::RestCsharp.Properties.Resources.PanelConfiguracion;
             this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel9.Controls.Add(this.Button10);
-            this.panel9.Controls.Add(this.Button12);
-            this.panel9.Controls.Add(this.Button9);
+            this.panel9.Controls.Add(this.btnlicencia);
+            this.panel9.Controls.Add(this.btnrestaurar);
+            this.panel9.Controls.Add(this.btncopia);
+            this.panel9.Controls.Add(this.btnSerie);
             this.panel9.Controls.Add(this.Label3);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel9.Location = new System.Drawing.Point(588, 0);
@@ -161,59 +119,65 @@
             this.panel9.Size = new System.Drawing.Size(294, 475);
             this.panel9.TabIndex = 6;
             // 
-            // Button10
+            // btnrestaurar
             // 
-            this.Button10.BackColor = System.Drawing.Color.Transparent;
-            this.Button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button10.BackgroundImage")));
-            this.Button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button10.FlatAppearance.BorderSize = 0;
-            this.Button10.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button10.ForeColor = System.Drawing.Color.White;
-            this.Button10.Location = new System.Drawing.Point(51, 280);
-            this.Button10.Name = "Button10";
-            this.Button10.Size = new System.Drawing.Size(192, 54);
-            this.Button10.TabIndex = 539;
-            this.Button10.Text = "Base de datos";
-            this.Button10.UseVisualStyleBackColor = false;
+            this.btnrestaurar.BackColor = System.Drawing.Color.Transparent;
+            this.btnrestaurar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnrestaurar.BackgroundImage")));
+            this.btnrestaurar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnrestaurar.FlatAppearance.BorderSize = 0;
+            this.btnrestaurar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnrestaurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnrestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnrestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnrestaurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnrestaurar.ForeColor = System.Drawing.Color.White;
+            this.btnrestaurar.Location = new System.Drawing.Point(51, 261);
+            this.btnrestaurar.Name = "btnrestaurar";
+            this.btnrestaurar.Size = new System.Drawing.Size(192, 54);
+            this.btnrestaurar.TabIndex = 540;
+            this.btnrestaurar.Text = "Restaurar base de datos";
+            this.btnrestaurar.UseVisualStyleBackColor = false;
+            this.btnrestaurar.Click += new System.EventHandler(this.btnrestaurar_Click);
             // 
-            // Button12
+            // btncopia
             // 
-            this.Button12.BackColor = System.Drawing.Color.Transparent;
-            this.Button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button12.BackgroundImage")));
-            this.Button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button12.FlatAppearance.BorderSize = 0;
-            this.Button12.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button12.ForeColor = System.Drawing.Color.White;
-            this.Button12.Location = new System.Drawing.Point(51, 123);
-            this.Button12.Name = "Button12";
-            this.Button12.Size = new System.Drawing.Size(192, 54);
-            this.Button12.TabIndex = 538;
-            this.Button12.Text = "Serializacion de Comprobantes";
-            this.Button12.UseVisualStyleBackColor = false;
+            this.btncopia.BackColor = System.Drawing.Color.Transparent;
+            this.btncopia.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btncopia.BackgroundImage")));
+            this.btncopia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btncopia.FlatAppearance.BorderSize = 0;
+            this.btncopia.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btncopia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btncopia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btncopia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncopia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btncopia.ForeColor = System.Drawing.Color.White;
+            this.btncopia.Location = new System.Drawing.Point(51, 192);
+            this.btncopia.Name = "btncopia";
+            this.btncopia.Size = new System.Drawing.Size(192, 54);
+            this.btncopia.TabIndex = 539;
+            this.btncopia.Text = "Generar copia de seguridad";
+            this.btncopia.UseVisualStyleBackColor = false;
+            this.btncopia.Click += new System.EventHandler(this.btncopia_Click);
             // 
-            // Button9
+            // btnSerie
             // 
-            this.Button9.BackColor = System.Drawing.Color.Transparent;
-            this.Button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button9.BackgroundImage")));
-            this.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button9.FlatAppearance.BorderSize = 0;
-            this.Button9.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button9.ForeColor = System.Drawing.Color.White;
-            this.Button9.Location = new System.Drawing.Point(51, 201);
-            this.Button9.Name = "Button9";
-            this.Button9.Size = new System.Drawing.Size(192, 54);
-            this.Button9.TabIndex = 538;
-            this.Button9.Text = "Copias de Seguridad";
-            this.Button9.UseVisualStyleBackColor = false;
+            this.btnSerie.BackColor = System.Drawing.Color.Transparent;
+            this.btnSerie.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSerie.BackgroundImage")));
+            this.btnSerie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSerie.FlatAppearance.BorderSize = 0;
+            this.btnSerie.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnSerie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSerie.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSerie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSerie.ForeColor = System.Drawing.Color.White;
+            this.btnSerie.Location = new System.Drawing.Point(51, 123);
+            this.btnSerie.Name = "btnSerie";
+            this.btnSerie.Size = new System.Drawing.Size(192, 54);
+            this.btnSerie.TabIndex = 538;
+            this.btnSerie.Text = "Serializacion de Comprobantes";
+            this.btnSerie.UseVisualStyleBackColor = false;
+            this.btnSerie.Click += new System.EventHandler(this.btnSerie_Click);
             // 
             // Label3
             // 
@@ -233,10 +197,9 @@
             this.panel8.BackColor = System.Drawing.Color.Transparent;
             this.panel8.BackgroundImage = global::RestCsharp.Properties.Resources.PanelConfiguracion;
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel8.Controls.Add(this.Button3);
-            this.panel8.Controls.Add(this.Button8);
-            this.panel8.Controls.Add(this.Button7);
-            this.panel8.Controls.Add(this.Button5);
+            this.panel8.Controls.Add(this.btnImpresoras);
+            this.panel8.Controls.Add(this.btnformatoticket);
+            this.panel8.Controls.Add(this.btnReportes);
             this.panel8.Controls.Add(this.Label2);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(294, 0);
@@ -244,77 +207,65 @@
             this.panel8.Size = new System.Drawing.Size(294, 475);
             this.panel8.TabIndex = 5;
             // 
-            // Button3
+            // btnImpresoras
             // 
-            this.Button3.BackColor = System.Drawing.Color.Transparent;
-            this.Button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button3.BackgroundImage")));
-            this.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button3.FlatAppearance.BorderSize = 0;
-            this.Button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button3.ForeColor = System.Drawing.Color.White;
-            this.Button3.Location = new System.Drawing.Point(51, 331);
-            this.Button3.Name = "Button3";
-            this.Button3.Size = new System.Drawing.Size(192, 54);
-            this.Button3.TabIndex = 539;
-            this.Button3.Text = "Impresoras";
-            this.Button3.UseVisualStyleBackColor = false;
+            this.btnImpresoras.BackColor = System.Drawing.Color.Transparent;
+            this.btnImpresoras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImpresoras.BackgroundImage")));
+            this.btnImpresoras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImpresoras.FlatAppearance.BorderSize = 0;
+            this.btnImpresoras.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnImpresoras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnImpresoras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnImpresoras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImpresoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnImpresoras.ForeColor = System.Drawing.Color.White;
+            this.btnImpresoras.Location = new System.Drawing.Point(49, 261);
+            this.btnImpresoras.Name = "btnImpresoras";
+            this.btnImpresoras.Size = new System.Drawing.Size(192, 54);
+            this.btnImpresoras.TabIndex = 539;
+            this.btnImpresoras.Text = "Impresoras";
+            this.btnImpresoras.UseVisualStyleBackColor = false;
+            this.btnImpresoras.Click += new System.EventHandler(this.btnImpresoras_Click);
             // 
-            // Button8
+            // btnformatoticket
             // 
-            this.Button8.BackColor = System.Drawing.Color.Transparent;
-            this.Button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button8.BackgroundImage")));
-            this.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button8.FlatAppearance.BorderSize = 0;
-            this.Button8.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button8.ForeColor = System.Drawing.Color.White;
-            this.Button8.Location = new System.Drawing.Point(51, 262);
-            this.Button8.Name = "Button8";
-            this.Button8.Size = new System.Drawing.Size(192, 54);
-            this.Button8.TabIndex = 538;
-            this.Button8.Text = "Formato de Ticket";
-            this.Button8.UseVisualStyleBackColor = false;
+            this.btnformatoticket.BackColor = System.Drawing.Color.Transparent;
+            this.btnformatoticket.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnformatoticket.BackgroundImage")));
+            this.btnformatoticket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnformatoticket.FlatAppearance.BorderSize = 0;
+            this.btnformatoticket.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnformatoticket.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnformatoticket.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnformatoticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnformatoticket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnformatoticket.ForeColor = System.Drawing.Color.White;
+            this.btnformatoticket.Location = new System.Drawing.Point(49, 192);
+            this.btnformatoticket.Name = "btnformatoticket";
+            this.btnformatoticket.Size = new System.Drawing.Size(192, 54);
+            this.btnformatoticket.TabIndex = 538;
+            this.btnformatoticket.Text = "Formato de Ticket";
+            this.btnformatoticket.UseVisualStyleBackColor = false;
+            this.btnformatoticket.Click += new System.EventHandler(this.btnformatoticket_Click);
             // 
-            // Button7
+            // btnReportes
             // 
-            this.Button7.BackColor = System.Drawing.Color.Transparent;
-            this.Button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button7.BackgroundImage")));
-            this.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button7.FlatAppearance.BorderSize = 0;
-            this.Button7.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button7.ForeColor = System.Drawing.Color.White;
-            this.Button7.Location = new System.Drawing.Point(51, 193);
-            this.Button7.Name = "Button7";
-            this.Button7.Size = new System.Drawing.Size(192, 54);
-            this.Button7.TabIndex = 537;
-            this.Button7.Text = "Reportes";
-            this.Button7.UseVisualStyleBackColor = false;
-            // 
-            // Button5
-            // 
-            this.Button5.BackColor = System.Drawing.Color.Transparent;
-            this.Button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button5.BackgroundImage")));
-            this.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Button5.FlatAppearance.BorderSize = 0;
-            this.Button5.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.Button5.ForeColor = System.Drawing.Color.White;
-            this.Button5.Location = new System.Drawing.Point(51, 123);
-            this.Button5.Name = "Button5";
-            this.Button5.Size = new System.Drawing.Size(192, 54);
-            this.Button5.TabIndex = 537;
-            this.Button5.Text = "Cajas en RED";
-            this.Button5.UseVisualStyleBackColor = false;
+            this.btnReportes.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReportes.BackgroundImage")));
+            this.btnReportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnReportes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
+            this.btnReportes.Location = new System.Drawing.Point(49, 123);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(192, 54);
+            this.btnReportes.TabIndex = 537;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // Label2
             // 
@@ -333,7 +284,7 @@
             // 
             this.panel7.BackgroundImage = global::RestCsharp.Properties.Resources.PanelConfiguracion;
             this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel7.Controls.Add(this.btnclientes);
+            this.panel7.Controls.Add(this.btnempresa);
             this.panel7.Controls.Add(this.btnproductos);
             this.panel7.Controls.Add(this.btnmesas);
             this.panel7.Controls.Add(this.btnusuarios);
@@ -344,23 +295,24 @@
             this.panel7.Size = new System.Drawing.Size(294, 475);
             this.panel7.TabIndex = 0;
             // 
-            // btnclientes
+            // btnempresa
             // 
-            this.btnclientes.BackColor = System.Drawing.Color.Transparent;
-            this.btnclientes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnclientes.BackgroundImage")));
-            this.btnclientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnclientes.FlatAppearance.BorderSize = 0;
-            this.btnclientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnclientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnclientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnclientes.ForeColor = System.Drawing.Color.White;
-            this.btnclientes.Location = new System.Drawing.Point(53, 331);
-            this.btnclientes.Name = "btnclientes";
-            this.btnclientes.Size = new System.Drawing.Size(192, 54);
-            this.btnclientes.TabIndex = 541;
-            this.btnclientes.Text = "Clientes";
-            this.btnclientes.UseVisualStyleBackColor = false;
+            this.btnempresa.BackColor = System.Drawing.Color.Transparent;
+            this.btnempresa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnempresa.BackgroundImage")));
+            this.btnempresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnempresa.FlatAppearance.BorderSize = 0;
+            this.btnempresa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnempresa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnempresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnempresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnempresa.ForeColor = System.Drawing.Color.White;
+            this.btnempresa.Location = new System.Drawing.Point(53, 323);
+            this.btnempresa.Name = "btnempresa";
+            this.btnempresa.Size = new System.Drawing.Size(192, 54);
+            this.btnempresa.TabIndex = 541;
+            this.btnempresa.Text = "Empresa";
+            this.btnempresa.UseVisualStyleBackColor = false;
+            this.btnempresa.Click += new System.EventHandler(this.btnempresa_Click);
             // 
             // btnproductos
             // 
@@ -417,6 +369,7 @@
             this.btnusuarios.TabIndex = 537;
             this.btnusuarios.Text = "Usuarios";
             this.btnusuarios.UseVisualStyleBackColor = false;
+            this.btnusuarios.Click += new System.EventHandler(this.btnusuarios_Click);
             // 
             // label1
             // 
@@ -430,6 +383,30 @@
             this.label1.Text = "Basicos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dlg
+            // 
+            this.dlg.FileName = "openFileDialog1";
+            // 
+            // btnlicencia
+            // 
+            this.btnlicencia.BackColor = System.Drawing.Color.Transparent;
+            this.btnlicencia.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnlicencia.BackgroundImage")));
+            this.btnlicencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnlicencia.FlatAppearance.BorderSize = 0;
+            this.btnlicencia.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnlicencia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnlicencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnlicencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnlicencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnlicencia.ForeColor = System.Drawing.Color.White;
+            this.btnlicencia.Location = new System.Drawing.Point(51, 323);
+            this.btnlicencia.Name = "btnlicencia";
+            this.btnlicencia.Size = new System.Drawing.Size(192, 54);
+            this.btnlicencia.TabIndex = 541;
+            this.btnlicencia.Text = "Licencia";
+            this.btnlicencia.UseVisualStyleBackColor = false;
+            this.btnlicencia.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Menu_de_configuraciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +414,7 @@
             this.ClientSize = new System.Drawing.Size(1095, 737);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu_de_configuraciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuraciones";
@@ -444,8 +422,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_de_configuraciones_FormClosed);
             this.Load += new System.EventHandler(this.Menu_de_configuraciones_Load);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.PanelContenedor.ResumeLayout(false);
@@ -461,27 +437,24 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel PanelContenedor;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Panel panel9;
-        internal System.Windows.Forms.Button Button10;
-        internal System.Windows.Forms.Button Button12;
-        internal System.Windows.Forms.Button Button9;
+        internal System.Windows.Forms.Button btnSerie;
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Panel panel8;
-        internal System.Windows.Forms.Button Button3;
-        internal System.Windows.Forms.Button Button8;
-        internal System.Windows.Forms.Button Button7;
-        internal System.Windows.Forms.Button Button5;
+        internal System.Windows.Forms.Button btnImpresoras;
+        internal System.Windows.Forms.Button btnformatoticket;
+        internal System.Windows.Forms.Button btnReportes;
         internal System.Windows.Forms.Label Label2;
-        internal System.Windows.Forms.Button btnclientes;
         internal System.Windows.Forms.Button btnproductos;
         internal System.Windows.Forms.Button btnmesas;
         internal System.Windows.Forms.Button btnusuarios;
+        internal System.Windows.Forms.Button btnempresa;
+        internal System.Windows.Forms.Button btnrestaurar;
+        internal System.Windows.Forms.Button btncopia;
+        private System.Windows.Forms.OpenFileDialog dlg;
+        internal System.Windows.Forms.Button btnlicencia;
     }
 }

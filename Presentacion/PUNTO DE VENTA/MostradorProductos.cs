@@ -25,9 +25,7 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
         double precioVenta;
         private void MostradorProductos_Load(object sender, EventArgs e)
         {
-            id_grupo = Punto_de_venta.id_grupo;
-            dibujarProductos();
-            contar_productos();
+           
         }
         public void contar_productos()
         {
@@ -45,7 +43,7 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
                 cantidad_productos = 0;
             }
         }
-
+      
         public void dibujarProductos()
         {
             try
@@ -72,7 +70,7 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
                     b.Dock = DockStyle.Fill;
                     b.TextAlign = ContentAlignment.MiddleCenter;
                     b.Cursor = Cursors.Hand;
-
+                  
 
                     p1.Size = new System.Drawing.Size(147, 75);
                     p1.BorderStyle = BorderStyle.None;
@@ -111,14 +109,17 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 
         private void B_Click(object sender, EventArgs e)
         {
-            idproducto = Convert.ToInt32(((Label)sender).Name);
-            precioVenta = Convert.ToDouble(((Label)sender).Tag);
+            idproducto =Convert.ToInt32(((Label)sender).Name);
+            precioVenta= Convert.ToDouble(((Label)sender).Tag);
+            Punto_de_venta.idproducto = idproducto;
+            Punto_de_venta.precioventa = precioVenta;
             Punto_de_venta.Puerta.insertarVenta();
+
         }
 
         private void I1_Click(object sender, EventArgs e)
         {
-
+         
         }
 
         private void btnatras_Click(object sender, EventArgs e)
@@ -133,13 +134,8 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 
         private void btnadelante_Click(object sender, EventArgs e)
         {
-            contar_productos();
-            if (cantidad_productos > paginaMaxima)
-            {
-                paginainicio += 15;
-                paginaMaxima += 15;
-                dibujarProductos();
-            }
+            Dispose();
+          
         }
 
         private void PanelProductos_Paint(object sender, PaintEventArgs e)

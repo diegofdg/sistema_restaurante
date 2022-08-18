@@ -46,15 +46,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtsalon = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Panel7 = new System.Windows.Forms.Panel();
+            this.txtgrupo = new System.Windows.Forms.TextBox();
+            this.btnagregar = new System.Windows.Forms.Button();
+            this.PanelvisorProductos = new System.Windows.Forms.Panel();
             this.PanelProductos = new System.Windows.Forms.FlowLayoutPanel();
             this.Panel9 = new System.Windows.Forms.Panel();
             this.Panel11 = new System.Windows.Forms.Panel();
             this.Panel29 = new System.Windows.Forms.Panel();
             this.PictureBox3 = new System.Windows.Forms.PictureBox();
-            this.TextBox1 = new System.Windows.Forms.TextBox();
+            this.txtbuscarproductos = new System.Windows.Forms.TextBox();
             this.MenuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelBienvienida = new System.Windows.Forms.Panel();
@@ -68,7 +68,7 @@
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.Panel7.SuspendLayout();
+            this.PanelvisorProductos.SuspendLayout();
             this.Panel9.SuspendLayout();
             this.Panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
@@ -205,7 +205,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnagregar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -216,56 +216,57 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Controls.Add(this.txtsalon);
-            this.panel4.Location = new System.Drawing.Point(13, 50);
+            this.panel4.Controls.Add(this.txtgrupo);
+            this.panel4.Location = new System.Drawing.Point(13, 65);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(292, 49);
+            this.panel4.Size = new System.Drawing.Size(292, 34);
             this.panel4.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(261, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(261, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // txtsalon
+            // txtgrupo
             // 
-            this.txtsalon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.txtsalon.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtsalon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsalon.ForeColor = System.Drawing.Color.White;
-            this.txtsalon.Location = new System.Drawing.Point(12, 16);
-            this.txtsalon.Name = "txtsalon";
-            this.txtsalon.Size = new System.Drawing.Size(243, 19);
-            this.txtsalon.TabIndex = 0;
+            this.txtgrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.txtgrupo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtgrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtgrupo.ForeColor = System.Drawing.Color.White;
+            this.txtgrupo.Location = new System.Drawing.Point(3, 10);
+            this.txtgrupo.Name = "txtgrupo";
+            this.txtgrupo.Size = new System.Drawing.Size(243, 19);
+            this.txtgrupo.TabIndex = 0;
+            this.txtgrupo.TextChanged += new System.EventHandler(this.txtgrupo_TextChanged);
             // 
-            // button1
+            // btnagregar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "+ Agregar Grupo";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnagregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnagregar.FlatAppearance.BorderSize = 0;
+            this.btnagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnagregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnagregar.ForeColor = System.Drawing.Color.White;
+            this.btnagregar.Location = new System.Drawing.Point(12, 12);
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(143, 47);
+            this.btnagregar.TabIndex = 0;
+            this.btnagregar.Text = "+ Agregar Grupo";
+            this.btnagregar.UseVisualStyleBackColor = false;
+            this.btnagregar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Panel7
+            // PanelvisorProductos
             // 
-            this.Panel7.Controls.Add(this.PanelProductos);
-            this.Panel7.Controls.Add(this.Panel9);
-            this.Panel7.Location = new System.Drawing.Point(413, 65);
-            this.Panel7.Name = "Panel7";
-            this.Panel7.Size = new System.Drawing.Size(443, 332);
-            this.Panel7.TabIndex = 7;
+            this.PanelvisorProductos.Controls.Add(this.PanelProductos);
+            this.PanelvisorProductos.Controls.Add(this.Panel9);
+            this.PanelvisorProductos.Location = new System.Drawing.Point(413, 65);
+            this.PanelvisorProductos.Name = "PanelvisorProductos";
+            this.PanelvisorProductos.Size = new System.Drawing.Size(443, 332);
+            this.PanelvisorProductos.TabIndex = 7;
             // 
             // PanelProductos
             // 
@@ -292,7 +293,7 @@
             this.Panel11.BackColor = System.Drawing.Color.Transparent;
             this.Panel11.Controls.Add(this.Panel29);
             this.Panel11.Controls.Add(this.PictureBox3);
-            this.Panel11.Controls.Add(this.TextBox1);
+            this.Panel11.Controls.Add(this.txtbuscarproductos);
             this.Panel11.Location = new System.Drawing.Point(194, 4);
             this.Panel11.Name = "Panel11";
             this.Panel11.Size = new System.Drawing.Size(300, 34);
@@ -316,17 +317,18 @@
             this.PictureBox3.TabIndex = 3;
             this.PictureBox3.TabStop = false;
             // 
-            // TextBox1
+            // txtbuscarproductos
             // 
-            this.TextBox1.BackColor = System.Drawing.Color.Black;
-            this.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.TextBox1.ForeColor = System.Drawing.Color.White;
-            this.TextBox1.Location = new System.Drawing.Point(9, 9);
-            this.TextBox1.Name = "TextBox1";
-            this.TextBox1.Size = new System.Drawing.Size(252, 16);
-            this.TextBox1.TabIndex = 2;
+            this.txtbuscarproductos.BackColor = System.Drawing.Color.Black;
+            this.txtbuscarproductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtbuscarproductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtbuscarproductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.txtbuscarproductos.ForeColor = System.Drawing.Color.White;
+            this.txtbuscarproductos.Location = new System.Drawing.Point(9, 9);
+            this.txtbuscarproductos.Name = "txtbuscarproductos";
+            this.txtbuscarproductos.Size = new System.Drawing.Size(252, 16);
+            this.txtbuscarproductos.TabIndex = 2;
+            this.txtbuscarproductos.TextChanged += new System.EventHandler(this.txtbuscarproductos_TextChanged);
             // 
             // MenuStrip1
             // 
@@ -382,11 +384,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1323, 601);
             this.Controls.Add(this.PanelBienvienida);
-            this.Controls.Add(this.Panel7);
+            this.Controls.Add(this.PanelvisorProductos);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Productos_rest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Productos_rest";
+            this.Text = "Productos y grupos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Productos_rest_Load);
             this.panel1.ResumeLayout(false);
@@ -400,7 +403,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.Panel7.ResumeLayout(false);
+            this.PanelvisorProductos.ResumeLayout(false);
             this.Panel9.ResumeLayout(false);
             this.Panel11.ResumeLayout(false);
             this.Panel11.PerformLayout();
@@ -419,8 +422,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtsalon;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtgrupo;
+        private System.Windows.Forms.Button btnagregar;
         internal System.Windows.Forms.Panel Panel5;
         internal System.Windows.Forms.Label Label4;
         internal System.Windows.Forms.PictureBox PictureBox2;
@@ -433,13 +436,13 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        internal System.Windows.Forms.Panel Panel7;
+        internal System.Windows.Forms.Panel PanelvisorProductos;
         internal System.Windows.Forms.FlowLayoutPanel PanelProductos;
         internal System.Windows.Forms.Panel Panel9;
         internal System.Windows.Forms.Panel Panel11;
         internal System.Windows.Forms.Panel Panel29;
         internal System.Windows.Forms.PictureBox PictureBox3;
-        internal System.Windows.Forms.TextBox TextBox1;
+        internal System.Windows.Forms.TextBox txtbuscarproductos;
         internal System.Windows.Forms.MenuStrip MenuStrip1;
         internal System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         internal System.Windows.Forms.Panel PanelBienvienida;

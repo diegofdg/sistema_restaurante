@@ -5,13 +5,13 @@ using System.Text;
 
 namespace RestCsharp.Logica
 {
-    public class Lventas
+   public  class Lventas
     {
         public int idventa { get; set; }
         public int idclientev { get; set; }
         public DateTime fecha_venta { get; set; }
         public string Numero_de_doc { get; set; }
-        public double Monto_total { get; set; }
+        public double  Monto_total { get; set; }
         public string Tipo_de_pago { get; set; }
         public string Estado { get; set; }
         public double IGV { get; set; }
@@ -30,7 +30,10 @@ namespace RestCsharp.Logica
         public double Tarjeta { get; set; }
         public int Id_mesa { get; set; }
         public int Numero_personas { get; set; }
-        public string Donde_se_consumira { get; set; }
+        public string NombreLlevar { get; set; }
+        public string Nota { get; set; }
+        public string Tiposolicitud { get; set; }
+
 
     }
 }

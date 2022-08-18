@@ -6,10 +6,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
 namespace RestCsharp.Datos
 {
-    public class Dmodulos
+  public   class Dmodulos
     {
         public bool Insertar_Modulos(Lmodulos parametros)
         {

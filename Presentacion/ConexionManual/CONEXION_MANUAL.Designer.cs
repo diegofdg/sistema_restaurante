@@ -1,4 +1,4 @@
-﻿namespace RestCsharp.CONEXION
+﻿namespace RestCsharp.Presentacion
 {
     partial class CONEXION_MANUAL
     {

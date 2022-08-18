@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.PanelVisorDeUsuarios = new System.Windows.Forms.Panel();
             this.PanelUsuarios = new System.Windows.Forms.Panel();
             this.PanelMostradorUsuarios = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.PictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblestadoLicencia = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.PanelContraseña = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.PanelIngresarContraseña = new System.Windows.Forms.Panel();
@@ -62,25 +62,22 @@
             this.btnCambioUsuario = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnpais = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.txtcontraseña = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblempresa = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.PanelVisorDeUsuarios.SuspendLayout();
             this.PanelUsuarios.SuspendLayout();
-            this.PanelMostradorUsuarios.SuspendLayout();
-            this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelContraseña.SuspendLayout();
@@ -93,7 +90,6 @@
             this.panel11.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,40 +117,11 @@
             // PanelMostradorUsuarios
             // 
             this.PanelMostradorUsuarios.AutoScroll = true;
-            this.PanelMostradorUsuarios.Controls.Add(this.panel16);
             this.PanelMostradorUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMostradorUsuarios.Location = new System.Drawing.Point(0, 110);
             this.PanelMostradorUsuarios.Name = "PanelMostradorUsuarios";
             this.PanelMostradorUsuarios.Size = new System.Drawing.Size(334, 307);
             this.PanelMostradorUsuarios.TabIndex = 3;
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.label4);
-            this.panel16.Controls.Add(this.pictureBox5);
-            this.panel16.Location = new System.Drawing.Point(3, 3);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(146, 140);
-            this.panel16.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "label4";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(6, 4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(137, 108);
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
             // 
             // label2
             // 
@@ -165,7 +132,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(334, 110);
             this.label2.TabIndex = 2;
-            this.label2.Text = "¿Quien esta Iniciando Sesion?";
+            this.label2.Text = "¿Quien esta Iniciando Sesión?";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4
@@ -186,6 +153,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -193,11 +161,40 @@
             this.panel2.Size = new System.Drawing.Size(434, 125);
             this.panel2.TabIndex = 2;
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.PictureBox4);
+            this.panel10.Controls.Add(this.lblestadoLicencia);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel10.Location = new System.Drawing.Point(210, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(224, 125);
+            this.panel10.TabIndex = 2;
+            // 
+            // PictureBox4
+            // 
+            this.PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox4.Image")));
+            this.PictureBox4.Location = new System.Drawing.Point(8, 12);
+            this.PictureBox4.Name = "PictureBox4";
+            this.PictureBox4.Size = new System.Drawing.Size(23, 17);
+            this.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox4.TabIndex = 623;
+            this.PictureBox4.TabStop = false;
+            // 
+            // lblestadoLicencia
+            // 
+            this.lblestadoLicencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblestadoLicencia.ForeColor = System.Drawing.Color.White;
+            this.lblestadoLicencia.Location = new System.Drawing.Point(37, 12);
+            this.lblestadoLicencia.Name = "lblestadoLicencia";
+            this.lblestadoLicencia.Size = new System.Drawing.Size(184, 105);
+            this.lblestadoLicencia.TabIndex = 622;
+            this.lblestadoLicencia.Text = "Licencia ";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(14, 12);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(120, 110);
             this.panel1.TabIndex = 1;
@@ -205,25 +202,14 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::RestCsharp.Properties.Resources.Logo2;
+            this.pictureBox1.Image = global::RestCsharp.Properties.Resources.Buman;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 84);
+            this.pictureBox1.Size = new System.Drawing.Size(120, 110);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 26);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Buman";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // PanelContraseña
             // 
@@ -231,7 +217,7 @@
             this.PanelContraseña.Controls.Add(this.panel5);
             this.PanelContraseña.Location = new System.Drawing.Point(461, 38);
             this.PanelContraseña.Name = "PanelContraseña";
-            this.PanelContraseña.Size = new System.Drawing.Size(912, 711);
+            this.PanelContraseña.Size = new System.Drawing.Size(917, 711);
             this.PanelContraseña.TabIndex = 1;
             this.PanelContraseña.Visible = false;
             // 
@@ -242,7 +228,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(311, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(601, 711);
+            this.panel6.Size = new System.Drawing.Size(606, 711);
             this.panel6.TabIndex = 1;
             // 
             // PanelIngresarContraseña
@@ -518,10 +504,11 @@
             this.btnCambioUsuario.ForeColor = System.Drawing.Color.DarkGray;
             this.btnCambioUsuario.Location = new System.Drawing.Point(74, 57);
             this.btnCambioUsuario.Name = "btnCambioUsuario";
-            this.btnCambioUsuario.Size = new System.Drawing.Size(252, 33);
+            this.btnCambioUsuario.Size = new System.Drawing.Size(252, 52);
             this.btnCambioUsuario.TabIndex = 9;
             this.btnCambioUsuario.Text = "Cambiar de Usuario";
             this.btnCambioUsuario.UseVisualStyleBackColor = true;
+            this.btnCambioUsuario.Click += new System.EventHandler(this.btnCambioUsuario_Click);
             // 
             // btnIniciar
             // 
@@ -543,7 +530,7 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.button1);
+            this.panel12.Controls.Add(this.btnpais);
             this.panel12.Controls.Add(this.panel15);
             this.panel12.Controls.Add(this.txtcontraseña);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
@@ -552,23 +539,23 @@
             this.panel12.Size = new System.Drawing.Size(397, 125);
             this.panel12.TabIndex = 1;
             // 
-            // button1
+            // btnpais
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::RestCsharp.Properties.Resources.Rojo;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(71, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 59);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Restaurante";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnpais.BackColor = System.Drawing.Color.Transparent;
+            this.btnpais.BackgroundImage = global::RestCsharp.Properties.Resources.Rojo;
+            this.btnpais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnpais.FlatAppearance.BorderSize = 0;
+            this.btnpais.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnpais.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnpais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnpais.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnpais.ForeColor = System.Drawing.Color.White;
+            this.btnpais.Location = new System.Drawing.Point(98, 14);
+            this.btnpais.Name = "btnpais";
+            this.btnpais.Size = new System.Drawing.Size(211, 59);
+            this.btnpais.TabIndex = 2;
+            this.btnpais.Text = "Restaurante";
+            this.btnpais.UseVisualStyleBackColor = false;
             // 
             // panel15
             // 
@@ -594,30 +581,28 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.label3);
+            this.panel11.Controls.Add(this.lblempresa);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(397, 65);
             this.panel11.TabIndex = 0;
             // 
-            // label3
+            // lblempresa
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(397, 65);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Rustica";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblempresa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblempresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempresa.ForeColor = System.Drawing.Color.White;
+            this.lblempresa.Location = new System.Drawing.Point(0, 0);
+            this.lblempresa.Name = "lblempresa";
+            this.lblempresa.Size = new System.Drawing.Size(397, 65);
+            this.lblempresa.TabIndex = 0;
+            this.lblempresa.Text = "-";
+            this.lblempresa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Controls.Add(this.panel10);
-            this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Controls.Add(this.panel8);
@@ -631,32 +616,13 @@
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::RestCsharp.Properties.Resources.Logo2;
+            this.pictureBox2.Image = global::RestCsharp.Properties.Resources.Buman;
             this.pictureBox2.Location = new System.Drawing.Point(0, 105);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(311, 373);
+            this.pictureBox2.Size = new System.Drawing.Size(311, 511);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-            // 
-            // panel10
-            // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(0, 478);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(311, 23);
-            this.panel10.TabIndex = 6;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureBox4.Image = global::RestCsharp.Properties.Resources.Buman;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 501);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(311, 115);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
             // 
             // panel9
             // 
@@ -698,21 +664,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1426, 749);
             this.Controls.Add(this.PanelContraseña);
             this.Controls.Add(this.PanelVisorDeUsuarios);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginForm";
+            this.Text = "Login";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.PanelVisorDeUsuarios.ResumeLayout(false);
             this.PanelUsuarios.ResumeLayout(false);
-            this.PanelMostradorUsuarios.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PanelContraseña.ResumeLayout(false);
@@ -726,7 +691,6 @@
             this.panel11.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -736,7 +700,6 @@
 
         private System.Windows.Forms.Panel PanelVisorDeUsuarios;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel PanelUsuarios;
         private System.Windows.Forms.FlowLayoutPanel PanelMostradorUsuarios;
@@ -751,18 +714,16 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel PanelIngresarContraseña;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnpais;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.TextBox txtcontraseña;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblempresa;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btn2;
@@ -778,8 +739,8 @@
         private System.Windows.Forms.Button btnborrar;
         private System.Windows.Forms.Button btnCambioUsuario;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel panel10;
+        internal System.Windows.Forms.PictureBox PictureBox4;
+        internal System.Windows.Forms.Label lblestadoLicencia;
     }
 }

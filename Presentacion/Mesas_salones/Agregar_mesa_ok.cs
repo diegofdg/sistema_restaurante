@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
+using RestCsharp.Logica;
+
 namespace RestCsharp.Presentacion.Mesas_salones
 {
     public partial class Agregar_mesa_ok : Form
@@ -19,6 +21,7 @@ namespace RestCsharp.Presentacion.Mesas_salones
 
         private void Agregar_mesa_ok_Load(object sender, EventArgs e)
         {
+
             this.FormBorderStyle = FormBorderStyle.None;
             txtmesaedicion.Text = Configurar_mesas_ok.nombre_mesa;
         }
@@ -41,7 +44,7 @@ namespace RestCsharp.Presentacion.Mesas_salones
                 cmd.Parameters.AddWithValue("@id_mesa", Configurar_mesas_ok.idmesa);
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
-                Close();
+                Dispose();
             }
             catch (Exception ex)
             {
@@ -50,9 +53,27 @@ namespace RestCsharp.Presentacion.Mesas_salones
             }
         }
 
-        private void Button7_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            eliminarmesa();
+        }
+        private void eliminarmesa()
+        {
+            var funcion = new Dmesas();
+            var parametros = new Lmesas();
+            parametros.Id_mesa = Configurar_mesas_ok.idmesa;
+            funcion.Eliminarmesa(parametros);
+            Dispose();
         }
     }
 }

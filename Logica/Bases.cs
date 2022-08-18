@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing;
 using System.Security.Cryptography;
 using System.Management;
+using System.Net;
 
 namespace RestCsharp.Logica
 {
@@ -33,6 +34,16 @@ namespace RestCsharp.Logica
                     row.DefaultCellStyle.ForeColor = Color.Red;
                 }
             }
+        }
+        public void DiseñoDatagridviewOscuro(ref DataGridView Listado)
+        {
+            Listado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            Listado.EnableHeadersVisualStyles = false;
+            DataGridViewCellStyle cabecera = new DataGridViewCellStyle();
+            cabecera.BackColor = Color.FromArgb(49, 49, 49);
+            cabecera.ForeColor = Color.White;
+            cabecera.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            Listado.ColumnHeadersDefaultCellStyle = cabecera;
         }
         public static TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider();
         public static MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
@@ -77,6 +88,64 @@ namespace RestCsharp.Logica
             serial = serialPC.Properties["SerialNumber"].Value.ToString();
             serial = Encriptar(serial.Trim());
 
+        }
+        public static object Separador_de_Numeros(TextBox CajaTexto, KeyPressEventArgs e)
+        {
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-Es");
+            System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator = ".";
+            System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyGroupSeparator = ",";
+            System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = ".";
+            System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberGroupSeparator = ",";
+            System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(4);
+
+
+            if ((e.KeyChar == '.') || (e.KeyChar == ','))
+            {
+
+                e.KeyChar = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+
+            }
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '.' && (~CajaTexto.Text.IndexOf(".")) != 0)
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == '.')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ',')
+            {
+                e.Handled = false;
+
+            }
+            else
+            {
+                e.Handled = true;
+
+            }
+            return null;
+        }
+        public static object Reemplazarcomas(TextBox CajaTexto, EventArgs e)
+        {
+            if (CajaTexto.Text.Contains(",") == true)
+            {
+                CajaTexto.Text.Replace(",", ".");
+            }
+            return null;
+        }
+        public static string ObtenerIp(ref string valorIp)
+        {
+            valorIp = Dns.GetHostEntry(System.Environment.MachineName).AddressList.FirstOrDefault((i) => i.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).ToString();
+            return valorIp;
         }
     }
 }

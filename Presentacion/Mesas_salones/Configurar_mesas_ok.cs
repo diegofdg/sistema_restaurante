@@ -8,16 +8,17 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
-using RestCsharp.Presentacion.Mesas_salones;
+using RestCsharp.Logica;
 
 namespace RestCsharp.Presentacion.Mesas_salones
 {
     public partial class Configurar_mesas_ok : Form
     {
-        int id_salon;
+        int id_salon = 0;
         string estado;
-     public static    string nombre_mesa;
-       public static  int idmesa;
+        public static string nombre_mesa;
+        public static int idmesa;
+        string salon;
         public Configurar_mesas_ok()
         {
             InitializeComponent();
@@ -33,17 +34,17 @@ namespace RestCsharp.Presentacion.Mesas_salones
         {
             try
             {
-            PanelMesas.Controls.Clear();
+                PanelMesas.Controls.Clear();
                 CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("mostrar_mesas_por_salon", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_salon", id_salon);
                 SqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read ())
+                while (rdr.Read())
                 {
                     Button b = new Button();
                     Panel panel = new Panel();
-                    int alto =Convert .ToInt32 ( rdr["y"].ToString());
+                    int alto = Convert.ToInt32(rdr["y"].ToString());
                     int ancho = Convert.ToInt32(rdr["x"].ToString());
                     int tamanio_letra = Convert.ToInt32(rdr["Tamanio_letra"].ToString());
                     Point tamanio = new Point(ancho, alto);
@@ -57,11 +58,15 @@ namespace RestCsharp.Presentacion.Mesas_salones
 
                     b.Text = rdr["Mesa"].ToString();
                     b.Name = rdr["Id_mesa"].ToString();
-                    
+
                     if (b.Text != "NULO")
                     {
                         b.Size = new System.Drawing.Size(tamanio);
-                        b.BackColor = Color.FromArgb(5, 179, 90);
+                        b.BackColor = Color.Transparent;
+                        b.BackgroundImage = Properties.Resources.verde;
+                        b.BackgroundImageLayout = ImageLayout.Zoom;
+                        b.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                        b.FlatAppearance.MouseOverBackColor = Color.Transparent;
                         b.Font = new System.Drawing.Font("Microsoft Sans Serif", tamanio_letra);
                         b.FlatStyle = FlatStyle.Flat;
                         b.FlatAppearance.BorderSize = 0;
@@ -88,14 +93,14 @@ namespace RestCsharp.Presentacion.Mesas_salones
         private void miEvento(System.Object sender, EventArgs e)
         {
             nombre_mesa = ((Button)sender).Text;
-            idmesa =Convert.ToInt32 ( ((Button)sender).Name);
+            idmesa = Convert.ToInt32(((Button)sender).Name);
             Agregar_mesa_ok frm = new Agregar_mesa_ok();
             frm.FormClosed += new FormClosedEventHandler(frm_Agregar_mesa_ok_FormClosed);
             frm.ShowDialog();
         }
-        private void miEventopanel_click(System.Object sender , EventArgs e)
+        private void miEventopanel_click(System.Object sender, EventArgs e)
         {
-            idmesa = Convert.ToInt32 ( ((Panel)sender).Tag);
+            idmesa = Convert.ToInt32(((Panel)sender).Tag);
             Agregar_mesa_ok frm = new Agregar_mesa_ok();
             frm.FormClosed += new FormClosedEventHandler(frm_Agregar_mesa_ok_FormClosed);
             frm.ShowDialog();
@@ -114,10 +119,8 @@ namespace RestCsharp.Presentacion.Mesas_salones
             try
             {
                 CONEXIONMAESTRA.abrir();
-                string query = "mostrar_SALON";
+                string query = "select * from SALON";
                 SqlCommand cmd = new SqlCommand(query, CONEXIONMAESTRA.conectar);
-                cmd.CommandType = (System.Data.CommandType)4;
-                cmd.Parameters.AddWithValue("@buscar", txtsalon.Text);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -177,7 +180,7 @@ namespace RestCsharp.Presentacion.Mesas_salones
             }
 
         }
-        private void miEvento_salon_button(System.Object sender , EventArgs e)
+        private void miEvento_salon_button(System.Object sender, EventArgs e)
         {
             PanelBienvenida.Visible = false;
             PanelBienvenida.Dock = DockStyle.None;
@@ -185,6 +188,7 @@ namespace RestCsharp.Presentacion.Mesas_salones
             PanelMesas.Dock = DockStyle.Fill;
             id_salon = Convert.ToInt32(((Button)sender).Name);
             estado = Convert.ToString(((Button)sender).Tag);
+            salon = Convert.ToString(((Button)sender).Text);
             dibujarMESAS();
             foreach (System.Windows.Forms.Control panelC2 in flowLayoutPanel1.Controls)
             {
@@ -230,11 +234,12 @@ namespace RestCsharp.Presentacion.Mesas_salones
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Presentacion.Mesas_salones.Salones frm = new Presentacion.Mesas_salones.Salones();
+            Salones.proceso = "NUEVO";
+            var frm = new Salones();
             frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
             frm.ShowDialog();
         }
-         void frm_FormClosed(Object sender, FormClosedEventArgs  e)
+        void frm_FormClosed(Object sender, FormClosedEventArgs e)
         {
             dibujarSalones();
         }
@@ -254,7 +259,7 @@ namespace RestCsharp.Presentacion.Mesas_salones
             {
                 SqlCommand cmd = new SqlCommand();
                 CONEXIONMAESTRA.abrir();
-                cmd = new SqlCommand("aumentar_tamanio_mesa", CONEXIONMAESTRA.conectar );
+                cmd = new SqlCommand("aumentar_tamanio_mesa", CONEXIONMAESTRA.conectar);
                 cmd.ExecuteNonQuery();
                 CONEXIONMAESTRA.cerrar();
                 dibujarMESAS();
@@ -279,10 +284,10 @@ namespace RestCsharp.Presentacion.Mesas_salones
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message );
+                MessageBox.Show(ex.Message);
             }
         }
-        internal   void aumentar_tamanio_letra()
+        internal void aumentar_tamanio_letra()
         {
             try
             {
@@ -329,6 +334,46 @@ namespace RestCsharp.Presentacion.Mesas_salones
         private void Button7_Click(object sender, EventArgs e)
         {
             disminuir_tamanio_letra();
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            if (id_salon > 0)
+            {
+                var funcion = new Dsalon();
+                var parametros = new Lsalon();
+                parametros.Id_salon = id_salon;
+                funcion.eliminarSalon(parametros);
+                dibujarSalones();
+                dibujarMESAS();
+                id_salon = 0;
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un salon para eliminar");
+            }
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            if (id_salon > 0)
+            {
+                Salones.idsalon = id_salon;
+                Salones.proceso = "EDICION";
+                Salones.salon = salon;
+                var frm = new Salones();
+                frm.FormClosed += Frm_FormClosed;
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un salon para eliminar");
+            }
+        }
+
+        private void Frm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dibujarSalones();
         }
     }
 }

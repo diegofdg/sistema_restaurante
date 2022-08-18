@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RestCsharp.Logica
 {
-    public class Lpermisos
+  public  class Lpermisos
     {
         public int IdPermiso { get; set; }
         public int IdModulo { get; set; }

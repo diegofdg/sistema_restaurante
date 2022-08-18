@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RestCsharp.Logica
 {
-    public class LmovientosCaja
+  public   class LmovientosCaja
     {
         public int IdMovimientoCaja { get; set; }
         public DateTime fechainicio { get; set; }

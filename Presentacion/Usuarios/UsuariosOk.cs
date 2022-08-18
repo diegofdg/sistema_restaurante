@@ -1,16 +1,17 @@
-﻿using RestCsharp.Datos;
-using RestCsharp.Logica;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using RestCsharp.Datos;
+using RestCsharp.Logica;
+using System.IO;
+using System.Net.NetworkInformation;
 
-namespace RestCsharp.Usuarios
+namespace RestCsharp.Presentacion.Usuarios
 {
     public partial class UsuariosOk : Form
     {
@@ -40,6 +41,7 @@ namespace RestCsharp.Usuarios
             limpiar();
             habilitarPaneles();
             dibujarModulos();
+            ValidarRoles();
         }
         private void habilitarPaneles()
         {
@@ -63,6 +65,7 @@ namespace RestCsharp.Usuarios
             DataTable dt = new DataTable();
             funcion.mostrar_Modulos(ref dt);
             datalistadoPermisos.DataSource = dt;
+            datalistadoPermisos.Columns[1].Visible = false;
         }
 
         private void UsuariosOk_Load(object sender, EventArgs e)
@@ -90,30 +93,54 @@ namespace RestCsharp.Usuarios
         }
         private void cbxRol_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int indice = cbxRol.SelectedIndex;
-            foreach (DataGridViewRow row in datalistadoPermisos.Rows)
+            ValidarRoles();
+        }
+        private void ValidarRoles()
+        {
+            DataTable dt = new DataTable();
+            Dpermisos funcion = new Dpermisos();
+            funcion.mostrar_Permisos(ref dt);
+
+            foreach (DataRow rowPermisos in dt.Rows)
             {
-                bool marcar = Convert.ToBoolean(row.Cells["Marcar"].Value);
-                string Modulo = row.Cells["Modulo"].Value.ToString();
-                if (indice == 0)
+                foreach (DataGridViewRow rowModulos in datalistadoPermisos.Rows)
                 {
-                    if (Modulo == "Ventas") { row.Cells[0].Value = true; }
-                    if (Modulo == "Compras") { row.Cells[0].Value = false; }
-                    if (Modulo == "Caja") { row.Cells[0].Value = false; }
-                }
-                if (indice == 1)
-                {
-                    if (Modulo == "Ventas") { row.Cells[0].Value = true; }
-                    if (Modulo == "Compras") { row.Cells[0].Value = false; }
-                    if (Modulo == "Caja") { row.Cells[0].Value = true; }
-                }
-                if (indice == 2)
-                {
-                    row.Cells[0].Value = true;
+                    string modulo = (rowModulos.Cells["Modulo"].Value).ToString();
+                    if (cbxRol.Text == "Cajero")
+                    {
+                        if (modulo == "Cobrar" || modulo == "Cerrar caja" || modulo == "Ingreso / Salida de dinero")
+                        {
+                            rowModulos.Cells[0].Value = true;
+                            rowModulos.Cells[0].ReadOnly = true;
+                        }
+                        if (modulo == "Administrar")
+                        {
+                            rowModulos.Cells[0].Value = false;
+                            rowModulos.Cells[0].ReadOnly = true;
+                        }
+                    }
+                    if (cbxRol.Text == "Mozo")
+                    {
+                        if (modulo == "Para llevar" || modulo == "Ver cuentas" || modulo == "Cocina" || modulo == "Cambio de mesa")
+                        {
+                            rowModulos.Cells[0].Value = true;
+                            rowModulos.Cells[0].ReadOnly = true;
+                        }
+                        if (modulo == "Administrar" || modulo == "Cobrar" || modulo == "Cerrar caja" || modulo == "Ingreso / Salida de dinero")
+                        {
+                            rowModulos.Cells[0].Value = false;
+                            rowModulos.Cells[0].ReadOnly = true;
+                        }
+                    }
+                    if (cbxRol.Text == "Administrador")
+                    {
+                        rowModulos.Cells[0].Value = true;
+                        rowModulos.Cells[0].ReadOnly = true;
+                    }
                 }
             }
-        }
 
+        }
         private void btnguardar_Click(object sender, EventArgs e)
         {
             Validaciones();
@@ -155,7 +182,7 @@ namespace RestCsharp.Usuarios
                             if (lblanuncioIcono.Visible == false)
                             {
                                 procede = true;
-                                if (!string.IsNullOrEmpty(txtcorreo.Text)) { txtcorreo.Text = "-"; }
+                                if (string.IsNullOrEmpty(txtcorreo.Text)) { txtcorreo.Text = "-"; }
 
                             }
                             else
@@ -241,11 +268,14 @@ namespace RestCsharp.Usuarios
         }
         private void lblanuncioIcono_Click(object sender, EventArgs e)
         {
+            EligirIcono();
+        }
+        private void EligirIcono()
+        {
             panelIcono.Visible = true;
             panelIcono.Dock = DockStyle.Fill;
             panelIcono.BringToFront();
         }
-
         private void p8_Click(object sender, EventArgs e)
         {
             Icono.Image = p8.Image;
@@ -303,6 +333,7 @@ namespace RestCsharp.Usuarios
         {
             if (e.ColumnIndex == datalistadoUsuarios.Columns["Editar"].Index)
             {
+               
                 obtenerEstado();
                 if (estado == "ELIMINADO")
                 {
@@ -378,14 +409,15 @@ namespace RestCsharp.Usuarios
             btnguardar.Visible = false;
             dibujarModulos();
             mostrarPermisos();
+            ValidarRoles();
         }
         private void mostrarPermisos()
         {
             DataTable dt = new DataTable();
             Dpermisos funcion = new Dpermisos();
-            Lpermisos parametros = new Lpermisos();
+            var parametros = new Lpermisos();
             parametros.IdUsuario = idusuario;
-            funcion.mostrar_Permisos(ref dt, parametros);
+            funcion.mostrar_PermisosXid(ref dt, parametros);
 
             foreach (DataRow rowPermisos in dt.Rows)
             {
@@ -396,6 +428,7 @@ namespace RestCsharp.Usuarios
                     if (idmoduloPermisos == idmodulo)
                     {
                         rowModulos.Cells[0].Value = true;
+
                     }
                 }
             }
@@ -457,6 +490,11 @@ namespace RestCsharp.Usuarios
             {
                 e.Handled = true;
             }
+        }
+
+        private void Icono_Click(object sender, EventArgs e)
+        {
+            EligirIcono();
         }
     }
 }

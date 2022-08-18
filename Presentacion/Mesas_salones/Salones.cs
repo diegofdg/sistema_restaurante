@@ -8,34 +8,61 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
+using RestCsharp.Logica;
+
 namespace RestCsharp.Presentacion.Mesas_salones
 {
     public partial class Salones : Form
     {
-        int idsalon;
         public Salones()
         {
             InitializeComponent();
         }
+        public static int idsalon;
+        public static string salon;
+        public static string proceso;
 
         private void Salones_Load(object sender, EventArgs e)
         {
+            if (proceso == "EDICION")
+            {
+                txtSalonedicion.Text = salon;
+            }
+
+
             FormBorderStyle = FormBorderStyle.None;
             txtSalonedicion.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            insertar_salon();
+            if (proceso == "NUEVO")
+            {
+                insertar_salon();
+            }
+            else
+            {
+                Editarsalon();
+            }
+
+        }
+        private void Editarsalon()
+        {
+            var funcion = new Dsalon();
+            var parametros = new Lsalon();
+            parametros.Id_salon = idsalon;
+            parametros.Salon = txtSalonedicion.Text;
+            funcion.editarSalon(parametros);
+            Dispose();
         }
         private void insertar_mesas_vacias()
         {
-            for (int i=1;i<=80; i++)
+            for (int i = 1; i <= 80; i++)
             {
                 try
                 {
                     CONEXIONMAESTRA.abrir();
-                    SqlCommand cmd = new SqlCommand("insertar_mesa", CONEXIONMAESTRA.conectar );
+                    SqlCommand cmd = new SqlCommand("insertar_mesa", CONEXIONMAESTRA.conectar);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@mesa", "NULO");
                     cmd.Parameters.AddWithValue("@idsalon", idsalon);
@@ -57,7 +84,7 @@ namespace RestCsharp.Presentacion.Mesas_salones
             try
             {
                 CONEXIONMAESTRA.abrir();
-                idsalon = Convert.ToInt32 (com.ExecuteScalar());
+                idsalon = Convert.ToInt32(com.ExecuteScalar());
                 CONEXIONMAESTRA.cerrar();
             }
             catch (Exception ex)
@@ -70,12 +97,12 @@ namespace RestCsharp.Presentacion.Mesas_salones
         {
             try
             {
-                CONEXIONMAESTRA.abrir ();
+                CONEXIONMAESTRA.abrir();
                 SqlCommand cmd = new SqlCommand("insertar_Salon", CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Salon", txtSalonedicion.Text);
                 cmd.ExecuteNonQuery();
-                CONEXIONMAESTRA.cerrar ();
+                CONEXIONMAESTRA.cerrar();
                 mostrar_id_salon_recien_ingresado();
                 insertar_mesas_vacias();
                 Close();
@@ -86,6 +113,16 @@ namespace RestCsharp.Presentacion.Mesas_salones
                 CONEXIONMAESTRA.conectar.Close();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnvolver_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btncerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

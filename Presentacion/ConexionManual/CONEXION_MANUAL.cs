@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Data.SqlClient;
-namespace RestCsharp.CONEXION
+namespace RestCsharp.Presentacion
 {
     public partial class CONEXION_MANUAL : Form
     {

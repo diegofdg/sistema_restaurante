@@ -30,24 +30,32 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro_de_productos));
             this.Label1 = new System.Windows.Forms.Label();
-            this.Button7 = new System.Windows.Forms.Button();
+            this.btncerrrar = new System.Windows.Forms.Button();
             this.Panel3 = new System.Windows.Forms.Panel();
             this.txtdescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtprecioventa = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Button9 = new System.Windows.Forms.Button();
-            this.BTNEliminar = new System.Windows.Forms.Button();
-            this.Button1 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnvolver = new System.Windows.Forms.Button();
+            this.btnguardar = new System.Windows.Forms.Button();
+            this.PanelIcono = new System.Windows.Forms.Panel();
             this.PictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ImagenProducto = new System.Windows.Forms.PictureBox();
             this.dlg = new System.Windows.Forms.OpenFileDialog();
-            this.panel2.SuspendLayout();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtpreciocompra = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btncolor = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnguardarcambios = new System.Windows.Forms.Button();
+            this.PanelIcono.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenProducto)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Label1
@@ -62,19 +70,20 @@
             this.Label1.Text = "Productos";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Button7
+            // btncerrrar
             // 
-            this.Button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.Button7.FlatAppearance.BorderSize = 0;
-            this.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.Button7.ForeColor = System.Drawing.Color.White;
-            this.Button7.Location = new System.Drawing.Point(530, 12);
-            this.Button7.Name = "Button7";
-            this.Button7.Size = new System.Drawing.Size(33, 33);
-            this.Button7.TabIndex = 633;
-            this.Button7.Text = "X";
-            this.Button7.UseVisualStyleBackColor = false;
+            this.btncerrrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.btncerrrar.FlatAppearance.BorderSize = 0;
+            this.btncerrrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncerrrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.btncerrrar.ForeColor = System.Drawing.Color.White;
+            this.btncerrrar.Location = new System.Drawing.Point(499, 12);
+            this.btncerrrar.Name = "btncerrrar";
+            this.btncerrrar.Size = new System.Drawing.Size(64, 64);
+            this.btncerrrar.TabIndex = 633;
+            this.btncerrrar.Text = "X";
+            this.btncerrrar.UseVisualStyleBackColor = false;
+            this.btncerrrar.Click += new System.EventHandler(this.btncerrrar_Click);
             // 
             // Panel3
             // 
@@ -95,7 +104,6 @@
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(283, 19);
             this.txtdescripcion.TabIndex = 636;
-            this.txtdescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -132,7 +140,8 @@
             this.txtprecioventa.Name = "txtprecioventa";
             this.txtprecioventa.Size = new System.Drawing.Size(283, 19);
             this.txtprecioventa.TabIndex = 636;
-            this.txtprecioventa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtprecioventa.TextChanged += new System.EventHandler(this.txtprecioventa_TextChanged);
+            this.txtprecioventa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprecioventa_KeyPress);
             // 
             // panel1
             // 
@@ -142,57 +151,42 @@
             this.panel1.Size = new System.Drawing.Size(284, 1);
             this.panel1.TabIndex = 635;
             // 
-            // Button9
+            // btnvolver
             // 
-            this.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button9.ForeColor = System.Drawing.Color.Gray;
-            this.Button9.Location = new System.Drawing.Point(385, 339);
-            this.Button9.Name = "Button9";
-            this.Button9.Size = new System.Drawing.Size(110, 38);
-            this.Button9.TabIndex = 637;
-            this.Button9.Text = "Volver";
-            this.Button9.UseVisualStyleBackColor = true;
+            this.btnvolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnvolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnvolver.ForeColor = System.Drawing.Color.Gray;
+            this.btnvolver.Location = new System.Drawing.Point(293, 3);
+            this.btnvolver.Name = "btnvolver";
+            this.btnvolver.Size = new System.Drawing.Size(139, 49);
+            this.btnvolver.TabIndex = 637;
+            this.btnvolver.Text = "Volver";
+            this.btnvolver.UseVisualStyleBackColor = true;
+            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click);
             // 
-            // BTNEliminar
+            // btnguardar
             // 
-            this.BTNEliminar.BackColor = System.Drawing.Color.Transparent;
-            this.BTNEliminar.FlatAppearance.BorderSize = 0;
-            this.BTNEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BTNEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BTNEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.BTNEliminar.ForeColor = System.Drawing.Color.White;
-            this.BTNEliminar.Location = new System.Drawing.Point(254, 339);
-            this.BTNEliminar.Name = "BTNEliminar";
-            this.BTNEliminar.Size = new System.Drawing.Size(125, 38);
-            this.BTNEliminar.TabIndex = 638;
-            this.BTNEliminar.Text = "Eliminar";
-            this.BTNEliminar.UseVisualStyleBackColor = false;
+            this.btnguardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(198)))), ((int)(((byte)(91)))));
+            this.btnguardar.FlatAppearance.BorderSize = 0;
+            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.btnguardar.ForeColor = System.Drawing.Color.White;
+            this.btnguardar.Location = new System.Drawing.Point(3, 3);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(139, 50);
+            this.btnguardar.TabIndex = 639;
+            this.btnguardar.Text = "Guardar";
+            this.btnguardar.UseVisualStyleBackColor = false;
+            this.btnguardar.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // Button1
+            // PanelIcono
             // 
-            this.Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(198)))), ((int)(((byte)(91)))));
-            this.Button1.FlatAppearance.BorderSize = 0;
-            this.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.Button1.ForeColor = System.Drawing.Color.White;
-            this.Button1.Location = new System.Drawing.Point(109, 339);
-            this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(139, 38);
-            this.Button1.TabIndex = 639;
-            this.Button1.Text = "Guardar";
-            this.Button1.UseVisualStyleBackColor = false;
-            this.Button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.PictureBox2);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(366, 177);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(130, 147);
-            this.panel2.TabIndex = 641;
+            this.PanelIcono.Controls.Add(this.PictureBox2);
+            this.PanelIcono.Controls.Add(this.label4);
+            this.PanelIcono.Location = new System.Drawing.Point(213, 334);
+            this.PanelIcono.Name = "PanelIcono";
+            this.PanelIcono.Size = new System.Drawing.Size(148, 144);
+            this.PanelIcono.TabIndex = 641;
             // 
             // PictureBox2
             // 
@@ -203,7 +197,7 @@
             this.PictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.PictureBox2.Location = new System.Drawing.Point(0, 91);
             this.PictureBox2.Name = "PictureBox2";
-            this.PictureBox2.Size = new System.Drawing.Size(130, 25);
+            this.PictureBox2.Size = new System.Drawing.Size(148, 25);
             this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBox2.TabIndex = 630;
             this.PictureBox2.TabStop = false;
@@ -217,7 +211,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 91);
+            this.label4.Size = new System.Drawing.Size(148, 91);
             this.label4.TabIndex = 629;
             this.label4.Text = "Agregar Icono\r\n(Opcional)";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -227,9 +221,9 @@
             // 
             this.ImagenProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ImagenProducto.Image = global::RestCsharp.Properties.Resources.advertencia;
-            this.ImagenProducto.Location = new System.Drawing.Point(212, 204);
+            this.ImagenProducto.Location = new System.Drawing.Point(213, 334);
             this.ImagenProducto.Name = "ImagenProducto";
-            this.ImagenProducto.Size = new System.Drawing.Size(284, 120);
+            this.ImagenProducto.Size = new System.Drawing.Size(283, 144);
             this.ImagenProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ImagenProducto.TabIndex = 640;
             this.ImagenProducto.TabStop = false;
@@ -238,17 +232,107 @@
             // 
             this.dlg.FileName = "openFileDialog1";
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Location = new System.Drawing.Point(211, 208);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(284, 1);
+            this.panel4.TabIndex = 643;
+            // 
+            // txtpreciocompra
+            // 
+            this.txtpreciocompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.txtpreciocompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtpreciocompra.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtpreciocompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpreciocompra.ForeColor = System.Drawing.Color.White;
+            this.txtpreciocompra.Location = new System.Drawing.Point(211, 187);
+            this.txtpreciocompra.Name = "txtpreciocompra";
+            this.txtpreciocompra.Size = new System.Drawing.Size(283, 19);
+            this.txtpreciocompra.TabIndex = 644;
+            this.txtpreciocompra.TextChanged += new System.EventHandler(this.txtpreciocompra_TextChanged);
+            this.txtpreciocompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpreciocompra_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.DarkGray;
+            this.label6.Location = new System.Drawing.Point(91, 188);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(115, 21);
+            this.label6.TabIndex = 642;
+            this.label6.Text = "Prec. Compra:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(207, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 20);
+            this.label5.TabIndex = 645;
+            this.label5.Text = "Color>>";
+            // 
+            // btncolor
+            // 
+            this.btncolor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncolor.Location = new System.Drawing.Point(277, 224);
+            this.btncolor.Name = "btncolor";
+            this.btncolor.Size = new System.Drawing.Size(25, 24);
+            this.btncolor.TabIndex = 646;
+            this.btncolor.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(211, 254);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(317, 71);
+            this.flowLayoutPanel1.TabIndex = 647;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.btnguardar);
+            this.flowLayoutPanel2.Controls.Add(this.btnguardarcambios);
+            this.flowLayoutPanel2.Controls.Add(this.btnvolver);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(120, 484);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(443, 78);
+            this.flowLayoutPanel2.TabIndex = 648;
+            // 
+            // btnguardarcambios
+            // 
+            this.btnguardarcambios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(198)))), ((int)(((byte)(91)))));
+            this.btnguardarcambios.FlatAppearance.BorderSize = 0;
+            this.btnguardarcambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardarcambios.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.btnguardarcambios.ForeColor = System.Drawing.Color.White;
+            this.btnguardarcambios.Location = new System.Drawing.Point(148, 3);
+            this.btnguardarcambios.Name = "btnguardarcambios";
+            this.btnguardarcambios.Size = new System.Drawing.Size(139, 49);
+            this.btnguardarcambios.TabIndex = 640;
+            this.btnguardarcambios.Text = "Guardar*";
+            this.btnguardarcambios.UseVisualStyleBackColor = false;
+            this.btnguardarcambios.Click += new System.EventHandler(this.btnguardarcambios_Click);
+            // 
             // Registro_de_productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(575, 392);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(613, 596);
+            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.btncolor);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.txtpreciocompra);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.PanelIcono);
             this.Controls.Add(this.ImagenProducto);
-            this.Controls.Add(this.Button9);
-            this.Controls.Add(this.BTNEliminar);
-            this.Controls.Add(this.Button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Panel3);
             this.Controls.Add(this.txtprecioventa);
@@ -256,13 +340,16 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Label1);
-            this.Controls.Add(this.Button7);
+            this.Controls.Add(this.btncerrrar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Registro_de_productos";
-            this.Text = "Registro_de_productos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Registro de productos";
             this.Load += new System.EventHandler(this.Registro_de_productos_Load);
-            this.panel2.ResumeLayout(false);
+            this.PanelIcono.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImagenProducto)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,20 +358,27 @@
         #endregion
 
         internal System.Windows.Forms.Label Label1;
-        internal System.Windows.Forms.Button Button7;
+        internal System.Windows.Forms.Button btncerrrar;
         internal System.Windows.Forms.Panel Panel3;
         internal System.Windows.Forms.TextBox txtdescripcion;
         internal System.Windows.Forms.Label label2;
         internal System.Windows.Forms.Label label3;
         internal System.Windows.Forms.TextBox txtprecioventa;
         internal System.Windows.Forms.Panel panel1;
-        internal System.Windows.Forms.Button Button9;
-        internal System.Windows.Forms.Button BTNEliminar;
-        internal System.Windows.Forms.Button Button1;
-        internal System.Windows.Forms.Panel panel2;
+        internal System.Windows.Forms.Button btnvolver;
+        internal System.Windows.Forms.Button btnguardar;
+        internal System.Windows.Forms.Panel PanelIcono;
         internal System.Windows.Forms.PictureBox PictureBox2;
         internal System.Windows.Forms.Label label4;
         internal System.Windows.Forms.PictureBox ImagenProducto;
         private System.Windows.Forms.OpenFileDialog dlg;
+        internal System.Windows.Forms.Panel panel4;
+        internal System.Windows.Forms.TextBox txtpreciocompra;
+        internal System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btncolor;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button btnguardarcambios;
     }
 }

@@ -1,14 +1,18 @@
-﻿using RestCsharp.Datos;
-using RestCsharp.Logica;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using RestCsharp.Datos;
+using RestCsharp.Logica;
+using RestCsharp.Presentacion.AsistenteInstalacion;
+using RestCsharp.Presentacion.Licencia;
+using RestCsharp.Presentacion.PUNTO_DE_VENTA;
 
 namespace RestCsharp.Presentacion.Login
 {
@@ -18,29 +22,89 @@ namespace RestCsharp.Presentacion.Login
         {
             InitializeComponent();
         }
-
         string login;
         int idusuario;
         string rol;
         string UsuarioInicioCaja;
-
+        string EstadoAperturaCaja;
+        int idsesion;
+        int idMovCaja;
+        int contadorconexion;
+        string Ip;
+        string ResultadoLicencia;
+        DateTime FechaFinal;
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            centralPaneles();
-            dibujarUsuarios();
+            ValidarConexion();
+        }
+
+        private void ValidarConexion()
+        {
+            var funcion = new Dconexion();
+            if (funcion.validarConexion(ref contadorconexion) == true)
+            {
+                if (contadorconexion > 0)
+                {
+
+                    centralPaneles();
+                    dibujarUsuarios();
+                    ObtenerIpLocal();
+                    Obtenerempresa();
+                }
+                else
+                {
+                    PasarAConfigurar();
+                }
+
+            }
+            else
+            {
+                PasarAeleccionServidor();
+            }
+        }
+        private void Obtenerempresa()
+        {
+            var funcion = new Dempresa();
+            var dt = new DataTable();
+            funcion.mostrarempresa(ref dt);
+            lblempresa.Text = dt.Rows[0][1].ToString();
+            btnpais.Text = dt.Rows[0][9].ToString();
+        }
+        private void PasarAeleccionServidor()
+        {
+            Dispose();
+            var frm = new EleccionServidor();
+            frm.ShowDialog();
+        }
+        private void PasarAConfigurar()
+        {
+            Dispose();
+            var frm = new Empresaregistro();
+            frm.ShowDialog();
+        }
+
+        private void ObtenerIpLocal()
+        {
+
+            this.Text = Bases.ObtenerIp(ref Ip);
         }
         private void centralPaneles()
         {
             PanelVisorDeUsuarios.Dock = DockStyle.Fill;
             PanelIngresarContraseña.Location = new Point((panel6.Width - PanelIngresarContraseña.Width) / 2, (panel6.Height - PanelIngresarContraseña.Height) / 2);
         }
+
         private void dibujarUsuarios()
         {
-            PanelMostradorUsuarios.Controls.Clear();
-
             DataTable dt = new DataTable();
             Dusuarios funcion = new Dusuarios();
-            funcion.dibujarUsuarios(ref dt);
+            Panel panellicencia = new Panel();
+            this.Controls.Add(panellicencia);
+            funcion.dibujarUsuarios(ref dt, ref ResultadoLicencia, ref panellicencia);
+            lblestadoLicencia.Text = ResultadoLicencia;
+            PanelMostradorUsuarios.Controls.Clear();
+
+
             foreach (DataRow rdr in dt.Rows)
             {
                 Label l = new Label();
@@ -80,6 +144,8 @@ namespace RestCsharp.Presentacion.Login
 
         }
 
+
+
         private void Pt_Click(object sender, EventArgs e)
         {
             login = ((PictureBox)sender).Tag.ToString();
@@ -111,13 +177,13 @@ namespace RestCsharp.Presentacion.Login
             Dusuarios funcion = new Dusuarios();
             parametros.Password = Bases.Encriptar(txtcontraseña.Text);
             parametros.Login = login;
-            
             funcion.validarUsuario(parametros, ref idusuario);
             if (idusuario > 0)
             {
                 mostrarRoles();
                 if (rol == "Cajero" || rol == "Administrador")
                 {
+
                     ValidarAperturasCaja();
                 }
                 else
@@ -127,18 +193,60 @@ namespace RestCsharp.Presentacion.Login
 
             }
         }
+
         private void ValidarAperturasCaja()
         {
             //Mostramos las cajas aperturadas Por serial de Computadora
             MostrarMovimientosCaja();
             if (UsuarioInicioCaja == "Nulo")
             {
-
+                insertar_MovimientosCaja();
+                editarIdmovCajaVentas();
+                EstadoAperturaCaja = "Nuevo";
+                ValidarRol();
             }
             else
             {
-
+                //Mostramos las cajas aperturadas Por serial de Computadora y Usuario
+                MostrarMovCajaUser();
             }
+        }
+        private void editarIdmovCajaVentas()
+        {
+            var funcion = new DmovimientoCaja();
+            funcion.editarIdmovCaja();
+        }
+        private void MostrarMovCajaUser()
+        {
+            LmovientosCaja parametros = new LmovientosCaja();
+            DmovimientoCaja funcion = new DmovimientoCaja();
+            parametros.Idusuario = idusuario;
+            funcion.MostrarMovCajaUser(ref idMovCaja, parametros);
+            if (idMovCaja == 0)
+            {
+                if (rol == "Administrador")
+                {
+                    MessageBox.Show("Todos los Registros seran con el Usuario: " + UsuarioInicioCaja + "* ,Inicia sesion con el Usuario " + UsuarioInicioCaja + " -ó-el Usuario *admin*", "Caja Iniciada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    EstadoAperturaCaja = "Aperturada";
+                    ValidarRol();
+                }
+                else
+                {
+                    MessageBox.Show("Para poder continuar con el Turno de *" + UsuarioInicioCaja + "* ,Inicia sesion con el Usuario " + UsuarioInicioCaja + " -ó-el Usuario *admin*", "Caja Iniciada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                EstadoAperturaCaja = "Aperturada";
+                ValidarRol();
+            }
+        }
+        private void insertar_MovimientosCaja()
+        {
+            LmovientosCaja parametros = new LmovientosCaja();
+            DmovimientoCaja funcion = new DmovimientoCaja();
+            parametros.Idusuario = idusuario;
+            funcion.insertar_MovimientosCaja(parametros);
         }
         private void MostrarMovimientosCaja()
         {
@@ -156,8 +264,61 @@ namespace RestCsharp.Presentacion.Login
         }
         private void ValidarRol()
         {
-
+            if (rol == "Cajero" || rol == "Administrador")
+            {
+                if (EstadoAperturaCaja == "Nuevo")
+                {
+                    mostrarInicioSesion();
+                    Dispose();
+                    Caja.AperturaCaja frm = new Caja.AperturaCaja();
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    PasarVisorMesas();
+                }
+            }
+            else
+            {
+                PasarVisorMesas();
+            }
         }
+        private void PasarVisorMesas()
+        {
+            mostrarInicioSesion();
+            Dispose();
+            PUNTO_DE_VENTA.Visor_de_mesas frm = new PUNTO_DE_VENTA.Visor_de_mesas();
+            frm.ShowDialog();
+        }
+        private void mostrarInicioSesion()
+        {
+            DiniciosSesion funcion = new DiniciosSesion();
+            funcion.mostrarInicioSesion(ref idsesion);
+            if (idsesion > 0)
+            {
+                editarInicioSesion();
+            }
+            else
+            {
+                insertarInicioSesion();
+            }
+        }
+        private void insertarInicioSesion()
+        {
+            LiniciosSesion parametros = new LiniciosSesion();
+            DiniciosSesion funcion = new DiniciosSesion();
+            parametros.IdUsuario = idusuario;
+            funcion.insertarInicioSesion(parametros);
+        }
+        private void editarInicioSesion()
+        {
+            LiniciosSesion parametros = new LiniciosSesion();
+            DiniciosSesion funcion = new DiniciosSesion();
+            parametros.IdUsuario = idusuario;
+            parametros.Idsesion = idsesion;
+            funcion.editarInicioSesion(parametros);
+        }
+
         private void mostrarRoles()
         {
             Lusuarios parametros = new Lusuarios();
@@ -235,6 +396,23 @@ namespace RestCsharp.Presentacion.Login
                 txtcontraseña.Text = txtcontraseña.Text.Substring(0, txtcontraseña.Text.Count() - 1);
             }
 
+        }
+
+        private void btnCambioUsuario_Click(object sender, EventArgs e)
+        {
+            PanelContraseña.Visible = false;
+            PanelVisorDeUsuarios.Visible = true;
+            txtcontraseña.Clear();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            PanelVisorDeUsuarios.Visible = false;
+            PanelContraseña.Visible = false;
+            var ctl = new Licencias();
+            ctl.Dock = DockStyle.Fill;
+            this.Controls.Add(ctl);
+            ctl.BringToFront();
         }
     }
 }
