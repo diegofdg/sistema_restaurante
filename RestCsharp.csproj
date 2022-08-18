@@ -51,10 +51,12 @@
     <Compile Include="Datos\Dmodulos.cs" />
     <Compile Include="Datos\Dpermisos.cs" />
     <Compile Include="Datos\Dusuarios.cs" />
+    <Compile Include="Datos\Dventas.cs" />
     <Compile Include="Logica\Bases.cs" />
     <Compile Include="Logica\Lmodulos.cs" />
     <Compile Include="Logica\Lpermisos.cs" />
     <Compile Include="Logica\Lusuarios.cs" />
+    <Compile Include="Logica\Lventas.cs" />
     <Compile Include="Presentacion\ConexionManual\CONEXION_MANUAL.cs">
       <SubType>Form</SubType>
     </Compile>

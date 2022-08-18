@@ -21,6 +21,8 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
         int paginaMaxima = 15;
         int cantidad_productos = 0;
         int id_grupo;
+        int idproducto;
+        double precioVenta;
         private void MostradorProductos_Load(object sender, EventArgs e)
         {
             id_grupo = Punto_de_venta.id_grupo;
@@ -43,6 +45,7 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
                 cantidad_productos = 0;
             }
         }
+
         public void dibujarProductos()
         {
             try
@@ -70,6 +73,7 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
                     b.TextAlign = ContentAlignment.MiddleCenter;
                     b.Cursor = Cursors.Hand;
 
+
                     p1.Size = new System.Drawing.Size(147, 75);
                     p1.BorderStyle = BorderStyle.None;
                     p1.BackColor = Color.Transparent;
@@ -92,7 +96,8 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
                     }
                     b.BringToFront();
                     PanelProductos.Controls.Add(p1);
-
+                    I1.Click += I1_Click;
+                    b.Click += B_Click;
                 }
                 CONEXIONMAESTRA.cerrar();
             }
@@ -102,6 +107,18 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
                 MessageBox.Show(ex.Message);
 
             }
+        }
+
+        private void B_Click(object sender, EventArgs e)
+        {
+            idproducto = Convert.ToInt32(((Label)sender).Name);
+            precioVenta = Convert.ToDouble(((Label)sender).Tag);
+            Punto_de_venta.Puerta.insertarVenta();
+        }
+
+        private void I1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnatras_Click(object sender, EventArgs e)
@@ -116,8 +133,8 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 
         private void btnadelante_Click(object sender, EventArgs e)
         {
-            contar_productos ();
-            if (cantidad_productos  > paginaMaxima)
+            contar_productos();
+            if (cantidad_productos > paginaMaxima)
             {
                 paginainicio += 15;
                 paginaMaxima += 15;

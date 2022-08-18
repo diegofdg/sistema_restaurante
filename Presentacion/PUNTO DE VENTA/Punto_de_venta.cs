@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using RestCsharp.Datos;
+using RestCsharp.Logica;
+
 namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 {
 
@@ -17,20 +19,48 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
         {
             InitializeComponent();
         }
-        int paginainicio=1;
-        int paginaMaxima=10;
+        int paginainicio = 1;
+        int paginaMaxima = 10;
         public static int id_grupo;
         int cantidad_grupos;
         private Button PaginadorSiguiente = new Button();
         private Button PaginadorAtras = new Button();
+        public static Punto_de_venta _Puerta;
+
         private void Punto_de_venta_Load(object sender, EventArgs e)
         {
             dibujarGrupos();
             contar_grupos();
-        
+
         }
-     
-         void  contar_grupos()
+        public static Punto_de_venta Puerta
+        {
+            get
+            {
+                if (_Puerta == null || _Puerta.IsDisposed)
+                    _Puerta = new Punto_de_venta();
+                return _Puerta;
+            }
+        }
+        public void insertarVenta()
+        {
+            
+            Lventas parametros = new Lventas();
+            Dventas funcion = new Dventas();
+            parametros.fecha_venta = DateTime.Now;
+            parametros.Id_usuario =0;
+            parametros.ACCION = "VENTA";
+            parametros.Id_caja = 0;
+            parametros.Id_mesa = 0;
+            parametros.Numero_personas = 0;
+            parametros.Donde_se_consumira = "";
+            if (funcion.Insertar_ventas(parametros) == true)
+            {
+
+            }
+            
+        }
+        void contar_grupos()
         {
             try
             {
@@ -52,10 +82,10 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
             {
                 CONEXIONMAESTRA.abrir();
                 string query = "Paginar_grupos";
-                SqlCommand cmd = new SqlCommand(query, CONEXIONMAESTRA.conectar );
+                SqlCommand cmd = new SqlCommand(query, CONEXIONMAESTRA.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Desde",paginainicio );
-                cmd.Parameters.AddWithValue("@Hasta",paginaMaxima );
+                cmd.Parameters.AddWithValue("@Desde", paginainicio);
+                cmd.Parameters.AddWithValue("@Hasta", paginaMaxima);
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -97,7 +127,7 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
                     }
                     b.BringToFront();
                     Panel_grupos.Controls.Add(p1);
-                    b.Click += new EventHandler (mieventoLabel);
+                    b.Click += new EventHandler(mieventoLabel);
                     I1.Click += new EventHandler(miEventoImagen);
                 }
                 CONEXIONMAESTRA.cerrar();
@@ -111,7 +141,7 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 
         private void miEventoImagen(object sender, EventArgs e)
         {
-             try
+            try
             {
                 id_grupo = Convert.ToInt32(((PictureBox)sender).Tag);
                 Seleccionar_Deseleccionar_grupos();
@@ -124,16 +154,16 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 
         private void mieventoLabel(object sender, EventArgs e)
         {
-           try
+            try
             {
                 id_grupo = Convert.ToInt32(((Label)sender).Name);
                 Seleccionar_Deseleccionar_grupos();
 
                 PanelProductos.Controls.Clear();
-                PUNTO_DE_VENTA.MostradorProductos  frm = new PUNTO_DE_VENTA.MostradorProductos();
+                PUNTO_DE_VENTA.MostradorProductos frm = new PUNTO_DE_VENTA.MostradorProductos();
                 frm.Dock = DockStyle.Fill;
                 PanelProductos.Controls.Add(frm);
-             
+
             }
             catch (Exception ex)
             {
@@ -144,9 +174,9 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
         {
             try
             {
-                foreach (System.Windows.Forms.Control panelP1 in Panel_grupos.Controls )
+                foreach (System.Windows.Forms.Control panelP1 in Panel_grupos.Controls)
                 {
-                    if (panelP1 is System.Windows.Forms.Panel )
+                    if (panelP1 is System.Windows.Forms.Panel)
                     {
                         foreach (var PanelSecundario in panelP1.Controls)
                         {
@@ -154,7 +184,7 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
                             panelP1.BackgroundImage = Properties.Resources.naranja;
                             panelP1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
                             break;
-                          
+
                         }
                     }
                 }
@@ -163,14 +193,14 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
                 {
                     if (PanelP2 is System.Windows.Forms.Panel)
                     {
-                        if (PanelP2.Name ==id_grupo.ToString () )
+                        if (PanelP2.Name == id_grupo.ToString())
                         {
-                        PanelP2.BackColor = Color.Transparent;
-                        PanelP2.BackgroundImage = Properties.Resources.azul;
-                        PanelP2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                            PanelP2.BackColor = Color.Transparent;
+                            PanelP2.BackgroundImage = Properties.Resources.azul;
+                            PanelP2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 
                         }
-                       
+
                     }
                 }
 
@@ -179,7 +209,7 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
             catch (Exception)
             {
 
-                
+
             }
         }
 
@@ -196,9 +226,9 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
         private void btnGrupoadelante_Click(object sender, EventArgs e)
         {
             contar_grupos();
-            if (cantidad_grupos>paginaMaxima )
+            if (cantidad_grupos > paginaMaxima)
             {
-                
+
                 paginainicio += 10;
                 paginaMaxima += 10;
                 dibujarGrupos();
@@ -207,9 +237,9 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 
         private void btngrupoAtras_Click(object sender, EventArgs e)
         {
-            if (paginainicio >1)
+            if (paginainicio > 1)
             {
-                
+
                 paginainicio -= 10;
                 paginaMaxima -= 10;
                 dibujarGrupos();
@@ -225,9 +255,14 @@ namespace RestCsharp.Presentacion.PUNTO_DE_VENTA
 
         private void btn1_Click(object sender, EventArgs e)
         {
-            
 
-        
+
+
+        }
+
+        private void btnEnviarpedido_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

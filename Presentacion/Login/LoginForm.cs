@@ -93,11 +93,10 @@ namespace RestCsharp.Presentacion.Login
         }
         private void verPanelcontraseña()
         {
-            Console.WriteLine(panel6.Width);
-            Console.WriteLine(PanelIngresarContraseña.Width);
             PanelVisorDeUsuarios.Visible = false;
             PanelContraseña.Visible = true;
             PanelContraseña.Dock = DockStyle.Fill;
+            PanelIngresarContraseña.Location = new Point((panel6.Width - PanelIngresarContraseña.Width) / 2, (panel6.Height - PanelIngresarContraseña.Height) / 2);
         }
 
         private void txtcontraseña_TextChanged(object sender, EventArgs e)
