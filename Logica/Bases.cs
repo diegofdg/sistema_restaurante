@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Management;
 
 namespace RestCsharp.Logica
 {
@@ -33,7 +34,6 @@ namespace RestCsharp.Logica
                 }
             }
         }
-
         public static TripleDESCryptoServiceProvider des = new TripleDESCryptoServiceProvider();
         public static MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
 
@@ -54,7 +54,6 @@ namespace RestCsharp.Logica
             }
             return tempEncriptar;
         }
-
         public static string Desencriptar(string texto)
         {
             string tempDesencriptar = null;
@@ -71,6 +70,13 @@ namespace RestCsharp.Logica
                 tempDesencriptar = UnicodeEncoding.ASCII.GetString(desencrypta.TransformFinalBlock(buff, 0, buff.Length));
             }
             return tempDesencriptar;
+        }
+        public static void Obtener_serialPC(ref string serial)
+        {
+            ManagementObject serialPC = new ManagementObject("Win32_PhysicalMedia='\\\\.\\PHYSICALDRIVE0'");
+            serial = serialPC.Properties["SerialNumber"].Value.ToString();
+            serial = Encriptar(serial.Trim());
+
         }
     }
 }

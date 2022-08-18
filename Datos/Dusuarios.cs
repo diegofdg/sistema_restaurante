@@ -11,6 +11,7 @@ namespace RestCsharp.Datos
 {
 	public class Dusuarios
 	{
+
 		int idusuario;
 		public bool editar_Usuarios(Lusuarios parametros)
 		{
@@ -200,6 +201,7 @@ namespace RestCsharp.Datos
 				cmd.Parameters.AddWithValue("@password", parametros.Password);
 				cmd.Parameters.AddWithValue("@login", parametros.Login);
 				id = Convert.ToInt32(cmd.ExecuteScalar());
+				Console.WriteLine(id);
 
 
 			}
@@ -214,7 +216,29 @@ namespace RestCsharp.Datos
 			}
 		}
 
+		public void mostrarRoles(Lusuarios parametros, ref string rol)
+		{
+			try
+			{
+				CONEXIONMAESTRA.abrir();
+				SqlCommand da = new SqlCommand("mostrarRoles", CONEXIONMAESTRA.conectar);
+				da.CommandType = CommandType.StoredProcedure;
+				da.Parameters.AddWithValue("@idusario", parametros.IdUsuario);
+				rol = da.ExecuteScalar().ToString();
+			}
 
+			catch (Exception ex)
+			{
+
+				MessageBox.Show(ex.StackTrace);
+			}
+			finally
+			{
+				CONEXIONMAESTRA.cerrar();
+			}
+
+
+		}
 
 	}
 }

@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,12 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\CONEXIONMAESTRA.cs" />
+    <Compile Include="Datos\Dcaja.cs" />
     <Compile Include="Datos\Dmodulos.cs" />
+    <Compile Include="Datos\DmovimientoCaja.cs" />
     <Compile Include="Datos\Dpermisos.cs" />
     <Compile Include="Datos\Dusuarios.cs" />
     <Compile Include="Datos\Dventas.cs" />
     <Compile Include="Logica\Bases.cs" />
+    <Compile Include="Logica\Lcaja.cs" />
     <Compile Include="Logica\Lmodulos.cs" />
+    <Compile Include="Logica\LmovientosCaja.cs" />
     <Compile Include="Logica\Lpermisos.cs" />
     <Compile Include="Logica\Lusuarios.cs" />
     <Compile Include="Logica\Lventas.cs" />

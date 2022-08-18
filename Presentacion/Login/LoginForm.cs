@@ -21,6 +21,8 @@ namespace RestCsharp.Presentacion.Login
 
         string login;
         int idusuario;
+        string rol;
+        string UsuarioInicioCaja;
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
@@ -29,7 +31,7 @@ namespace RestCsharp.Presentacion.Login
         }
         private void centralPaneles()
         {
-            PanelVisorDeUsuarios.Dock = DockStyle.Fill;            
+            PanelVisorDeUsuarios.Dock = DockStyle.Fill;
             PanelIngresarContraseña.Location = new Point((panel6.Width - PanelIngresarContraseña.Width) / 2, (panel6.Height - PanelIngresarContraseña.Height) / 2);
         }
         private void dibujarUsuarios()
@@ -109,13 +111,59 @@ namespace RestCsharp.Presentacion.Login
             Dusuarios funcion = new Dusuarios();
             parametros.Password = Bases.Encriptar(txtcontraseña.Text);
             parametros.Login = login;
+            
             funcion.validarUsuario(parametros, ref idusuario);
             if (idusuario > 0)
             {
-                Dispose();
-                PUNTO_DE_VENTA.Visor_de_mesas frm = new PUNTO_DE_VENTA.Visor_de_mesas();
-                frm.ShowDialog();
+                mostrarRoles();
+                if (rol == "Cajero" || rol == "Administrador")
+                {
+                    ValidarAperturasCaja();
+                }
+                else
+                {
+                    ValidarRol();
+                }
+
             }
+        }
+        private void ValidarAperturasCaja()
+        {
+            //Mostramos las cajas aperturadas Por serial de Computadora
+            MostrarMovimientosCaja();
+            if (UsuarioInicioCaja == "Nulo")
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+        private void MostrarMovimientosCaja()
+        {
+            DataTable dt = new DataTable();
+            DmovimientoCaja funcion = new DmovimientoCaja();
+            funcion.MostrarMovimientosCaja(ref dt);
+            if (dt.Rows.Count > 0)
+            {
+                UsuarioInicioCaja = dt.Rows[0]["Nombre"].ToString();
+            }
+            else
+            {
+                UsuarioInicioCaja = "Nulo";
+            }
+        }
+        private void ValidarRol()
+        {
+
+        }
+        private void mostrarRoles()
+        {
+            Lusuarios parametros = new Lusuarios();
+            Dusuarios funcion = new Dusuarios();
+            parametros.IdUsuario = idusuario;
+            funcion.mostrarRoles(parametros, ref rol);
         }
         private void btnIniciar_Click(object sender, EventArgs e)
         {
